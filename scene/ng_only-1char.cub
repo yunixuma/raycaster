@@ -1,0 +1,9 @@
+NO ./img/wall_n.xpm
+SO ./img/wall_s.xpm
+EA ./img/wall_e.xpm
+WE ./img/wall_w.xpm
+
+F 64,32,0
+C 192,224,255
+
+N
