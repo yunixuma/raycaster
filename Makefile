@@ -6,7 +6,7 @@
 #    By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 16:52:37 by ykosaka           #+#    #+#              #
-#    Updated: 2023/01/31 14:05:18 by Yoshihiro K      ###   ########.fr        #
+#    Updated: 2023/02/01 19:44:58 by Yoshihiro K      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ SRC				= c3d_main.c c3d_map_read.c c3d_map_trim.c \
 				  ft_lst2map_rect.c ft_mapseek.c ft_mapsize.c \
 				  ft_free.c ft_hasflag.c ft_stris.c ft_math.c
 
-SRC				+= debug_common.c debug_c3d.c debug_c3d_img.c
+SRC				+= debug_common.c debug_c3d.c debug_c3d_map.c debug_c3d_img.c
 
 # Enumeration of directories
 SRCDIR			= ./src

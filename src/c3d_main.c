@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/31 14:06:51 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/01 19:44:27 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ static int	c3d_main_scene(t_scene *scene, char *fpath)
 	c3d_map_trim(&lst);
 	c3d_map_chk(&lst);
 	scene->map = ft_lst2map_rect(&lst);
-	debug_c3d_map(scene->map);
+debug_c3d_map_raw(scene->map);
 	c3d_map_encode(scene->map);
+debug_c3d_map_flag(scene->map);
 	c3d_map_valid(scene->map);
 	close(fd);
 	return (ERR_NOERR);
@@ -46,7 +47,6 @@ static int	c3d_main_win(t_scene *scene)
 	c3d_win_init(&mlx);
 	c3d_img_init(&mlx);
 	c3d_win_draw_vision(&mlx);
-//	ft_putendl_fd(MSG_HOWTO_GOAL, STDOUT_FILENO);
 	ft_putendl_fd(MSG_HOWTO_MOVE, STDOUT_FILENO);
 	mlx_hook(mlx.win, EVENT_KEYDOWN, MASK_STRUCT, &c3d_game_keyhook, &mlx);
 	mlx_hook(mlx.win, EVENT_DESTROY, MASK_STRUCT, &c3d_exit_mlx_break, &mlx);

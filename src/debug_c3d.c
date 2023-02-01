@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:04:04 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/31 16:40:01 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/01 19:33:10 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,29 +31,6 @@ void	debug_c3d_lst(t_list *lst)
 		dprintf(FD_DEBUG, "content: %s\t", (char *)ele->content);
 		dprintf(FD_DEBUG, "next: %p\n", ele->next);
 		ele = ele->next;
-		i++;
-	}
-}
-
-void	debug_c3d_map(char **map)
-{
-	ssize_t	size;
-	ssize_t	i;
-
-	if (DEBUG_MODE == 0)
-		return ;
-	if (map == NULL || *map == NULL)
-		return ;
-	size = 0;
-	while (map[size] != NULL)
-		size++;
-	dprintf(FD_DEBUG, "map\t%%p: %p\tsize: %zd\n", map, size);
-	i = 0;
-	while (i <= size)
-	{
-		dprintf(FD_DEBUG, "%3zd\t", i);
-		dprintf(FD_DEBUG, "%%p: %p\t", map[i]);
-		dprintf(FD_DEBUG, "line: %s\n", map[i]);
 		i++;
 	}
 }

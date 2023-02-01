@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d_res.h                                        :+:      :+:    :+:   */
+/*   c3d_wall.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/21 21:58:00 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/01 17:08:28 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_RES_H
-# define CUB3D_RES_H
+#include "cub3d.h"
 
-# define PATH_DIR_IMG		"./img/"
-# define EXT_IMG			".xpm"
-# define NAME_VER_ORIG		""
-# define NAME_VER_SMALL		"_32"
-# define NAME_IMG_FREE		"land"
-# define NAME_IMG_WALL		"sea"
-# define NAME_IMG_ITEM		"star"
-# define NAME_IMG_EXIT		"dragon"
-# define NAME_IMG_PLAYER	"monkey"
-
-#endif
+void	c3d_wall_count(char **map, t_game *game)
+{
+	zero.x = ZERO_VISION;
+	zero.y = ZERO_VISION;
+	area.x = WIDTH_VISION;
+	area.y = HEIGHT_VISION \
+		* (ANGLE_VISION + mlx->game.angle.yaw) / ANGLE_VISION / 2;
+	if (area.y < 0)
+		area.y = 0;
+	else if (area.y > HEIGHT_VISION)
+		area.y = HEIGHT_VISION;
+	c3d_render_rectangle(&mlx->img[IDX_VISION], \
+		&zero, &area, mlx->scene->color[IDX_CEILING]);
+	zero.y = area.y;
+	area.y = HEIGHT_VISION - zero.y;
+	c3d_render_rectangle(&mlx->img[IDX_VISION], \
+		&zero, &area, mlx->scene->color[IDX_FLOOR]);
+}

@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/31 14:04:50 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/01 17:13:17 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
 # else
 #  include "cub3d_event.h"
 # endif
-# include "cub3d_res.h"
 # include "cub3d_typedef.h"
 # ifdef DEBUG_MODE
 #  include "debug_cub3d.h"
