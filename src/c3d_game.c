@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/02 10:38:01 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/02 14:02:24 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@ int	c3d_game_turn(t_mlx *mlx, t_angle *turn)
 {
 	t_angle	bak;
 
-	bak.pitch = mlx->game.angle.pitch;
 	bak.yaw = mlx->game.angle.yaw;
-	mlx->game.angle.pitch \
-		= ft_math_angle_normalize(mlx->game.angle.pitch + turn->pitch);
-	mlx->game.angle.yaw += turn->yaw;
-	if (mlx->game.angle.yaw > (ANGLE_RIGHT - UNIT_TURN))
-		mlx->game.angle.yaw = (ANGLE_RIGHT - UNIT_TURN);
-	else if (mlx->game.angle.yaw < -(ANGLE_RIGHT - UNIT_TURN))
-		mlx->game.angle.yaw = -(ANGLE_RIGHT - UNIT_TURN);
-	if (mlx->game.angle.pitch == bak.pitch && mlx->game.angle.yaw == bak.yaw)
+	bak.pitch = mlx->game.angle.pitch;
+	mlx->game.angle.yaw \
+		= ft_math_angle_normalize(mlx->game.angle.yaw + turn->yaw);
+	mlx->game.angle.pitch += turn->pitch;
+	if (mlx->game.angle.pitch > (ANGLE_RIGHT - UNIT_TURN))
+		mlx->game.angle.pitch = (ANGLE_RIGHT - UNIT_TURN);
+	else if (mlx->game.angle.pitch < -(ANGLE_RIGHT - UNIT_TURN))
+		mlx->game.angle.pitch = -(ANGLE_RIGHT - UNIT_TURN);
+	if (mlx->game.angle.yaw == bak.yaw && mlx->game.angle.pitch == bak.pitch)
 		return (false);
 	return (true);
 }

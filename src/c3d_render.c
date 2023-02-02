@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/31 09:04:05 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/02 16:42:27 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ void	c3d_render_rectangle(t_img *img, \
 	}
 }
 
+void	c3d_render_imgline(t_img *img, int src_id, t_coord *dst, t_coord *src)
+{
+	(void)img;
+	(void)src_id;
+	(void)src;
+	(void)dst;
+}
+
 void	c3d_render_background(t_mlx *mlx)
 {
 	t_addr	zero;
@@ -41,7 +49,7 @@ void	c3d_render_background(t_mlx *mlx)
 	zero.y = ZERO_VISION;
 	area.x = WIDTH_VISION;
 	area.y = HEIGHT_VISION \
-		* (ANGLE_VISION + mlx->game.angle.yaw) / ANGLE_VISION / 2;
+		* (ANGLE_VISION + mlx->game.angle.pitch) / ANGLE_VISION / 2;
 	if (area.y < 0)
 		area.y = 0;
 	else if (area.y > HEIGHT_VISION)
@@ -56,22 +64,8 @@ void	c3d_render_background(t_mlx *mlx)
 
 void	c3d_render_visible(t_mlx *mlx)
 {
-	t_addr	zero;
-	t_addr	area;
+	t_coord src;
+	t_coord dst;
 
-	zero.x = ZERO_VISION;
-	zero.y = ZERO_VISION;
-	area.x = WIDTH_VISION;
-	area.y = HEIGHT_VISION \
-		* (ANGLE_VISION + mlx->game.angle.yaw) / ANGLE_VISION / 2;
-	if (area.y < 0)
-		area.y = 0;
-	else if (area.y > HEIGHT_VISION)
-		area.y = HEIGHT_VISION;
-	c3d_render_rectangle(&mlx->img[IDX_VISION], \
-		&zero, &area, mlx->scene->color[IDX_CEILING]);
-	zero.y = area.y;
-	area.y = HEIGHT_VISION - zero.y;
-	c3d_render_rectangle(&mlx->img[IDX_VISION], \
-		&zero, &area, mlx->scene->color[IDX_FLOOR]);
+	c3d_render_imgline(mlx->img, IDX_NORTH, &dst, &src);
 }

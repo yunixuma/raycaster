@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:04:04 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/02 09:51:15 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/02 14:02:24 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	debug_c3d_game(t_game game)
 	dprintf(FD_DEBUG, "y: % 7.3lf\t", game.coord.y);
 	dprintf(FD_DEBUG, "z: % 7.3lf\n", game.coord.z);
 	dprintf(FD_DEBUG, "     \t");
-	dprintf(FD_DEBUG, "pitch: % 6.1lf\t", game.angle.pitch);
 	dprintf(FD_DEBUG, "yaw: % 6.1lf\t", game.angle.yaw);
+	dprintf(FD_DEBUG, "pitch: % 6.1lf\t", game.angle.pitch);
 	dprintf(FD_DEBUG, "roll: % 6.1lf\n", game.angle.roll);
 	dprintf(FD_DEBUG, "     \t");
 	dprintf(FD_DEBUG, "key: %d\t", game.key);
