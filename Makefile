@@ -6,7 +6,7 @@
 #    By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 16:52:37 by ykosaka           #+#    #+#              #
-#    Updated: 2023/02/02 10:23:17 by Yoshihiro K      ###   ########.fr        #
+#    Updated: 2023/02/02 16:58:07 by Yoshihiro K      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,6 +92,8 @@ endif
 .PHONY: all clean fclean re clean_partly debug_lib debug
 
 # Mandatory targets
+default:
+	-$(MAKE) debug
 all: $(LIBS) $(NAME)
 clean:
 	-$(MAKE) clean -C $(LIBDIR_FT)
