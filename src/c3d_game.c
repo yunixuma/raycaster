@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/31 16:30:41 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/02 10:38:01 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ int	c3d_game_move(t_mlx *mlx, t_coord *move)
 {
 	char	newcell;
 
-	newcell = mlx->scene->map[(int)(mlx->game.coord.y + move->y)] \
-		[(int)(mlx->game.coord.x + move->x)];
-	if (newcell == FLAG_WALL || newcell == FLAG_SPACE)
+dprintf(STDERR_FILENO, "move: (%6.3lf, %6.3lf)\n", move->x, move->y);
+	newcell = mlx->scene->map[(size_t)(mlx->game.coord.y + move->y)] \
+		[(size_t)(mlx->game.coord.x + move->x)];
+	if (ft_hasflag(newcell, FLAG_WALL) || newcell == FLAG_SPACE)
 		return (false);
 	mlx->game.coord.y += move->y;
 	mlx->game.coord.x += move->x;
@@ -45,7 +46,7 @@ int	c3d_game_turn(t_mlx *mlx, t_angle *turn)
 
 int	c3d_game_judge(t_mlx *mlx)
 {
-	if (mlx->scene->map[(int)mlx->game.coord.y][(int)mlx->game.coord.x] \
+	if (mlx->scene->map[(size_t)mlx->game.coord.y][(size_t)mlx->game.coord.x] \
 		!= CHRS_MAP[IDX_SOUTH])
 		return (false);
 	else if (ft_mapseek_exist(mlx->scene->map, CHRS_MAP[IDX_EAST]))

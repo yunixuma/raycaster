@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/31 22:23:08 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/02 09:43:04 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@
 # define ERR_ALLOC			ENOMEM
 # define ERR_DUP			EEXIST
 # define UNIT_MOVE			0.25
-# define UNIT_TURN			3
-# define ANGLE_RIGHT		90
-# define ANGLE_VISION		45
+# define UNIT_TURN			3.
+# define ANGLE_RIGHT		90.
+# define ANGLE_VISION		45.
 # define WIDTH_VISION		720
 # define HEIGHT_VISION		480
 # define ZERO_VISION		0

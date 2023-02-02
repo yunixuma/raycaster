@@ -6,7 +6,7 @@
 #    By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 16:52:37 by ykosaka           #+#    #+#              #
-#    Updated: 2023/02/01 19:44:58 by Yoshihiro K      ###   ########.fr        #
+#    Updated: 2023/02/02 10:23:17 by Yoshihiro K      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,12 +52,13 @@ SRCS			= $(addprefix $(SRCDIR)/, $(SRC))
 OBJS			= $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.c=.o)))
 DEPS			= $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.c=.d)))
 LIB_FT			= $(LIBDIR_FT)/$(LIBNAME_FT).a
+LIBS			= $(LIB_FT) -lm
 ifeq ($(OS), Darwin)
 	LIB_MLX		= $(LIBNAME_MLX).dylib
-	LIBS		= $(LIBDIR_MLX)/$(LIB_MLX) $(LIB_FT)
+	LIBS		+= $(LIBDIR_MLX)/$(LIB_MLX)
 else
 	LIB_MLX		= $(LIBDIR_MLX)/$(LIBNAME_MLX).a
-	LIBS		= $(LIB_MLX) $(LIB_FT)
+	LIBS		+= $(LIB_MLX)
 endif
 
 # Aliases of commands

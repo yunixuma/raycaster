@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/01 17:13:17 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/02 10:32:24 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include "cub3d_math.h"
 # include "mlx.h"
 # include "libft.h"
 # include "cub3d_string.h"
@@ -89,7 +90,7 @@ int			ft_hasflag(int val, int flag);
 bool		ft_stris(const char *str, int (*f)(int));
 long long	ft_math_dtoll(double num);
 double		ft_math_deg2rad(int deg);
-int			ft_math_rad2deg(double rad);
-int			ft_math_angle_normalize(int angle);
+double		ft_math_rad2deg(double rad);
+double		ft_math_angle_normalize(double angle);
 
 #endif
