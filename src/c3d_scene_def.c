@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/26 22:08:51 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/04 02:11:59 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ static int	c3d_scene_def_image(t_scene *scene, char *line, size_t idx)
 	return (ERR_NOERR);
 }
 
-static int	c3d_scene_def_sub(t_scene *scene, char *line, const char *ids[])
+static int	c3d_scene_def_sub(t_scene *scene, char *line)
 {
-	size_t	j;
+	const char	*ids[N_TEXTURE + N_COLOR] = \
+		{ID_NORTH, ID_SOUTH, ID_EAST, ID_WEST, ID_FLOOR, ID_CEILING};
+	size_t		j;
 
 	if (*line == '\n' || *line == '\0')
 		return (ERR_EMPTY);
@@ -49,11 +51,9 @@ static int	c3d_scene_def_sub(t_scene *scene, char *line, const char *ids[])
 
 int	c3d_scene_def(t_scene *scene, int fd)
 {
-	char		*line;
-	const char	*ids[N_TEXTURE + N_COLOR] = \
-		{ID_NORTH, ID_SOUTH, ID_EAST, ID_WEST, ID_FLOOR, ID_CEILING};
-	size_t		i;
-	int			errnum;
+	char	*line;
+	size_t	i;
+	int		errnum;
 
 	line = "";
 	errnum = 0;
@@ -64,7 +64,7 @@ int	c3d_scene_def(t_scene *scene, int fd)
 		DS(line);
 		if (line == NULL)
 			return (ERR_EMPTY);
-		errnum = c3d_scene_def_sub(scene, line, ids);
+		errnum = c3d_scene_def_sub(scene, line);
 		free(line);
 		if (errnum == ERR_EMPTY)
 			continue ;
