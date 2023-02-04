@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/29 20:26:21 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/04 04:09:02 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <limits.h>
 # include <errno.h>
 
-# define FD_DEBUG		2
+# define FD_DEBUG	STDERR_FILENO
 # ifndef DEBUG_MODE
 #  define DEBUG_MODE	0
 # endif

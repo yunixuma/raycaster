@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/02 09:42:00 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/04 10:27:51 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct s_angle
 
 typedef struct s_color
 {
-	void	*p;
 	int		r;
 	int		g;
 	int		b;
