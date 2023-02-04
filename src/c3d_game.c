@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/02 14:02:24 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/04 04:08:13 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	c3d_game_move(t_mlx *mlx, t_coord *move)
 {
 	char	newcell;
 
-dprintf(STDERR_FILENO, "move: (%6.3lf, %6.3lf)\n", move->x, move->y);
+debug_printf("move: (%6.3lf, %6.3lf)\n", move->x, move->y);
 	newcell = mlx->scene->map[(size_t)(mlx->game.coord.y + move->y)] \
 		[(size_t)(mlx->game.coord.x + move->x)];
 	if (ft_hasflag(newcell, FLAG_WALL) || newcell == FLAG_SPACE)
