@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/01 19:44:27 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/04 11:31:18 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	c3d_main_scene(t_scene *scene, char *fpath)
 	lst = c3d_map_read(fd);
 	c3d_map_trim(&lst);
 	c3d_map_chk(&lst);
-	scene->map = ft_lst2map_rect(&lst);
+	scene->map = c3d_lst2map_rect(&lst);
 debug_c3d_map_raw(scene->map);
 	c3d_map_encode(scene->map);
 debug_c3d_map_flag(scene->map);

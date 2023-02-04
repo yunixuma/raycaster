@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:04:04 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/01 19:50:20 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/04 11:29:55 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	debug_c3d_map_flag(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			dprintf(FD_DEBUG, "%3x", map[i][j]);
+			dprintf(FD_DEBUG, "%3x", (unsigned char)map[i][j]);
 			j++;
 		}
 		dprintf(FD_DEBUG, "\t%3zd\n", j);

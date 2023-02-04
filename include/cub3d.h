@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/04 03:05:49 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/04 11:31:42 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int			c3d_scene_def_color(int *color_code, char *line);
 t_list		*c3d_map_read(int fd);
 int			c3d_map_trim(t_list **lst);
 int			c3d_map_chk(t_list **lst);
-char		**ft_lst2map_rect(t_list **lst);
+char		**c3d_lst2map_rect(t_list **lst);
 int			c3d_map_encode(char **map);
 int			c3d_map_valid(char **map);
 //int			c3d_linechk_whole(const char *line, char c);
