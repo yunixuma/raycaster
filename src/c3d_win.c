@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/01 19:44:14 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/04 03:05:01 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	c3d_win_init(t_mlx *mlx)
 int	c3d_win_draw_vision(t_mlx *mlx)
 {
 	c3d_render_background(mlx);
-//	c3d_count_visible(mlx);	
+	c3d_render_visible(mlx);	
 	mlx_put_image_to_window(mlx->conn, mlx->win, mlx->img[IDX_VISION].ptr, \
 		ZERO_VISION, ZERO_VISION);
 debug_c3d_game(mlx->game);
