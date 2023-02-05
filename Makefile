@@ -6,7 +6,7 @@
 #    By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 16:52:37 by ykosaka           #+#    #+#              #
-#    Updated: 2023/02/02 16:58:07 by Yoshihiro K      ###   ########.fr        #
+#    Updated: 2023/02/05 09:56:28 by Yoshihiro K      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SRCDIR			= ./src
 INCDIR			= ./include
 LIBDIR			= ./lib
 LIBDIR_FT		= $(LIBDIR)/libft
+INCDIR_FT		= $(LIBDIR_FT)/include
 ifeq ($(OS), Darwin)
 	LIBDIR_MLX	= $(LIBDIR)/minilibx_mms_20200219
 else
@@ -69,7 +70,7 @@ RM				= rm
 CFLAGS			= -MMD -Wall -Wextra -Werror
 DEBUGCFLAGS		= -g -ggdb -fstack-usage -fno-omit-frame-pointer
 DEBUGLDFLAGS	= -fsanitize=address
-INCLUDES		= -I$(INCDIR) -I$(LIBDIR_MLX) -I$(LIBDIR_FT)/include
+INCLUDES		= -I$(INCDIR) -I$(LIBDIR_MLX) -I$(INCDIR_FT)
 ifeq ($(OS), Darwin)
 	LDFLAGS		= -L/usr/lib -L$(LIBDIR_MLX)
 else
