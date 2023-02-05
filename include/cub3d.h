@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/04 11:31:42 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/05 09:58:10 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void		c3d_img_destroy(t_mlx *mlx);
 void		c3d_render_rectangle(t_img *img, \
 	t_addr *zero, t_addr *area, int color_code);
 void		c3d_render_background(t_mlx *mlx);
-void	c3d_render_visible(t_mlx *mlx);
+void		c3d_render_visible(t_mlx *mlx);
 void		c3d_game_init(t_game *game, t_scene *scene);
 int			c3d_game_keyhook(int key, t_mlx *mlx);
 int			c3d_game_move(t_mlx *mlx, t_coord *move);
