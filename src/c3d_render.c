@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/04 04:06:28 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/05 10:09:49 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ static void	c3d_render_imgline(t_img *img, int src_id, t_addr *dst, t_addr *src)
 	i_row = 0;
 	while (i_row < src->y)
 	{
-		img[IDX_VISION].data[WIDTH_VISION * (dst->y + i_row) + dst->x] \
-			= img[src_id].data[img[src_id].width * i_row \
-			* img[src_id].height / src->y + src->x];
+		img[IDX_VISION].data[img[IDX_VISION].width * (dst->y + i_row) + dst->x] \
+			= img[src_id].data[img[src_id].width * (int)(i_row \
+			* img[src_id].height / src->y) + src->x];
 		i_row++;
 	}
 }
@@ -83,8 +83,7 @@ void	c3d_render_visible(t_mlx *mlx)
 	ssize_t	i_col;
 	int		src_id;
 
-	src_id = IDX_WEST;
-//debug_c3d_img(mlx->img[src_id], 64);
+	src_id = IDX_NORTH;
 	src.x = mlx->img[src_id].width * 0 / 10;
 	src.y = mlx->img[src_id].height \
 		* HEIGHT_VISION / mlx->img[src_id].height * 7 / 10;
@@ -98,4 +97,6 @@ void	c3d_render_visible(t_mlx *mlx)
 		dst.x++;
 		i_col++;
 	}
+debug_c3d_img(mlx->img[src_id], 0);
+debug_c3d_img(mlx->img[IDX_VISION], 0);
 }
