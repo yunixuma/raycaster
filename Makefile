@@ -6,7 +6,7 @@
 #    By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 16:52:37 by ykosaka           #+#    #+#              #
-#    Updated: 2023/02/05 09:56:28 by Yoshihiro K      ###   ########.fr        #
+#    Updated: 2023/02/05 21:20:48 by Yoshihiro K      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRC				= c3d_main.c c3d_map_read.c c3d_map_trim.c \
 				  c3d_game.c c3d_game_init.c c3d_game_keyhook.c \
 				  c3d_color.c \
 				  ft_lst2map_rect.c ft_mapseek.c ft_mapsize.c \
-				  ft_free.c ft_hasflag.c ft_stris.c ft_math.c
+				  ft_free.c ft_hasflag.c ft_stris.c \
+				  ft_math.c ft_math_distance.c
 
 SRC				+= debug_common.c debug_c3d.c debug_c3d_map.c debug_c3d_img.c
 

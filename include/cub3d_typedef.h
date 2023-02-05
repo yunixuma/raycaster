@@ -6,12 +6,15 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/04 10:27:51 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/05 21:24:21 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_TYPEDEF_H
 # define CUB3D_TYPEDEF_H
+
+# include <unistd.h>
+# include "cub3d_const.h"
 
 typedef struct s_addr
 {

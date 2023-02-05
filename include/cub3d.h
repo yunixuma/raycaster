@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/05 09:58:10 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/05 21:20:00 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,9 @@ int			c3d_map_chk(t_list **lst);
 char		**c3d_lst2map_rect(t_list **lst);
 int			c3d_map_encode(char **map);
 int			c3d_map_valid(char **map);
-//int			c3d_linechk_whole(const char *line, char c);
-//int			c3d_linechk_edge(const char *line, char c);
 t_addr		ft_mapseek(char **map, char ch);
 int			ft_mapseek_exist(char **map, char ch);
 t_addr		ft_mapsize(char **map);
-//int			c3d_ispath(char **map, t_addr *addr);
-//void		c3d_mapcount(int countchr[], char **map);
 void		c3d_map_clear_check(char **map);
 void		*c3d_map_clear_free(char **map);
 int			c3d_clean(t_scene *scene, int errnum);
@@ -61,7 +57,6 @@ int			c3d_mlx_hook(t_mlx *mlx);
 void		c3d_win_init(t_mlx *mlx);
 int			c3d_win_draw_vision(t_mlx *mlx);
 void		c3d_win_draw_pixel(t_mlx *mlx, int x, int y, int color);
-//int		c3d_win_expose(t_mlx *mlx);
 void		c3d_win_destroy(t_mlx *mlx);
 void		c3d_img_init(t_mlx *mlx);
 void		c3d_img_destroy(t_mlx *mlx);
@@ -93,5 +88,7 @@ long long	ft_math_dtoll(double num);
 double		ft_math_deg2rad(int deg);
 double		ft_math_rad2deg(double rad);
 double		ft_math_angle_normalize(double angle);
+double		ft_math_distance_2d(t_coord *pt1, t_coord *pt2);
+double		ft_math_distance_3d(t_coord *pt1, t_coord *pt2);
 
 #endif
