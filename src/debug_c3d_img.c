@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/27 00:04:58 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/05 10:00:47 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@ void	debug_c3d_img(t_img img, int size_tile)
 	int		endian;
 
 	data = (int *)mlx_get_data_addr(img.ptr, &bpp, &len, &endian);
-	debug_printf("len: %d\n", len);
-	debug_printf("bpp: %d\n", bpp);
+	debug_printf("width: %d\t", len);
+	debug_printf("height: %d\n", bpp);
+	debug_printf("len: %d\t", len);
+	debug_printf("bpp: %d\t", bpp);
 	debug_printf("endian: %d\n", endian);
 	debug_c3d_img_data(data, size_tile, len);
 }
