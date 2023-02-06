@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/05 21:20:00 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/06 21:54:28 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ void		c3d_win_draw_pixel(t_mlx *mlx, int x, int y, int color);
 void		c3d_win_destroy(t_mlx *mlx);
 void		c3d_img_init(t_mlx *mlx);
 void		c3d_img_destroy(t_mlx *mlx);
-void		c3d_render_rectangle(t_img *img, \
-	t_addr *zero, t_addr *area, int color_code);
 void		c3d_render_background(t_mlx *mlx);
 void		c3d_render_visible(t_mlx *mlx);
 void		c3d_game_init(t_game *game, t_scene *scene);
@@ -85,7 +83,7 @@ void		*ft_free(void **p);
 int			ft_hasflag(int val, int flag);
 bool		ft_stris(const char *str, int (*f)(int));
 long long	ft_math_dtoll(double num);
-double		ft_math_deg2rad(int deg);
+double		ft_math_deg2rad(double deg);
 double		ft_math_rad2deg(double rad);
 double		ft_math_angle_normalize(double angle);
 double		ft_math_distance_2d(t_coord *pt1, t_coord *pt2);
