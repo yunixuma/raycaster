@@ -6,14 +6,14 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/05 10:09:49 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/06 17:03:58 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 void	c3d_render_rectangle(t_img *img, \
-	t_addr *zero, t_addr *area, int color_code)
+	int color_code, t_addr *zero, t_addr *area)
 {
 	ssize_t	i_col;
 	ssize_t	i_row;
@@ -47,12 +47,19 @@ void	c3d_render_background(t_mlx *mlx)
 	else if (area.y > HEIGHT_VISION)
 		area.y = HEIGHT_VISION;
 	c3d_render_rectangle(&mlx->img[IDX_VISION], \
-		&zero, &area, mlx->scene->color[IDX_CEILING]);
+		mlx->scene->color[IDX_CEILING], &zero, &area);
 	zero.y = area.y;
 	area.y = HEIGHT_VISION - zero.y;
 	c3d_render_rectangle(&mlx->img[IDX_VISION], \
-		&zero, &area, mlx->scene->color[IDX_FLOOR]);
+		mlx->scene->color[IDX_FLOOR], &zero, &area);
 }
+
+void	c3d_render_imgpixel(t_img *img, int src_id, t_addr *dst, t_addr *src)
+{
+	img[IDX_VISION].data[img[IDX_VISION].width * dst->y + dst->x] \
+		= img[src_id].data[img[src_id].width * src->y + src->x];
+}
+
 
 static void	c3d_render_imgline(t_img *img, int src_id, t_addr *dst, t_addr *src)
 {
@@ -61,20 +68,67 @@ static void	c3d_render_imgline(t_img *img, int src_id, t_addr *dst, t_addr *src)
 	i_row = 0;
 	while (i_row < src->y)
 	{
+//DL(img[IDX_VISION].width * (dst->y + i_row) + dst->x);
+//DL(img[src_id].width * (int)(i_row * img[src_id].height / src->y) + src->x);
 		img[IDX_VISION].data[img[IDX_VISION].width * (dst->y + i_row) + dst->x] \
-			= img[src_id].data[img[src_id].width * (int)(i_row \
-			* img[src_id].height / src->y) + src->x];
+			= img[src_id].data[img[src_id].width \
+			* (int)(i_row * img[src_id].height / src->y) + src->x];
 		i_row++;
 	}
 }
 
-/*# define ANGLE_RIGHT		90.
+void	c3d_render_triangle(t_mlx *mlx, t_coord *pt, int i_col, int tex_id)
+{
+	t_addr	src;
+	t_addr	dst;
+	double	dist;
+
+	dist = ft_math_distance_2d(&mlx->game.coord, pt);
+	dst.x = i_col;
+	dst.y = ft_math_rad2deg(atan((1 - mlx->game.coord.z) / dist)) \
+		* (ANGLE_VISION * HEIGHT_VISION / WIDTH_VISION);
+	src.x = mlx->img[tex_id].width * (pt->x + pt->y - (int)(pt->x + pt->y));
+	src.y = dst.y + ft_math_rad2deg(atan(mlx->game.coord.z / dist)) \
+		* (ANGLE_VISION * HEIGHT_VISION / WIDTH_VISION);
+	if (dst.y + src.y >= HEIGHT_VISION)
+		src.y = HEIGHT_VISION - dst.y;
+DL(dst.x);
+DL(dst.y);
+DL(src.x);
+DL(src.y);
+	c3d_render_imgline(mlx->img, tex_id, &dst, &src);
+}
+
+void	c3d_render_visible(t_mlx *mlx)
+{
+	t_coord	pt;
+	int		tex_id;
+	ssize_t	i_col;
+
+	pt.z = 1;
+	pt.y = 8;
+	tex_id = IDX_NORTH;
+	i_col = -(WIDTH_VISION >> 1);
+	while (i_col < (WIDTH_VISION >> 1))
+	{
+		pt.x = mlx->game.coord.x + (pt.y - mlx->game.coord.y) \
+			* tan(ft_math_deg2rad(ANGLE_VISION * i_col / (WIDTH_VISION >> 1)));
+		
+		c3d_render_triangle(mlx, &pt, i_col + WIDTH_VISION, tex_id);
+		i_col++;
+	}
+debug_c3d_img(mlx->img[tex_id], 0);
+debug_c3d_img(mlx->img[IDX_VISION], 0);
+}
+
+/*
+# define ANGLE_RIGHT		90.
 # define ANGLE_VISION		45.
 # define WIDTH_VISION		720
 # define HEIGHT_VISION		480
 # define ZERO_VISION		0
 # define WIDTH_BLOCK		120
-# define HEIGHT_BLOCK		120*/
+# define HEIGHT_BLOCK		120
 
 void	c3d_render_visible(t_mlx *mlx)
 {
@@ -100,3 +154,4 @@ void	c3d_render_visible(t_mlx *mlx)
 debug_c3d_img(mlx->img[src_id], 0);
 debug_c3d_img(mlx->img[IDX_VISION], 0);
 }
+*/
