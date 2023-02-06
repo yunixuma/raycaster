@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/02 09:43:04 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/06 22:18:03 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define UNIT_MOVE			0.25
 # define UNIT_TURN			3.
 # define ANGLE_RIGHT		90.
-# define ANGLE_VISION		45.
+# define ANGLE_VISION		90.
 # define WIDTH_VISION		720
 # define HEIGHT_VISION		480
 # define ZERO_VISION		0
