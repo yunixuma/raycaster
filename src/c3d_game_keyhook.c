@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/02 14:02:24 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/06 20:26:02 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static int	c3d_game_keyhook_move(t_coord *move, int key, double angle)
 		angle += ANGLE_RIGHT * 3;
 	else if (key == KEY_MOVERIGHT)
 		angle += ANGLE_RIGHT;
-	else if (key == KEY_BACKWARD)
-		angle += ANGLE_RIGHT;
-	else if (key != KEY_FORWARD)
+	else if (key == KEY_FORWARD)
+		angle += ANGLE_RIGHT * 2;
+	else if (key != KEY_BACKWARD)
 		return (false);
 	move->x = UNIT_MOVE * sin(ft_math_deg2rad(angle));
 	move->y = UNIT_MOVE * cos(ft_math_deg2rad(angle));
