@@ -6,7 +6,7 @@
 /*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/07 21:54:01 by ykosaka          ###   ########.fr       */
+/*   Updated: 2023/02/07 22:06:51 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	c3d_render_visible(t_mlx *mlx)
 		pt.x = mlx->game.coord.x + (mlx->game.coord.y - pt.y) \
 			* tan(ft_math_deg2rad(ANGLE_FOV * i_col / WIDTH_VISION));
 //debug_printf("i_col: %ld\tpt.x: %lf\n", i_col, pt.x);
-		c3d_render_triangle(mlx, &pt, i_col + (WIDTH_VISION >> 1), tex_id);
+		c3d_render_elevation(mlx, &pt, i_col + (WIDTH_VISION >> 1), tex_id);
 		i_col++;
 	}
 //debug_c3d_img(mlx->img[tex_id], 0);
