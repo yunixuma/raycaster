@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+         #
+#    By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 16:52:37 by ykosaka           #+#    #+#              #
-#    Updated: 2023/02/05 21:20:48 by Yoshihiro K      ###   ########.fr        #
+#    Updated: 2023/02/07 22:04:58 by ykosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,12 @@ SRC				= c3d_main.c c3d_map_read.c c3d_map_trim.c \
 				  c3d_map_clear.c c3d_clean.c c3d_print.c \
 				  c3d_scene.c c3d_scene_def.c c3d_scene_def_color.c \
 				  c3d_exit.c c3d_exit_mlx.c \
-				  c3d_mlx.c c3d_win.c c3d_img.c c3d_render.c \
+				  c3d_mlx.c c3d_win.c c3d_img.c \
+				  c3d_render.c c3d_render_rectangle.c \
+				  c3d_render_imgline.c c3d_render_imgpixel.c \
 				  c3d_game.c c3d_game_init.c c3d_game_keyhook.c \
-				  c3d_color.c \
-				  ft_lst2map_rect.c ft_mapseek.c ft_mapsize.c \
+				  c3d_lst2map_rect.c c3d_color.c \
+				  ft_mapseek.c ft_mapsize.c \
 				  ft_free.c ft_hasflag.c ft_stris.c \
 				  ft_math.c ft_math_distance.c
 

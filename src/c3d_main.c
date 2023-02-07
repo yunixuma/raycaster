@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_main.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/04 11:31:18 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/07 21:45:53 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	c3d_main_scene(t_scene *scene, char *fpath)
 
 	c3d_scene_init(scene);
 	fd = c3d_scene_open(fpath);
-	DI(fd);
+DI(fd);
 	errnum = c3d_scene_def(scene, fd);
 	if (errnum)
 		return (c3d_clean(scene, errnum));

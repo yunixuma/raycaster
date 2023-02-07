@@ -3,34 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_render.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/07 09:20:09 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/07 21:54:01 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	c3d_render_rectangle(t_img *img, \
-	int color_code, t_addr *zero, t_addr *area)
-{
-	ssize_t	i_col;
-	ssize_t	i_row;
-
-	i_row = 0;
-	while (i_row < area->y)
-	{
-		i_col = 0;
-		while (i_col < area->x)
-		{
-			img->data[img->width * (zero->y + i_row) + zero->x + i_col] \
-				= color_code;
-			i_col++;
-		}
-		i_row++;
-	}
-}
 
 void	c3d_render_background(t_mlx *mlx)
 {
@@ -54,32 +34,7 @@ void	c3d_render_background(t_mlx *mlx)
 		mlx->scene->color[IDX_FLOOR], &zero, &area);
 }
 
-void	c3d_render_imgpixel(t_img *img, int src_id, t_addr *dst, t_addr *src)
-{
-	img[IDX_VISION].data[img[IDX_VISION].width * dst->y + dst->x] \
-		= img[src_id].data[img[src_id].width * src->y + src->x];
-}
-
-static void	c3d_render_imgline(t_img *img, int src_id, t_addr *dst, t_addr *src)
-{
-	ssize_t	i_row;
-
-	if (src->x < 0 || src->x >= img[src_id].width || src->y <= 0 \
-		|| dst->x < 0 || dst->x >= img[IDX_VISION].width)
-		return ;
-	i_row = 0;
-	while (i_row < src->y && dst->y + i_row < img[IDX_VISION].height)
-	{
-		if (dst->y + i_row >= 0)
-			img[IDX_VISION].data[img[IDX_VISION].width \
-				* (dst->y + i_row) + dst->x] \
-				= img[src_id].data[img[src_id].width \
-				* (int)(i_row * img[src_id].height / src->y) + src->x];
-		i_row++;
-	}
-}
-
-void	c3d_render_triangle(t_mlx *mlx, t_coord *pt, int i_col, int tex_id)
+static void	c3d_render_elevation(t_mlx *mlx, t_coord *pt, int i_col, int tex_id)
 {
 	t_addr	src;
 	t_addr	dst;

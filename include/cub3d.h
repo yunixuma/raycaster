@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/06 21:54:28 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/07 22:03:01 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,12 @@ void		c3d_img_init(t_mlx *mlx);
 void		c3d_img_destroy(t_mlx *mlx);
 void		c3d_render_background(t_mlx *mlx);
 void		c3d_render_visible(t_mlx *mlx);
+void	    c3d_render_rectangle(t_img *img, \
+    int color_code, t_addr *zero, t_addr *area);
+void    	c3d_render_imgpixel(t_img *img, \
+    int src_id, t_addr *dst, t_addr *src);
+void    	c3d_render_imgline(t_img *img, \
+    int src_id, t_addr *dst, t_addr *src);
 void		c3d_game_init(t_game *game, t_scene *scene);
 int			c3d_game_keyhook(int key, t_mlx *mlx);
 int			c3d_game_move(t_mlx *mlx, t_coord *move);
