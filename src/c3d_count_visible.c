@@ -21,7 +21,7 @@ void	c3d_count_visible(t_mlx *mlx, size_t *visible[])
 	zero.y = ZERO_VISION;
 	area.x = WIDTH_VISION;
 	area.y = HEIGHT_VISION \
-		* (ANGLE_VISION + mlx->game.angle.yaw) / ANGLE_VISION / 2;
+		* (ANGLE_FOV + mlx->game.angle.yaw) / ANGLE_FOV / 2;
 	if (area.y < 0)
 		area.y = 0;
 	else if (area.y > HEIGHT_VISION)

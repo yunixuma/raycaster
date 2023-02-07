@@ -41,7 +41,7 @@ void	c3d_render_background(t_mlx *mlx)
 	zero.y = ZERO_VISION;
 	area.x = WIDTH_VISION;
 	area.y = HEIGHT_VISION \
-		* (ANGLE_VISION + mlx->game.angle.pitch) / ANGLE_VISION / 2;
+		* (ANGLE_FOV + mlx->game.angle.pitch) / ANGLE_FOV / 2;
 	if (area.y < 0)
 		area.y = 0;
 	else if (area.y > HEIGHT_VISION)
@@ -87,16 +87,17 @@ void	c3d_render_triangle(t_mlx *mlx, t_coord *pt, int i_col, int tex_id)
 
 	dist = ft_math_distance_2d(&mlx->game.coord, pt);
 	dst.x = i_col;
-	dst.y = HEIGHT_VISION * (mlx->game.coord.z \
+	dst.y = HEIGHT_VISION * (1 - mlx->game.coord.z \
 		- ft_math_rad2deg(atan((1 - mlx->game.coord.z) / dist)) \
-		/ (ANGLE_VISION * HEIGHT_VISION / WIDTH_VISION));
+		/ (ANGLE_FOV * HEIGHT_VISION / WIDTH_VISION));
 	src.x = mlx->img[tex_id].width * (pt->x + pt->y - (int)(pt->x + pt->y));
 	src.y = dst.y + ft_math_rad2deg(atan(mlx->game.coord.z / dist)) \
-		* (ANGLE_VISION * HEIGHT_VISION / WIDTH_VISION);
+		* (ANGLE_FOV * HEIGHT_VISION / WIDTH_VISION);
 	if (dst.y + src.y >= HEIGHT_VISION)
 		src.y = HEIGHT_VISION - dst.y;
-//debug_printf("src(%3ld, %3ld)\t", src.x, src.y);
-//debug_printf("dst(%3ld, %3ld)\n", dst.x, dst.y);
+debug_printf("pt(%3lf, %3lf)\t", pt->x, pt->y);
+debug_printf("src(%3ld, %3ld)\t", src.x, src.y);
+debug_printf("dst(%3ld, %3ld)\n", dst.x, dst.y);
 	c3d_render_imgline(mlx->img, tex_id, &dst, &src);
 }
 
@@ -107,14 +108,14 @@ void	c3d_render_visible(t_mlx *mlx)
 	ssize_t	i_col;
 
 	pt.z = 1;
-	pt.y = 1;
+	pt.y = 3;
 	tex_id = IDX_NORTH;
 	i_col = -(WIDTH_VISION >> 1);
 	while (i_col < (WIDTH_VISION >> 1))
 	{
 		pt.x = mlx->game.coord.x + (mlx->game.coord.y - pt.y) \
-			* tan(ft_math_deg2rad(ANGLE_VISION * i_col / WIDTH_VISION));
-debug_printf("i_col: %ld\tpt.x: %lf\n", i_col, pt.x);
+			* tan(ft_math_deg2rad(ANGLE_FOV * i_col / WIDTH_VISION));
+//debug_printf("i_col: %ld\tpt.x: %lf\n", i_col, pt.x);
 		c3d_render_triangle(mlx, &pt, i_col + (WIDTH_VISION >> 1), tex_id);
 		i_col++;
 	}
@@ -123,7 +124,7 @@ debug_printf("i_col: %ld\tpt.x: %lf\n", i_col, pt.x);
 }
 /*
 # define ANGLE_RIGHT		90.
-# define ANGLE_VISION		45.
+# define ANGLE_FOV		45.
 # define WIDTH_VISION		720
 # define HEIGHT_VISION		480
 # define ZERO_VISION		0

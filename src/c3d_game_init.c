@@ -20,7 +20,7 @@ static void	c3d_game_init_coord_set(t_game *game, t_addr *addr)
 
 static void	c3d_game_init_coord(t_game *game, char **map, t_addr *addr)
 {
-	game->coord.x = 1. / 2 * HEIGHT_BLOCK;
+	game->coord.z = HEIGHT_SIGHT;
 	addr->y = 0;
 	while (map[addr->y])
 	{
