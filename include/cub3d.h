@@ -25,11 +25,11 @@
 # include "cub3d_string.h"
 # include "cub3d_const.h"
 # include "cub3d_flag.h"
-# ifdef __MACH__
+/*# ifdef __MACH__
 #  include "cub3d_event_mac.h"
-# else
+# else*/
 #  include "cub3d_event.h"
-# endif
+//# endif
 # include "cub3d_typedef.h"
 # ifdef DEBUG_MODE
 #  include "debug_cub3d.h"

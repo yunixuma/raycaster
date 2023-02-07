@@ -43,7 +43,8 @@ LIBDIR			= ./lib
 LIBDIR_FT		= $(LIBDIR)/libft
 INCDIR_FT		= $(LIBDIR_FT)/include
 ifeq ($(OS), Darwin)
-	LIBDIR_MLX	= $(LIBDIR)/minilibx_mms_20200219
+#	LIBDIR_MLX	= $(LIBDIR)/minilibx_mms_20200219
+	LIBDIR_MLX	= $(LIBDIR)/minilibx-linux
 else
 	LIBDIR_MLX	= $(LIBDIR)/minilibx-linux
 endif
@@ -56,8 +57,10 @@ DEPS			= $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.c=.d)))
 LIB_FT			= $(LIBDIR_FT)/$(LIBNAME_FT).a
 LIBS			= $(LIB_FT) -lm
 ifeq ($(OS), Darwin)
-	LIB_MLX		= $(LIBNAME_MLX).dylib
-	LIBS		+= $(LIBDIR_MLX)/$(LIB_MLX)
+#	LIB_MLX		= $(LIBNAME_MLX).dylib
+#	LIBS		+= $(LIBDIR_MLX)/$(LIB_MLX)
+	LIB_MLX		= $(LIBDIR_MLX)/$(LIBNAME_MLX)_Darwin.a
+	LIBS		+= $(LIB_MLX)
 else
 	LIB_MLX		= $(LIBDIR_MLX)/$(LIBNAME_MLX).a
 	LIBS		+= $(LIB_MLX)
@@ -73,7 +76,9 @@ DEBUGCFLAGS		= -g -ggdb -fstack-usage -fno-omit-frame-pointer
 DEBUGLDFLAGS	= -fsanitize=address
 INCLUDES		= -I$(INCDIR) -I$(LIBDIR_MLX) -I$(INCDIR_FT)
 ifeq ($(OS), Darwin)
-	LDFLAGS		= -L/usr/lib -L$(LIBDIR_MLX)
+#	LDFLAGS		= -L/usr/lib -L$(LIBDIR_MLX)
+	LDFLAGS		= -L/usr/lib -L$(LIBDIR_MLX)/obj
+	LIBS		+= -L/usr/X11R6/lib -lX11 -lXext -framework OpenGL -framework AppKit
 else
 	LDFLAGS		= -L/usr/lib -L$(LIBDIR_MLX)/obj
 	LIBS		+= -lXext -lX11
@@ -86,7 +91,7 @@ ifeq ($(MAKECMDGOALS), debug)
 		CFLAGS	+= $(DEBUGCFLAGS)
 		LDFLAGS	+= $(DEBUGLDFLAGS)
 	endif
-	DEF		= -D DEBUG_MODE=1
+	DEF		+= -D DEBUG_MODE=1
 endif
 
 # ********************* Section for targets and commands ********************* #
@@ -124,9 +129,9 @@ $(NAME): $(OBJS)
 $(LIBS):
 	$(MAKE) -C $(LIBDIR_FT)
 	$(MAKE) -C $(LIBDIR_MLX)
-ifeq ($(OS), Darwin)
-	cp -p $(LIBDIR_MLX)/$(LIB_MLX) ./
-endif
+#ifeq ($(OS), Darwin)
+#	cp -p $(LIBDIR_MLX)/$(LIB_MLX) ./
+#endif
 $(OBJDIR):
 	@mkdir -p $@
 $(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
