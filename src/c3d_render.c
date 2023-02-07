@@ -85,7 +85,7 @@ void	c3d_render_triangle(t_mlx *mlx, t_coord *pt, int i_col, int tex_id)
 	t_addr	dst;
 	double	dist;
 
-	dis_ = ft_math_distance_2d(&mlx->game.coord, pt);
+	dist = ft_math_distance_2d(&mlx->game.coord, pt);
 	dst.x = i_col;
 	dst.y = HEIGHT_VISION * (mlx->game.coord.z \
 		- ft_math_rad2deg(atan((1 - mlx->game.coord.z) / dist)) \
@@ -120,7 +120,7 @@ debug_printf("i_col: %ld\tpt.x: %lf\n", i_col, pt.x);
 	}
 //debug_c3d_img(mlx->img[tex_id], 0);
 //debug_c3d_img(mlx->img[IDX_VISION], 0);
-}Mmmmmm
+}
 /*
 # define ANGLE_RIGHT		90.
 # define ANGLE_VISION		45.
