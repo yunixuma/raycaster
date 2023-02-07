@@ -32,10 +32,11 @@
 # define UNIT_MOVE			0.25
 # define UNIT_TURN			3.
 # define ANGLE_RIGHT		90.
-# define ANGLE_VISION		90.
+# define ANGLE_FOV			90.
 # define WIDTH_VISION		720
 # define HEIGHT_VISION		480
 # define ZERO_VISION		0
+# define HEIGHT_SIGHT		0.5
 # define WIDTH_BLOCK		120
 # define HEIGHT_BLOCK		120
 
