@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/06 22:15:37 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/07 09:20:09 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,17 @@ static void	c3d_render_imgline(t_img *img, int src_id, t_addr *dst, t_addr *src)
 {
 	ssize_t	i_row;
 
-	if (src->x < 0 || src->y < 0 || dst->x < 0 || dst->y < 0)
+	if (src->x < 0 || src->x >= img[src_id].width || src->y <= 0 \
+		|| dst->x < 0 || dst->x >= img[IDX_VISION].width)
 		return ;
 	i_row = 0;
-	while (i_row < src->y)
+	while (i_row < src->y && dst->y + i_row < img[IDX_VISION].height)
 	{
-		img[IDX_VISION].data[img[IDX_VISION].width * (dst->y + i_row) + dst->x] \
-			= img[src_id].data[img[src_id].width \
-			* (int)(i_row * img[src_id].height / src->y) + src->x];
+		if (dst->y + i_row >= 0)
+			img[IDX_VISION].data[img[IDX_VISION].width \
+				* (dst->y + i_row) + dst->x] \
+				= img[src_id].data[img[src_id].width \
+				* (int)(i_row * img[src_id].height / src->y) + src->x];
 		i_row++;
 	}
 }
@@ -82,17 +85,18 @@ void	c3d_render_triangle(t_mlx *mlx, t_coord *pt, int i_col, int tex_id)
 	t_addr	dst;
 	double	dist;
 
-	dist = ft_math_distance_2d(&mlx->game.coord, pt);
+	dis_ = ft_math_distance_2d(&mlx->game.coord, pt);
 	dst.x = i_col;
-	dst.y = ft_math_rad2deg(atan((1 - mlx->game.coord.z) / dist)) \
-		* (double)(ANGLE_VISION * HEIGHT_VISION / WIDTH_VISION);
-	src.x = (double)mlx->img[tex_id].width * (pt->x + pt->y - (int)(pt->x + pt->y));
-	src.y = (double)dst.y + ft_math_rad2deg(atan(mlx->game.coord.z / dist)) \
-		* (double)(ANGLE_VISION * HEIGHT_VISION / WIDTH_VISION);
+	dst.y = HEIGHT_VISION * (mlx->game.coord.z \
+		- ft_math_rad2deg(atan((1 - mlx->game.coord.z) / dist)) \
+		/ (ANGLE_VISION * HEIGHT_VISION / WIDTH_VISION));
+	src.x = mlx->img[tex_id].width * (pt->x + pt->y - (int)(pt->x + pt->y));
+	src.y = dst.y + ft_math_rad2deg(atan(mlx->game.coord.z / dist)) \
+		* (ANGLE_VISION * HEIGHT_VISION / WIDTH_VISION);
 	if (dst.y + src.y >= HEIGHT_VISION)
 		src.y = HEIGHT_VISION - dst.y;
-debug_printf("src(%3ld, %3ld)\t", src.x, src.y);
-debug_printf("dst(%3ld, %3ld)\n", dst.x, dst.y);
+//debug_printf("src(%3ld, %3ld)\t", src.x, src.y);
+//debug_printf("dst(%3ld, %3ld)\n", dst.x, dst.y);
 	c3d_render_imgline(mlx->img, tex_id, &dst, &src);
 }
 
@@ -103,20 +107,20 @@ void	c3d_render_visible(t_mlx *mlx)
 	ssize_t	i_col;
 
 	pt.z = 1;
-	pt.y = 3;
+	pt.y = 1;
 	tex_id = IDX_NORTH;
 	i_col = -(WIDTH_VISION >> 1);
 	while (i_col < (WIDTH_VISION >> 1))
 	{
-		pt.x = mlx->game.coord.x + (pt.y - mlx->game.coord.y) \
-			* tan(ft_math_deg2rad(ANGLE_VISION * (double)i_col / (double)(WIDTH_VISION >> 1)));
-		c3d_render_triangle(mlx, &pt, i_col + WIDTH_VISION, tex_id);
+		pt.x = mlx->game.coord.x + (mlx->game.coord.y - pt.y) \
+			* tan(ft_math_deg2rad(ANGLE_VISION * i_col / WIDTH_VISION));
+debug_printf("i_col: %ld\tpt.x: %lf\n", i_col, pt.x);
+		c3d_render_triangle(mlx, &pt, i_col + (WIDTH_VISION >> 1), tex_id);
 		i_col++;
 	}
 //debug_c3d_img(mlx->img[tex_id], 0);
 //debug_c3d_img(mlx->img[IDX_VISION], 0);
-}
-
+}Mmmmmm
 /*
 # define ANGLE_RIGHT		90.
 # define ANGLE_VISION		45.
