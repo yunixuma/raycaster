@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/08 15:21:53 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/08 23:51:08 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	c3d_render_background(t_mlx *mlx)
 	zero.y = ZERO_VISION;
 	area.x = WIDTH_VISION;
 	area.y = HEIGHT_VISION \
-		* (ANGLE_FOV + mlx->game.angle.pitch) / ANGLE_FOV / 2;
+		* (mlx->game.fov + mlx->game.angle.pitch) / mlx->game.fov / 2;
 	if (area.y < 0)
 		area.y = 0;
 	else if (area.y > HEIGHT_VISION)
@@ -44,44 +44,48 @@ static void	c3d_render_elevation(t_mlx *mlx, t_coord *pt, int i_col, int tex_id)
 	dst.x = i_col;
 	dst.y = HEIGHT_VISION * (1 - mlx->game.coord.z \
 		- (ft_math_rad2deg(atan((1 - mlx->game.coord.z) / dist))) \
-		/ (ANGLE_FOV * HEIGHT_VISION / WIDTH_VISION));
+		/ (mlx->game.fov * HEIGHT_VISION / WIDTH_VISION));
 	src.x = mlx->img[tex_id].width * (pt->x + pt->y - (int)(pt->x + pt->y));
 	src.y = (HEIGHT_VISION >> 1) - dst.y \
 		+ HEIGHT_VISION * (ft_math_rad2deg(atan((mlx->game.coord.z) / dist))) \
-		/ (ANGLE_FOV * HEIGHT_VISION / WIDTH_VISION);
+		/ (mlx->game.fov * HEIGHT_VISION / WIDTH_VISION);
 debug_printf("pt(%3lf, %3lf)\t", pt->x, pt->y);
 debug_printf("src(%3ld, %3ld)\t", src.x, src.y);
 debug_printf("dst(%3ld, %3ld)\n", dst.x, dst.y);
 	c3d_render_imgline(mlx->img, tex_id, &dst, &src);
 }
-
-void	c3d_render_visible(t_mlx *mlx)
-{
-	t_coord	pt;
-	int		tex_id;
-	t_addr	i;
-
-	pt.z = 1;
-	pt.y = 3;
-	tex_id = IDX_NORTH;
-	i.x = -(WIDTH_VISION >> 1);
-	while (i.x < (WIDTH_VISION >> 1))
-	{
-		pt.x = mlx->game.coord.x + (mlx->game.coord.y - pt.y) \
-			* tan(ft_math_deg2rad(ANGLE_FOV * i.x / WIDTH_VISION));
-//debug_printf("i_col: %ld\tpt.x: %lf\n", i_col, pt.x);
-		c3d_render_elevation(mlx, &pt, i.x + (WIDTH_VISION >> 1), tex_id);
-		i.x++;
-	}
-//debug_c3d_img(mlx->img[tex_id], 0);
-//debug_c3d_img(mlx->img[IDX_VISION], 0);
-}
 /*
+static void	c3d_render_intersect(t_mlx *mlx, t_vec *ray)
+{
+	t_addr	addr;ss
+	int		tex_wid;
+	t_addr	src;
+	t_addr	dst;
+	double	dist;
+
+	(void)mlx;
+	(void)ray;
+}
+
+void	c3d_render_visible(t_mlx *mlx)
+{
+	t_vec	ray;
+	ssize_t	i_col;
+
+	i_col = -(WIDTH_VISION >> 1);
+	while (i_col < (WIDTH_VISION >> 1))
+	{
+		ft_coord_copy(&ray.pos, &mlx->game.coord);
+		c3d_render_intersect(mlx, &ray);
+		i_col++;
+	}
+}
+*/
 void	c3d_render_visible(t_mlx *mlx)
 {
 	t_coord	pt;
 	int		tex_id;
-c3d_lst2map_rect_col;
+	ssize_t	i_col;
 
 	pt.z = 1;
 	pt.y = 3;
@@ -90,7 +94,7 @@ c3d_lst2map_rect_col;
 	while (i_col < (WIDTH_VISION >> 1))
 	{
 		pt.x = mlx->game.coord.x + (mlx->game.coord.y - pt.y) \
-			* tan(ft_math_deg2rad(ANGLE_FOV * i_col / WIDTH_VISION));
+			* tan(ft_math_deg2rad(mlx->game.fov * i_col / WIDTH_VISION));
 //debug_printf("i_col: %ld\tpt.x: %lf\n", i_col, pt.x);
 		c3d_render_elevation(mlx, &pt, i_col + (WIDTH_VISION >> 1), tex_id);
 		i_col++;
@@ -98,8 +102,9 @@ c3d_lst2map_rect_col;
 //debug_c3d_img(mlx->img[tex_id], 0);
 //debug_c3d_img(mlx->img[IDX_VISION], 0);
 }
+/*
 # define ANGLE_RIGHT		90.
-# define ANGLE_FOV		45.
+# define mlx->game.fov			90.
 # define WIDTH_VISION		720
 # define HEIGHT_VISION		480
 # define ZERO_VISION		0

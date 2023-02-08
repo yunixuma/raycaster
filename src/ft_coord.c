@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c3d_count_visible.c                                :+:      :+:    :+:   */
+/*   ft_coord.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/08 22:54:00 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/08 23:29:35 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-/*
-void	c3d_count_visible(t_mlx *mlx, size_t *visible[])
-{
-	;
-	t_addr	area;
 
-	zero.x = ZERO_VISION;
-	zero.y = ZERO_VISION;
-	area.x = WIDTH_VISION;
-	area.y = HEIGHT_VISION \
-		* (mlx->game.fov + mlx->game.angle.yaw) / mlx->game.fov / 2;
-	if (area.y < 0)
-		area.y = 0;
-	else if (area.y > HEIGHT_VISION)
-		area.y = HEIGHT_VISION;
-	c3d_render_rectangle(&mlx->img[IDX_VISION], \
-		&zero, &area, mlx->scene->color[IDX_CEILING]);
-	zero.y = area.y;
-	area.y = HEIGHT_VISION - zero.y;
-	c3d_render_rectangle(&mlx->img[IDX_VISION], \
-		&zero, &area, mlx->scene->color[IDX_FLOOR]);
+void	ft_coord_init(t_coord *pt)
+{
+	if (!pt)
+		return ;
+	pt->x = 0;
+	pt->y = 0;
+	pt->z = 0;
 }
-*/
+
+void	ft_coord_copy(t_coord *dst, t_coord *src)
+{
+	if (!dst)
+		return ;
+	if (!src)
+		ft_coord_init(dst);
+	dst->x = src->x;
+	dst->y = src->y;
+	dst->z = src->z;
+}

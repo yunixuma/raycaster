@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/06 20:26:02 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/08 23:22:37 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,21 @@ static int	c3d_game_keyhook_turn(t_angle *turn, int key)
 		turn->pitch = -UNIT_TURN;
 	else if (key == KEY_LOOKUP)
 		turn->pitch = UNIT_TURN;
-	if (turn->yaw || turn->pitch)
-		return (true);
-	return (false);
+	else
+		return (false);
+	return (true);
+}
+
+static int	c3d_game_keyhook_lens(t_angle *turn, int key)
+{
+	turn->roll = 0;
+	if (key == KEY_WIDE)
+		turn->roll = -UNIT_TURN;
+	else if (key == KEY_TELE)
+		turn->roll = UNIT_TURN;
+	else
+		return (false);
+	return (true);
 }
 
 int	c3d_game_keyhook(int key, t_mlx *mlx)
@@ -56,6 +68,8 @@ int	c3d_game_keyhook(int key, t_mlx *mlx)
 	else if (c3d_game_keyhook_move(&move, key, mlx->game.angle.yaw) \
 		&& c3d_game_move(mlx, &move))
 		c3d_print_score(++(mlx->game.score));
+	else if (c3d_game_keyhook_lens(&turn, key))
+		c3d_game_lens(mlx, turn.roll);
 	if (c3d_game_judge(mlx))
 		c3d_exit_mlx_goal(ERR_NOERR, mlx);
 	mlx->game.key = key;

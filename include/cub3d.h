@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/07 22:03:01 by ykosaka          ###   ########.fr       */
+/*   Updated: 2023/02/08 23:25:34 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 /*# ifdef __MACH__
 #  include "cub3d_event_mac.h"
 # else*/
-#  include "cub3d_event.h"
+# include "cub3d_event.h"
 //# endif
 # include "cub3d_typedef.h"
 # ifdef DEBUG_MODE
@@ -62,16 +62,17 @@ void		c3d_img_init(t_mlx *mlx);
 void		c3d_img_destroy(t_mlx *mlx);
 void		c3d_render_background(t_mlx *mlx);
 void		c3d_render_visible(t_mlx *mlx);
-void	    c3d_render_rectangle(t_img *img, \
-    int color_code, t_addr *zero, t_addr *area);
-void    	c3d_render_imgpixel(t_img *img, \
-    int src_id, t_addr *dst, t_addr *src);
-void    	c3d_render_imgline(t_img *img, \
-    int src_id, t_addr *dst, t_addr *src);
+void		c3d_render_rectangle(t_img *img, \
+	int color_code, t_addr *zero, t_addr *area);
+void		c3d_render_imgpixel(t_img *img, \
+	int src_id, t_addr *dst, t_addr *src);
+void		c3d_render_imgline(t_img *img, \
+	int src_id, t_addr *dst, t_addr *src);
 void		c3d_game_init(t_game *game, t_scene *scene);
 int			c3d_game_keyhook(int key, t_mlx *mlx);
 int			c3d_game_move(t_mlx *mlx, t_coord *move);
 int			c3d_game_turn(t_mlx *mlx, t_angle *turn);
+int			c3d_game_lens(t_mlx *mlx, double fov_add);
 int			c3d_game_judge(t_mlx *mlx);
 int			c3d_exit(int errnum);
 int			c3d_exit_lst(int errnum, t_list **lst);
@@ -94,5 +95,8 @@ double		ft_math_rad2deg(double rad);
 double		ft_math_angle_normalize(double angle);
 double		ft_math_distance_2d(t_coord *pt1, t_coord *pt2);
 double		ft_math_distance_3d(t_coord *pt1, t_coord *pt2);
+int			ft_math_intersect_2d(t_vec *vec1, t_vec *vec2, t_coord *pt);
+void		ft_coord_init(t_coord *pt);
+void		ft_coord_copy(t_coord *dst, t_coord *src);
 
 #endif

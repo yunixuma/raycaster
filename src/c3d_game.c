@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/04 04:08:13 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/08 23:18:29 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,21 @@ int	c3d_game_turn(t_mlx *mlx, t_angle *turn)
 	else if (mlx->game.angle.pitch < -(ANGLE_RIGHT - UNIT_TURN))
 		mlx->game.angle.pitch = -(ANGLE_RIGHT - UNIT_TURN);
 	if (mlx->game.angle.yaw == bak.yaw && mlx->game.angle.pitch == bak.pitch)
+		return (false);
+	return (true);
+}
+
+int	c3d_game_lens(t_mlx *mlx, double fov_add)
+{
+	double	fov_bak;
+
+	fov_bak = mlx->game.fov;
+	mlx->game.fov += fov_add;
+	if (mlx->game.fov > ANGLE_FOV_MAX)
+		mlx->game.fov = ANGLE_FOV_MAX;
+	else if (mlx->game.fov < ANGLE_FOV_MIN)
+		mlx->game.fov = ANGLE_FOV_MIN;
+	if (mlx->game.fov == fov_bak)
 		return (false);
 	return (true);
 }

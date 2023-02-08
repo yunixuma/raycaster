@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/05 21:24:21 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/08 22:49:04 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ typedef struct s_angle
 	double	yaw;
 	double	roll;
 }	t_angle;
+
+typedef struct s_vec
+{
+	t_coord	pos;
+	t_coord	dir;
+}	t_vec;
 
 typedef struct s_color
 {
@@ -65,6 +71,7 @@ typedef struct s_game
 {
 	t_angle	angle;
 	t_coord	coord;
+	double	fov;
 	int		key;
 	int		score;
 }	t_game;

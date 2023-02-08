@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/06 22:18:03 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/08 23:16:15 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,12 @@
 # define ERR_OPEN			ENOENT
 # define ERR_ALLOC			ENOMEM
 # define ERR_DUP			EEXIST
-# define UNIT_MOVE			0.25
+# define UNIT_MOVE			0.125
 # define UNIT_TURN			3.
 # define ANGLE_RIGHT		90.
 # define ANGLE_FOV			90.
+# define ANGLE_FOV_MAX		108.
+# define ANGLE_FOV_MIN		72.
 # define WIDTH_VISION		720
 # define HEIGHT_VISION		480
 # define ZERO_VISION		0

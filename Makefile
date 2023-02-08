@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+         #
+#    By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 16:52:37 by ykosaka           #+#    #+#              #
-#    Updated: 2023/02/07 22:04:58 by ykosaka          ###   ########.fr        #
+#    Updated: 2023/02/08 20:43:58 by Yoshihiro K      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRC				= c3d_main.c c3d_map_read.c c3d_map_trim.c \
 				  c3d_lst2map_rect.c c3d_color.c \
 				  ft_mapseek.c ft_mapsize.c \
 				  ft_free.c ft_hasflag.c ft_stris.c \
-				  ft_math.c ft_math_distance.c
+				  ft_math.c ft_math_distance.c ft_math_intersect.c ft_coord.c
 
 SRC				+= debug_common.c debug_c3d.c debug_c3d_map.c debug_c3d_img.c
 

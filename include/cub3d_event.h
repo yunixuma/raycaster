@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/30 13:33:59 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/08 23:31:24 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 # define KEYCODE_DOWN	0xff54
 # define KEYCODE_RIGHT	0xff53
 # define KEYCODE_ESC	0xff1b
+# define KEYCODE_PGUP	0xff55
+# define KEYCODE_PGDN	0xff56
 # define KEY_EXIT_1		KEYCODE_ESC
 # define KEY_EXIT_2		KEYCODE_Q
 # define KEY_FORWARD	KEYCODE_W
@@ -38,6 +40,8 @@
 # define KEY_TURNRIGHT	KEYCODE_RIGHT
 # define KEY_LOOKUP		KEYCODE_UP
 # define KEY_LOOKDOWN	KEYCODE_DOWN
+# define KEY_TELE		KEYCODE_PGUP
+# define KEY_WIDE		KEYCODE_PGDN
 # define KEY_NONE		0x7fffffffL
 
 #endif

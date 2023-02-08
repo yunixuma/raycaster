@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/30 16:06:03 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/08 22:51:53 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@
 # define KEY_TURNRIGHT	KEYCODE_RIGHT
 # define KEY_LOOKUP		KEYCODE_UP
 # define KEY_LOOKDOWN	KEYCODE_DOWN
+# define KEY_TELE		KEYCODE_PAGEUP
+# define KEY_WIDE		KEYCODE_PAGEDOWN
 # define KEY_NONE		0x7fffffffL
 
 #endif
