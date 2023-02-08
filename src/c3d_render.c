@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_render.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/07 22:06:51 by ykosaka          ###   ########.fr       */
+/*   Updated: 2023/02/08 14:41:47 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,12 @@ static void	c3d_render_elevation(t_mlx *mlx, t_coord *pt, int i_col, int tex_id)
 	dist = ft_math_distance_2d(&mlx->game.coord, pt);
 	dst.x = i_col;
 	dst.y = HEIGHT_VISION * (1 - mlx->game.coord.z \
-		- ft_math_rad2deg(atan((1 - mlx->game.coord.z) / dist)) \
+		- (ft_math_rad2deg(atan((1 - mlx->game.coord.z) / dist))) \
 		/ (ANGLE_FOV * HEIGHT_VISION / WIDTH_VISION));
 	src.x = mlx->img[tex_id].width * (pt->x + pt->y - (int)(pt->x + pt->y));
-	src.y = dst.y + ft_math_rad2deg(atan(mlx->game.coord.z / dist)) \
-		* (ANGLE_FOV * HEIGHT_VISION / WIDTH_VISION);
-	if (dst.y + src.y >= HEIGHT_VISION)
-		src.y = HEIGHT_VISION - dst.y;
+	src.y = (HEIGHT_VISION >> 1) - dst.y \
+		+ HEIGHT_VISION * (ft_math_rad2deg(atan((mlx->game.coord.z) / dist))) \
+		/ (ANGLE_FOV * HEIGHT_VISION / WIDTH_VISION);
 debug_printf("pt(%3lf, %3lf)\t", pt->x, pt->y);
 debug_printf("src(%3ld, %3ld)\t", src.x, src.y);
 debug_printf("dst(%3ld, %3ld)\n", dst.x, dst.y);
