@@ -6,17 +6,18 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/08 23:31:24 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/09 02:44:26 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_EVENT_H
 # define CUB3D_EVENT_H
 
-# define EVENT_KEYDOWN	2
-# define EVENT_EXPOSE	12
-# define EVENT_DESTROY	17
-# define MASK_STRUCT	1
+# define EVENT_KEYDOWN		2
+# define EVENT_MOUSEMOVE	6
+# define EVENT_EXPOSE		12
+# define EVENT_DESTROY		17
+# define MASK_STRUCT		1
 
 # define KEYCODE_Q		'q'
 # define KEYCODE_W		'w'
