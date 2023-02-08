@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_win.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/07 21:47:08 by ykosaka          ###   ########.fr       */
+/*   Updated: 2023/02/08 15:21:16 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,19 @@ debug_c3d_game(mlx->game);
 
 void	c3d_win_draw_pixel(t_mlx *mlx, int x, int y, int color)
 {
-	ssize_t	i_col;
-	ssize_t	i_row;
+	t_addr	i;
 
-	i_col = 0;
-	while (i_col < SIZE_TILE)
+	i.x = 0;
+	while (i.x < SIZE_TILE)
 	{
-		i_row = 0;
-		while (i_row < SIZE_TILE)
+		i.y = 0;
+		while (i.y < SIZE_TILE)
 		{
 			mlx_pixel_put(mlx->conn, mlx->win, \
-				x * SIZE_TILE + i_col, y * SIZE_TILE + i_row, color);
-			i_row++;
+				x * SIZE_TILE + i.x, y * SIZE_TILE + i.y, color);
+			i.y++;
 		}
-		i_col++;
+		i.x++;
 	}
 }
 

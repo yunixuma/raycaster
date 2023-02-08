@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/08 14:41:47 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/08 15:21:53 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,29 @@ void	c3d_render_visible(t_mlx *mlx)
 {
 	t_coord	pt;
 	int		tex_id;
-	ssize_t	i_col;
+	t_addr	i;
+
+	pt.z = 1;
+	pt.y = 3;
+	tex_id = IDX_NORTH;
+	i.x = -(WIDTH_VISION >> 1);
+	while (i.x < (WIDTH_VISION >> 1))
+	{
+		pt.x = mlx->game.coord.x + (mlx->game.coord.y - pt.y) \
+			* tan(ft_math_deg2rad(ANGLE_FOV * i.x / WIDTH_VISION));
+//debug_printf("i_col: %ld\tpt.x: %lf\n", i_col, pt.x);
+		c3d_render_elevation(mlx, &pt, i.x + (WIDTH_VISION >> 1), tex_id);
+		i.x++;
+	}
+//debug_c3d_img(mlx->img[tex_id], 0);
+//debug_c3d_img(mlx->img[IDX_VISION], 0);
+}
+/*
+void	c3d_render_visible(t_mlx *mlx)
+{
+	t_coord	pt;
+	int		tex_id;
+c3d_lst2map_rect_col;
 
 	pt.z = 1;
 	pt.y = 3;
@@ -76,7 +98,6 @@ void	c3d_render_visible(t_mlx *mlx)
 //debug_c3d_img(mlx->img[tex_id], 0);
 //debug_c3d_img(mlx->img[IDX_VISION], 0);
 }
-/*
 # define ANGLE_RIGHT		90.
 # define ANGLE_FOV		45.
 # define WIDTH_VISION		720
@@ -89,7 +110,7 @@ void	c3d_render_visible(t_mlx *mlx)
 {
 	t_addr	src;
 	t_addr	dst;
-	ssize_t	i_col;
+c3d_lst2map_rect_col;
 	int		src_id;
 
 	src_id = IDX_NORTH;
