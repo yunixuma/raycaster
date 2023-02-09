@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/31 18:24:08 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/09 19:21:41 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,19 @@ DP(img->ptr);
 	return (true);
 }
 
+static int	c3d_img_init_empty(t_mlx *mlx, size_t idx, int width, int height)
+{
+	mlx->img[idx].ptr \
+		= mlx_new_image(mlx->conn, width, height);
+	mlx->img[idx].width = width;
+	mlx->img[idx].height = height;
+	mlx->img[idx].data = \
+		(int *)mlx_get_data_addr(mlx->img[idx].ptr, \
+		&mlx->img[idx].bpp, &mlx->img[idx].len, \
+		&mlx->img[idx].endian);
+	return (true);
+}
+
 void	c3d_img_init(t_mlx *mlx)
 {
 	size_t	i;
@@ -34,19 +47,31 @@ void	c3d_img_init(t_mlx *mlx)
 		c3d_img_texture_load(mlx, &mlx->img[i], mlx->scene->path[i]);
 		i++;
 	}
-	mlx->img[IDX_VISION].ptr \
-		= mlx_new_image(mlx->conn, WIDTH_VISION, HEIGHT_VISION);
-	mlx->img[IDX_VISION].width = WIDTH_VISION;
-	mlx->img[IDX_VISION].height = HEIGHT_VISION;
-	mlx->img[IDX_VISION].data = \
-		(int *)mlx_get_data_addr(mlx->img[IDX_VISION].ptr, \
-		&mlx->img[IDX_VISION].bpp, &mlx->img[IDX_VISION].len, \
-		&mlx->img[IDX_VISION].endian);
+	c3d_img_init_empty(mlx, IDX_VISION, WIDTH_VISION, HEIGHT_VISION);
+	c3d_img_init_empty(mlx, IDX_MAP, \
+		SIZE_MAP * SIZE_CELL, SIZE_MAP * SIZE_CELL);
 	i = 0;
-	while (i < N_TEXTURE + 1)
+	while (i < N_IMAGE)
 	{
 		if (mlx->img[i++].ptr == NULL)
 			c3d_exit_mlx(ERR_OPEN, mlx);
+	}
+}
+
+void	c3d_img_clear(t_img *img, int color_code, int width, int height)
+{
+	t_addr	i;
+
+	i.y = 0;
+	while (i.y < height)
+	{
+		i.x = 0;
+		while (i.x < width)
+		{
+			img->data[i.y * width + i.x] = color_code;
+			i.x++;
+		}
+		i.y++;
 	}
 }
 
@@ -57,7 +82,7 @@ void	c3d_img_destroy(t_mlx *mlx)
 	if (mlx == NULL)
 		return ;
 	i = 0;
-	while (i < N_TEXTURE + 1)
+	while (i < N_IMAGE)
 	{
 		if (mlx->img[i].ptr != NULL)
 			mlx_destroy_image(mlx->conn, mlx->img[i].ptr);

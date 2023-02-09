@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/09 03:07:29 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/09 19:18:56 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,11 @@ int			c3d_win_draw_vision(t_mlx *mlx);
 void		c3d_win_draw_pixel(t_mlx *mlx, int x, int y, int color);
 void		c3d_win_destroy(t_mlx *mlx);
 void		c3d_img_init(t_mlx *mlx);
+void		c3d_img_clear(t_img *img, int color_code, int width, int height);
 void		c3d_img_destroy(t_mlx *mlx);
 void		c3d_render_background(t_mlx *mlx);
 void		c3d_render_visible(t_mlx *mlx);
+void		c3d_render_map(t_mlx *mlx);
 void		c3d_render_rectangle(t_img *img, \
 	int color_code, t_addr *zero, t_addr *area);
 void		c3d_render_imgpixel(t_img *img, \
@@ -99,5 +101,6 @@ double		ft_math_distance_3d(t_coord *pt1, t_coord *pt2);
 int			ft_math_intersect_2d(t_vec *vec1, t_vec *vec2, t_coord *pt);
 void		ft_coord_init(t_coord *pt);
 void		ft_coord_copy(t_coord *dst, t_coord *src);
+void		ft_addr_set(t_addr *addr, ssize_t x, ssize_t y);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/09 03:07:47 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/09 22:24:55 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ debug_c3d_map_raw(scene->map);
 	c3d_map_encode(scene->map);
 debug_c3d_map_flag(scene->map);
 	c3d_map_valid(scene->map);
+	scene->size = ft_mapsize(scene->map);
 	close(fd);
 	return (ERR_NOERR);
 }
@@ -60,12 +61,15 @@ static int	c3d_main_win(t_scene *scene)
 int	main(int argc, char *argv[])
 {
 	t_scene	scene;
+	int		errnum;
 
 	if (argc < OFFSET_ARG + IDX_ARG)
 		c3d_exit(ERR_NOARG);
 	if (argc > OFFSET_ARG + IDX_ARG)
 		c3d_exit(ERR_MANYARGS);
-	c3d_main_scene(&scene, argv[IDX_ARG]);
+	errnum = c3d_main_scene(&scene, argv[IDX_ARG]);
+	if (errnum)
+		return (errnum);
 	debug_c3d_scene(&scene);
 	c3d_main_win(&scene);
 	c3d_clean(&scene, ERR_NOERR);
