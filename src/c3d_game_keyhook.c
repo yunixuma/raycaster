@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/08 23:22:37 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/10 01:30:17 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ int	c3d_game_keyhook(int key, t_mlx *mlx)
 		c3d_game_lens(mlx, turn.roll);
 	if (c3d_game_judge(mlx))
 		c3d_exit_mlx_goal(ERR_NOERR, mlx);
-	mlx->game.key = key;
+	mlx->game.event = key;
 	return (ERR_NOERR);
 }

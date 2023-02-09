@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/09 22:24:55 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/10 01:46:54 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ static int	c3d_main_win(t_scene *scene)
 	c3d_win_draw_vision(&mlx);
 	ft_putendl_fd(MSG_HOWTO_MOVE, STDOUT_FILENO);
 	mlx_hook(mlx.win, EVENT_KEYDOWN, MASK_STRUCT, &c3d_game_keyhook, &mlx);
-	mlx_hook(mlx.win, EVENT_MOUSEMOVE, MASK_STRUCT, &c3d_game_cursorhook, &mlx);
+	mlx_hook(mlx.win, EVENT_MOUSEMOVE, MASK_STRUCT << EVENT_MOUSEMOVE, \
+		&c3d_game_cursorhook, &mlx);
 	mlx_hook(mlx.win, EVENT_DESTROY, MASK_STRUCT, &c3d_exit_mlx_break, &mlx);
 	mlx_expose_hook(mlx.win, &c3d_win_draw_vision, &mlx);
 	mlx_loop_hook(mlx.conn, &c3d_mlx_hook, &mlx);

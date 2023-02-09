@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/09 18:21:20 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/10 01:30:33 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ typedef struct s_game
 	t_angle	angle;
 	t_coord	coord;
 	double	fov;
-	int		key;
+	int		event;
 	int		score;
 }	t_game;
 

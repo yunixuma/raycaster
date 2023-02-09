@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/31 18:23:03 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/10 01:44:51 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ void	c3d_mlx_init(t_mlx *mlx)
 
 int	c3d_mlx_hook(t_mlx *mlx)
 {
-	if (mlx->game.key != KEY_NONE)
-		c3d_win_draw_vision(mlx);
-	mlx->game.key = KEY_NONE;
-	return (ERR_NOERR);
+	if (mlx->game.event == EVENT_NONE)
+		return (false);
+	c3d_win_draw_vision(mlx);
+	mlx->game.event = EVENT_NONE;
+	return (true);
 }
