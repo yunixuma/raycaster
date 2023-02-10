@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/10 15:50:17 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/11 03:08:48 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void		c3d_render_imgline(t_img *img_dst, t_img *img_src, \
 void		c3d_game_init(t_game *game, t_scene *scene);
 int			c3d_game_keyhook(int key, t_mlx *mlx);
 int			c3d_game_cursorhook(int x, int y, t_mlx *mlx);
+int			c3d_game_clickhook(int button, int x, int y, t_mlx *mlx);
 int			c3d_game_move(t_mlx *mlx, t_coord *move);
 int			c3d_game_turn(t_mlx *mlx, t_angle *turn);
 int			c3d_game_lens(t_mlx *mlx, double fov_add);

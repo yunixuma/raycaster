@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/10 01:37:07 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/11 04:47:08 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB3D_EVENT_H
 
 # define EVENT_KEYDOWN		2
+# define EVENT_MOUSEPRESS	4
 # define EVENT_MOUSEMOVE	6
 # define EVENT_EXPOSE		12
 # define EVENT_DESTROY		17

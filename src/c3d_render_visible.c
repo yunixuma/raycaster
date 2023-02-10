@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 02:18:07 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/11 03:23:59 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static void	c3d_render_elevation(t_mlx *mlx, t_coord *pt, int i_col, int tex_id)
 	src.y = (HEIGHT_VISION >> 1) - dst.y \
 		+ HEIGHT_VISION * (ft_math_rad2deg(atan((mlx->game.coord.z) / dist))) \
 		/ (mlx->game.fov * HEIGHT_VISION / WIDTH_VISION);
-debug_printf("pt(%3lf, %3lf)\t", pt->x, pt->y);
-debug_printf("src(%3ld, %3ld)\t", src.x, src.y);
-debug_printf("dst(%3ld, %3ld)\n", dst.x, dst.y);
+//debug_printf("pt(%3lf, %3lf)\t", pt->x, pt->y);
+//debug_printf("src(%3ld, %3ld)\t", src.x, src.y);
+//debug_printf("dst(%3ld, %3ld)\n", dst.x, dst.y);
 	c3d_render_imgline(&mlx->img[IDX_VISION], &mlx->img[tex_id], &dst, &src);
 }
 /*
