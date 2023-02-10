@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/10 17:08:22 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/10 18:27:11 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,11 @@ typedef enum e_imgidx
 # define CHR_DIR			'/'
 # define CHR_SEP			','
 # define CHR_SPACE			' '
-# define COLOR_SPACE		0xff000000
-# define COLOR_WALL			0x7f00007f
-# define COLOR_FREE			0x7fffffff
-# define COLOR_POS			0x7fff0000
-# define COLOR_FRAME		0x7f00ff00
+# define COLOR_SPACE		0x7f000000
+# define COLOR_WALL			0x3f00007f
+# define COLOR_FREE			0x3fffffff
+# define COLOR_POS			0x3fff0000
+# define COLOR_FRAME		0x3f00ff00
 
 # define ERR_EMPTY			ENODATA
 # define ERR_CHR			EINVAL
