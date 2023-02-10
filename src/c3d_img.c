@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/09 19:21:41 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/10 16:02:49 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,15 @@ DP(img->ptr);
 	return (true);
 }
 
-static int	c3d_img_init_empty(t_mlx *mlx, size_t idx, int width, int height)
+static int	c3d_img_init_empty(t_mlx *mlx, t_img *img, int width, int height)
 {
-	mlx->img[idx].ptr \
-		= mlx_new_image(mlx->conn, width, height);
-	mlx->img[idx].width = width;
-	mlx->img[idx].height = height;
-	mlx->img[idx].data = \
-		(int *)mlx_get_data_addr(mlx->img[idx].ptr, \
-		&mlx->img[idx].bpp, &mlx->img[idx].len, \
-		&mlx->img[idx].endian);
+debug_printf("width: %d\theight: %d\n", width, height);
+	img->ptr = mlx_new_image(mlx->conn, width, height);
+DP(img->ptr);
+	img->width = width;
+	img->height = height;
+	img->data = (int *)mlx_get_data_addr(img->ptr, \
+		&img->bpp, &img->len, &img->endian);
 	return (true);
 }
 
@@ -47,9 +46,10 @@ void	c3d_img_init(t_mlx *mlx)
 		c3d_img_texture_load(mlx, &mlx->img[i], mlx->scene->path[i]);
 		i++;
 	}
-	c3d_img_init_empty(mlx, IDX_VISION, WIDTH_VISION, HEIGHT_VISION);
-	c3d_img_init_empty(mlx, IDX_MAP, \
-		SIZE_MAP * SIZE_CELL, SIZE_MAP * SIZE_CELL);
+	c3d_img_init_empty(mlx, &mlx->img[IDX_VISION], WIDTH_VISION, HEIGHT_VISION);
+	c3d_img_init_empty(mlx, &mlx->img[IDX_HUD], \
+		mlx->scale * mlx->scene->size.x + WEIGHT_FRAME * 2, \
+		mlx->scale * mlx->scene->size.y + WEIGHT_FRAME * 2);
 	i = 0;
 	while (i < N_IMAGE)
 	{

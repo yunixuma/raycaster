@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/10 00:37:54 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/10 17:08:22 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@
 # define HEIGHT_SIGHT		0.5
 # define WIDTH_BLOCK		120
 # define HEIGHT_BLOCK		120
-# define SIZE_MAP			18
-# define SIZE_CELL			8
+# define SIZE_CELL			12
+# define RATIO_HUD			4
+# define WEIGHT_FRAME		2
 
 typedef enum e_channel
 {
@@ -77,7 +78,7 @@ typedef enum e_chr
 typedef enum e_imgidx
 {
 	IDX_VISION = N_TEXTURE,
-	IDX_MAP,
+	IDX_HUD,
 	N_IMAGE
 }	t_imgidx;
 
@@ -89,6 +90,7 @@ typedef enum e_imgidx
 # define COLOR_WALL			0x7f00007f
 # define COLOR_FREE			0x7fffffff
 # define COLOR_POS			0x7fff0000
+# define COLOR_FRAME		0x7f00ff00
 
 # define ERR_EMPTY			ENODATA
 # define ERR_CHR			EINVAL

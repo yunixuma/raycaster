@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/10 12:28:02 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/10 16:10:36 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ debug_c3d_map_raw(scene->map);
 	c3d_map_encode(scene->map);
 debug_c3d_map_flag(scene->map);
 	c3d_map_valid(scene->map);
+	scene->size = ft_mapsize(scene->map);
 	close(fd);
 	return (ERR_NOERR);
 }
@@ -42,11 +43,13 @@ static int	c3d_main_win(t_scene *scene)
 
 	mlx.scene = scene;
 	c3d_mlx_init(&mlx);
-	DP(mlx.scene->map);
+DP(mlx.scene->map);
 	ft_putendl_fd(MSG_WAIT, STDOUT_FILENO);
 	c3d_win_init(&mlx);
+DP(&mlx.win);
 	c3d_img_init(&mlx);
-//	c3d_render_map_init(&mlx);
+DP(&mlx.img[IDX_HUD]);
+	c3d_render_hud_init(&mlx);
 	c3d_win_draw_vision(&mlx);
 	ft_putendl_fd(MSG_HOWTO_MOVE, STDOUT_FILENO);
 	mlx_hook(mlx.win, EVENT_KEYDOWN, MASK_STRUCT, &c3d_game_keyhook, &mlx);
@@ -71,7 +74,7 @@ int	main(int argc, char *argv[])
 	errnum = c3d_main_scene(&scene, argv[IDX_ARG]);
 	if (errnum)
 		return (errnum);
-	debug_c3d_scene(&scene);
+debug_c3d_scene(&scene);
 	c3d_main_win(&scene);
 	c3d_clean(&scene, ERR_NOERR);
 	return (ERR_NOERR);
