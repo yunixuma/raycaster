@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/10 12:29:24 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/11 02:18:07 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ static void	c3d_render_elevation(t_mlx *mlx, t_coord *pt, int i_col, int tex_id)
 	t_addr	dst;
 	double	dist;
 
-	dist = ft_math_distance_2d(&mlx->game.coord, pt);
-	dst.x = i_col;
+	dist = ft_math_distance_2d(&mlx->game.coord, pt) \
+		* cos(ft_math_deg2rad(mlx->game.fov * i_col / WIDTH_VISION));
+	dst.x = i_col + (WIDTH_VISION >> 1);
 	dst.y = HEIGHT_VISION * (1 - mlx->game.coord.z \
 		- (ft_math_rad2deg(atan((1 - mlx->game.coord.z) / dist))) \
 		/ (mlx->game.fov * HEIGHT_VISION / WIDTH_VISION));
@@ -74,7 +75,7 @@ void	c3d_render_visible(t_mlx *mlx)
 		pt.x = mlx->game.coord.x + (mlx->game.coord.y - pt.y) \
 			* tan(ft_math_deg2rad(mlx->game.fov * i_col / WIDTH_VISION));
 //debug_printf("i_col: %ld\tpt.x: %lf\n", i_col, pt.x);
-		c3d_render_elevation(mlx, &pt, i_col + (WIDTH_VISION >> 1), tex_id);
+		c3d_render_elevation(mlx, &pt, i_col, tex_id);
 		i_col++;
 	}
 //debug_c3d_img(mlx->img[tex_id], 0);
