@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/10 01:46:54 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/10 12:28:02 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ debug_c3d_map_raw(scene->map);
 	c3d_map_encode(scene->map);
 debug_c3d_map_flag(scene->map);
 	c3d_map_valid(scene->map);
-	scene->size = ft_mapsize(scene->map);
 	close(fd);
 	return (ERR_NOERR);
 }
@@ -47,6 +46,7 @@ static int	c3d_main_win(t_scene *scene)
 	ft_putendl_fd(MSG_WAIT, STDOUT_FILENO);
 	c3d_win_init(&mlx);
 	c3d_img_init(&mlx);
+//	c3d_render_map_init(&mlx);
 	c3d_win_draw_vision(&mlx);
 	ft_putendl_fd(MSG_HOWTO_MOVE, STDOUT_FILENO);
 	mlx_hook(mlx.win, EVENT_KEYDOWN, MASK_STRUCT, &c3d_game_keyhook, &mlx);

@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/10 00:30:11 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/10 12:29:24 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	c3d_render_elevation(t_mlx *mlx, t_coord *pt, int i_col, int tex_id)
 debug_printf("pt(%3lf, %3lf)\t", pt->x, pt->y);
 debug_printf("src(%3ld, %3ld)\t", src.x, src.y);
 debug_printf("dst(%3ld, %3ld)\n", dst.x, dst.y);
-	c3d_render_imgline(mlx->img, tex_id, &dst, &src);
+	c3d_render_imgline(&mlx->img[IDX_VISION], &mlx->img[tex_id], &dst, &src);
 }
 /*
 static void	c3d_render_intersect(t_mlx *mlx, t_vec *ray)

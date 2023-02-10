@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/10 01:30:33 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/10 12:05:06 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ typedef struct s_scene
 	char	*path[N_TEXTURE];
 	int		color[N_COLOR];
 	char	**map;
-	t_addr	size;
 }	t_scene;
 
 typedef struct s_game
@@ -84,6 +83,7 @@ typedef struct s_mlx
 	t_img	img[N_IMAGE];
 	t_scene	*scene;
 	t_game	game;
+	int		scale;
 }	t_mlx;
 
 #endif

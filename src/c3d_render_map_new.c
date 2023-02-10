@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/10 10:55:44 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/10 12:09:37 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,8 @@ static void	c3d_render_map_center(t_img *img)
 //	img->data[img->width * (img->height >> 1) + (img->width >> 1)] = COLOR_POS;
 }
 
-void	c3d_render_map(t_mlx *mlx)
+void	c3d_render_map_blend(t_mlx *mlx)
 {
-	c3d_img_clear(&mlx->img[IDX_MAP], COLOR_SPACE, \
-		SIZE_MAP * SIZE_CELL, SIZE_MAP * SIZE_CELL);
 	c3d_render_map_loop(&mlx->img[IDX_MAP], mlx->scene->map, &mlx->game);
 	c3d_render_map_center(&mlx->img[IDX_MAP]);
 }
