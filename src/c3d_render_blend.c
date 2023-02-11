@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/10 18:24:48 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/11 12:01:28 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	c3d_render_blend(t_img *img_dst, t_img *img_src, t_addr *zero)
 			back = img_dst->data[(zero->y + i.y) * img_dst->width \
 				+ zero->x + i.x];
 			img_dst->data[(zero->y + i.y) * img_dst->width + zero->x + i.x] \
-				= (fore * (MASK_CHANNEL - alpha) + back * alpha) \
+				= (fore * ((1 << BITS_CHANNEL) - alpha) + back * alpha) \
 				>> BITS_CHANNEL;
 			i.x++;
 		}

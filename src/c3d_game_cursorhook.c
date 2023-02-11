@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 03:34:43 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/11 12:54:42 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,12 @@ int	c3d_game_cursorhook(int x, int y, t_mlx *mlx)
 {
 	t_angle	turn;
 
-debug_printf("cursor(%d, %d)\n", x, y);
+	if (!ft_hasflag(mlx->game.event, FLAG_CURSOR))
+		return (false);
+//debug_printf("cursor(%d, %d)\n", x, y);
 	if (c3d_game_cursorhook_turn(&turn, x, y, &mlx->game.cursor))
 		c3d_game_turn(mlx, &turn);
 	mlx->game.cursor.x = x;
 	mlx->game.cursor.y = y;
-	mlx->game.event = EVENT_MOUSEMOVE;
-	return (ERR_NOERR);
+	return (c3d_mlx_hook(mlx));
 }
