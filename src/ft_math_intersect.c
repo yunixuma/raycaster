@@ -6,13 +6,13 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/08 23:29:05 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/11 17:32:56 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	ft_math_intersect_2d_exception(t_vec *vec1, t_vec *vec2, t_coord *pt)
+/*
+static void	ft_math_intersect_2d_exception(t_vec *vec1, t_vec *vec2, t_coord *pt)
 {
 	if (vec1)
 		ft_coord_copy(pt, &vec1->pos);
@@ -21,6 +21,7 @@ void	ft_math_intersect_2d_exception(t_vec *vec1, t_vec *vec2, t_coord *pt)
 	else
 		ft_coord_init(pt);
 }
+*/
 
 int	ft_math_intersect_2d(t_vec *vec1, t_vec *vec2, t_coord *pt)
 {

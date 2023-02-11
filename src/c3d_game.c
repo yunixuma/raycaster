@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 17:18:35 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/11 17:41:04 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ static void	c3d_game_turn_adjust(t_angle *angle, int speed)
 	right = -ANGLE_RIGHT * 2;
 	while (right <= ANGLE_RIGHT * 2)
 	{
-		if (angle->yaw < right + UNIT_TURN * speed && angle->yaw > right - UNIT_TURN * speed)
+		if (angle->yaw < right + UNIT_TURN * speed \
+			&& angle->yaw > right - UNIT_TURN * speed)
 			angle->yaw = right;
 		right += ANGLE_RIGHT;
 	}
@@ -52,7 +53,8 @@ int	c3d_game_turn(t_mlx *mlx, t_angle *turn)
 	mlx->game.angle.pitch += turn->pitch;
 	if (mlx->game.angle.pitch > (ANGLE_RIGHT - UNIT_TURN * mlx->game.speed))
 		mlx->game.angle.pitch = (ANGLE_RIGHT - UNIT_TURN * mlx->game.speed);
-	else if (mlx->game.angle.pitch < -(ANGLE_RIGHT - UNIT_TURN * mlx->game.speed))
+	else if (mlx->game.angle.pitch \
+		< -(ANGLE_RIGHT - UNIT_TURN * mlx->game.speed))
 		mlx->game.angle.pitch = -(ANGLE_RIGHT - UNIT_TURN * mlx->game.speed);
 	c3d_game_turn_adjust(&mlx->game.angle, mlx->game.speed);
 	if (mlx->game.angle.yaw == bak.yaw && mlx->game.angle.pitch == bak.pitch)

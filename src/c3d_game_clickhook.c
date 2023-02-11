@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 17:22:54 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/11 17:38:54 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,12 @@ static int	c3d_game_clickhook_lens(t_angle *turn, int button, int speed)
 
 static int	c3d_game_clickhook_speed(int *new, int button, int old)
 {
-DI(old);
 	if (button != BUTTON_SPEED)
 		return (false);
 	if (old == SPEED_FAST)
 		*new = SPEED_SLOW;
 	else
 		*new = SPEED_FAST;
-DI(*new);
 	return (true);
 }
 
