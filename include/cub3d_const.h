@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/10 18:27:11 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/11 16:24:22 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@
 # define SIZE_CELL			12
 # define RATIO_HUD			4
 # define WEIGHT_FRAME		2
+# define SPEED_SLOW			1
+# define SPEED_FAST			2
 
 typedef enum e_channel
 {

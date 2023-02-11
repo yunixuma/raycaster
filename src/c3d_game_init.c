@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 12:11:05 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/11 16:25:28 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ void	c3d_game_init(t_game *game, t_scene *scene)
 	game->fov = ANGLE_FOV;
 	game->event = FLAG_NOEVENT;
 	ft_addr_set(&game->cursor, VAL_INVAL, VAL_INVAL);
+	game->speed = SPEED_SLOW;
 	game->score = 0;
 }

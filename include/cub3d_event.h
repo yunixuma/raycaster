@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 12:55:50 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/11 16:20:45 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@
 # define KEY_TELE			VK_PGUP
 # define KEY_WIDE			VK_PGDN
 # define BUTTON_FOCUS		VK_LBUTTON
-# define BUTTON_CURSOR_1	VK_MBUTTON
-# define BUTTON_CURSOR_2	VK_RBUTTON
+# define BUTTON_CURSOR		VK_MBUTTON
+# define BUTTON_SPEED		VK_RBUTTON
 # define BUTTON_TELE		VK_SCROLLUP
 # define BUTTON_WIDE		VK_SCROLLDOWN
 # define KEY_NONE			0x7fffffffL

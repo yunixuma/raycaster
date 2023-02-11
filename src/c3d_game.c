@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 11:56:08 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/11 17:18:35 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ debug_printf("move: (%6.3lf, %6.3lf)\n", move->x, move->y);
 	return (true);
 }
 
-static void	c3d_game_turn_adjust(t_angle *angle)
+static void	c3d_game_turn_adjust(t_angle *angle, int speed)
 {
 	double	right;
 
-	if (angle->pitch < UNIT_TURN && angle->pitch > -UNIT_TURN)
+	if (angle->pitch < UNIT_TURN * speed && angle->pitch > -UNIT_TURN * speed)
 		angle->pitch = 0;
 	right = -ANGLE_RIGHT * 2;
 	while (right <= ANGLE_RIGHT * 2)
 	{
-		if (angle->yaw < right + UNIT_TURN && angle->yaw > right - UNIT_TURN)
+		if (angle->yaw < right + UNIT_TURN * speed && angle->yaw > right - UNIT_TURN * speed)
 			angle->yaw = right;
 		right += ANGLE_RIGHT;
 	}
@@ -50,11 +50,11 @@ int	c3d_game_turn(t_mlx *mlx, t_angle *turn)
 	mlx->game.angle.yaw \
 		= ft_math_angle_normalize(mlx->game.angle.yaw + turn->yaw);
 	mlx->game.angle.pitch += turn->pitch;
-	if (mlx->game.angle.pitch > (ANGLE_RIGHT - UNIT_TURN))
-		mlx->game.angle.pitch = (ANGLE_RIGHT - UNIT_TURN);
-	else if (mlx->game.angle.pitch < -(ANGLE_RIGHT - UNIT_TURN))
-		mlx->game.angle.pitch = -(ANGLE_RIGHT - UNIT_TURN);
-	c3d_game_turn_adjust(&mlx->game.angle);
+	if (mlx->game.angle.pitch > (ANGLE_RIGHT - UNIT_TURN * mlx->game.speed))
+		mlx->game.angle.pitch = (ANGLE_RIGHT - UNIT_TURN * mlx->game.speed);
+	else if (mlx->game.angle.pitch < -(ANGLE_RIGHT - UNIT_TURN * mlx->game.speed))
+		mlx->game.angle.pitch = -(ANGLE_RIGHT - UNIT_TURN * mlx->game.speed);
+	c3d_game_turn_adjust(&mlx->game.angle, mlx->game.speed);
 	if (mlx->game.angle.yaw == bak.yaw && mlx->game.angle.pitch == bak.pitch)
 		return (false);
 	return (true);

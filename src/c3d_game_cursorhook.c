@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 12:54:42 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/11 16:46:55 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,20 @@ static int	c3d_game_cursorhook_turn(t_angle *turn, int x, int y)
 	return (true);
 }
 */
-static int	c3d_game_cursorhook_turn(t_angle *turn, int x, int y, t_addr *prev)
+static int	c3d_game_cursorhook_turn(t_angle *turn, \
+	t_addr *new, t_addr *old, int speed)
 {
 	turn->yaw = 0;
 	turn->pitch = 0;
 
-	if (x < prev->x)
-		turn->yaw = UNIT_TURN;
-	else if (x > prev->x && prev->x > VAL_INVAL)
-		turn->yaw = -UNIT_TURN;
-	if (y < prev->y)
-		turn->pitch = UNIT_TURN;
-	else if (y > prev->y && prev->y > VAL_INVAL)
-		turn->pitch = -UNIT_TURN;
+	if (new->x < old->x)
+		turn->yaw = UNIT_TURN * speed;
+	else if (new->x > old->x && old->x > VAL_INVAL)
+		turn->yaw = -UNIT_TURN * speed;
+	if (new->y < old->y)
+		turn->pitch = UNIT_TURN * speed;
+	else if (new->y > old->y && old->y > VAL_INVAL)
+		turn->pitch = -UNIT_TURN * speed;
 	if (turn->yaw == 0 && turn->pitch == 0)
 		return (false);
 	return (true);
@@ -51,11 +52,14 @@ static int	c3d_game_cursorhook_turn(t_angle *turn, int x, int y, t_addr *prev)
 int	c3d_game_cursorhook(int x, int y, t_mlx *mlx)
 {
 	t_angle	turn;
+	t_addr	new;
 
 	if (!ft_hasflag(mlx->game.event, FLAG_CURSOR))
 		return (false);
-//debug_printf("cursor(%d, %d)\n", x, y);
-	if (c3d_game_cursorhook_turn(&turn, x, y, &mlx->game.cursor))
+debug_printf("cursor(%d, %d)\n", x, y);
+	ft_addr_set(&new, x, y);
+	if (c3d_game_cursorhook_turn(&turn, \
+		&new, &mlx->game.cursor, mlx->game.speed))
 		c3d_game_turn(mlx, &turn);
 	mlx->game.cursor.x = x;
 	mlx->game.cursor.y = y;
