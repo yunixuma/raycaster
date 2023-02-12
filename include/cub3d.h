@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: kobayashi <kobayashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 11:38:13 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/12 12:58:19 by kobayashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include "cub3d_string.h"
 # include "cub3d_const.h"
 # include "cub3d_flag.h"
+# include "cub3d_render_vision.h"
 /*# ifdef __MACH__
 #  include "cub3d_event_mac.h"
 # else*/
@@ -63,6 +64,7 @@ void		c3d_img_clear(t_img *img, int color_code, int width, int height);
 void		c3d_img_destroy(t_mlx *mlx);
 void		c3d_render_background(t_mlx *mlx);
 void		c3d_render_visible(t_mlx *mlx);
+void		c3d_render_vision(t_mlx *mlx);
 void		c3d_render_hud_init(t_mlx *mlx);
 void		c3d_render_hud(t_mlx *mlx);
 void		c3d_render_blend(t_img *img_dst, t_img *img_src, t_addr *zero);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_win.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: kobayashi <kobayashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 11:44:04 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/12 13:35:09 by kobayashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	c3d_win_init(t_mlx *mlx)
 int	c3d_win_draw_vision(t_mlx *mlx)
 {
 	c3d_render_background(mlx);
-	c3d_render_visible(mlx);
+	//c3d_render_visible(mlx);
+	c3d_render_vision(mlx);
 	c3d_render_hud(mlx);
 	mlx_put_image_to_window(mlx->conn, mlx->win, mlx->img[IDX_VISION].ptr, \
 		ZERO_VISION, ZERO_VISION);

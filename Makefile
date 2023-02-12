@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+         #
+#    By: kobayashi <kobayashi@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 16:52:37 by ykosaka           #+#    #+#              #
-#    Updated: 2023/02/11 03:06:05 by Yoshihiro K      ###   ########.fr        #
+#    Updated: 2023/02/12 14:01:32 by kobayashi        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRC				= c3d_main.c c3d_map_read.c c3d_map_trim.c \
 				  c3d_scene.c c3d_scene_def.c c3d_scene_def_color.c \
 				  c3d_exit.c c3d_exit_mlx.c \
 				  c3d_mlx.c c3d_win.c c3d_img.c \
-				  c3d_render_background.c c3d_render_visible.c \
+				  c3d_render_background.c c3d_render_visible.c c3d_render_vision.c \
+				  c3d_extend_ray.c c3d_get_hit_wall.c c3d_get_ray_vec.c c3d_create_gridmap.c \
 				  c3d_render_hud_init.c c3d_render_hud.c \
 				  c3d_render_rectangle.c \
 				  c3d_render_blend.c c3d_render_imgline.c c3d_render_imgpixel.c \
