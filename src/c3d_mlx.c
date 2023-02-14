@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/13 18:56:50 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/14 22:32:01 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	c3d_mlx_init(t_mlx *mlx)
 
 bool	c3d_mlx_hook(t_mlx *mlx)
 {
-debug_printf("event: %#.2x\n", mlx->game.event);
+//debug_printf("event: %#.2x\n", mlx->game.event);
 	if (mlx->game.event == FLAG_NOEVENT)
 		return (false);
 	c3d_win_draw_vision(mlx);

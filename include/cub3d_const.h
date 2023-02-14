@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/14 02:19:12 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/14 21:08:11 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,14 @@
 # define ANGLE_FOV			90.
 # define ANGLE_FOV_MAX		108.
 # define ANGLE_FOV_MIN		72.
-# define WIDTH_VISION		720
+# define WIDTH_VISION		640
 # define HEIGHT_VISION		480
 # define ZERO_VISION		0
 # define HEIGHT_SIGHT		0.5
 # define WIDTH_BLOCK		120
 # define HEIGHT_BLOCK		120
 # define SIZE_CELL			12
+# define LEN_POS			2
 # define RATIO_HUD			4
 # define WEIGHT_FRAME		2
 # define SPEED_SLOW			1
