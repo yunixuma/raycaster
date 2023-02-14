@@ -6,13 +6,13 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 17:41:04 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/13 18:55:34 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	c3d_game_move(t_mlx *mlx, t_coord *move)
+bool	c3d_game_move(t_mlx *mlx, t_coord *move)
 {
 	char	newcell;
 
@@ -42,7 +42,7 @@ static void	c3d_game_turn_adjust(t_angle *angle, int speed)
 	}
 }
 
-int	c3d_game_turn(t_mlx *mlx, t_angle *turn)
+bool	c3d_game_turn(t_mlx *mlx, t_angle *turn)
 {
 	t_angle	bak;
 
@@ -62,7 +62,7 @@ int	c3d_game_turn(t_mlx *mlx, t_angle *turn)
 	return (true);
 }
 
-int	c3d_game_lens(t_mlx *mlx, double fov_add)
+bool	c3d_game_lens(t_mlx *mlx, double fov_add)
 {
 	double	fov_bak;
 
@@ -77,7 +77,7 @@ int	c3d_game_lens(t_mlx *mlx, double fov_add)
 	return (true);
 }
 
-int	c3d_game_judge(t_mlx *mlx)
+bool	c3d_game_judge(t_mlx *mlx)
 {
 	if (mlx->scene->map[(size_t)mlx->game.coord.y][(size_t)mlx->game.coord.x] \
 		!= CHRS_MAP[IDX_SOUTH])

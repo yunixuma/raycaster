@@ -6,13 +6,13 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 17:28:06 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/14 01:50:44 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	c3d_game_keyhook_move(t_coord *move, int key, \
+static bool	c3d_game_keyhook_move(t_coord *move, int key, \
 	double angle, int speed)
 {
 	if (key == KEY_MOVELEFT)
@@ -28,7 +28,7 @@ static int	c3d_game_keyhook_move(t_coord *move, int key, \
 	return (true);
 }
 
-static int	c3d_game_keyhook_turn(t_angle *turn, int key, int speed)
+static bool	c3d_game_keyhook_turn(t_angle *turn, int key, int speed)
 {
 	turn->yaw = 0;
 	turn->pitch = 0;
@@ -45,7 +45,7 @@ static int	c3d_game_keyhook_turn(t_angle *turn, int key, int speed)
 	return (true);
 }
 
-static int	c3d_game_keyhook_lens(t_angle *turn, int key, int speed)
+static bool	c3d_game_keyhook_lens(t_angle *turn, int key, int speed)
 {
 	turn->roll = 0;
 	if (key == KEY_WIDE)
@@ -73,7 +73,7 @@ int	c3d_game_keyhook(int key, t_mlx *mlx)
 	else if (c3d_game_keyhook_lens(&turn, key, mlx->game.speed))
 		c3d_game_lens(mlx, turn.roll);
 	if (c3d_game_judge(mlx))
-		c3d_exit_mlx_goal(ERR_NOERR, mlx);
+		c3d_exit_mlx_goal(mlx);
 	mlx->game.event |= FLAG_KEY;
 	return (c3d_mlx_hook(mlx));
 }

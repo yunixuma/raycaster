@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_lst2map_rect.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/07 21:40:52 by ykosaka          ###   ########.fr       */
+/*   Updated: 2023/02/14 01:08:34 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,29 @@ static size_t	c3d_lst2map_rect_getlen(t_list *lst, size_t *size)
 	return (len_max);
 }
 
-static char	\
-	*c3d_lst2map_rect_copy_extend(char *content, size_t len_old, size_t len_max)
+static char	*c3d_lst2map_rect_copy_extend(char *content, \
+	size_t len_orig, size_t len_fixed)
 {
 	char	*row;
 
-	row = (char *)malloc((len_max + 1) * sizeof(char));
+	row = (char *)malloc((len_fixed + 1) * sizeof(char));
 	if (row == NULL)
 		return (NULL);
-	ft_strlcpy(row, content, len_max + 1);
-	ft_memset(row + len_old, CHRS_MAP[IDX_SPACE], len_max - len_old);
-	row[len_max] = '\0';
+	ft_strlcpy(row, content, len_fixed + 1);
+	if (len_fixed > len_orig)
+	{
+		ft_memset(row + len_orig, CHRS_MAP[IDX_SPACE], len_fixed - len_orig);
+		row[len_fixed] = '\0';
+	}
 	free(content);
 	return (row);
 }
 
 static char	\
-	**c3d_lst2map_rect_copy(t_list *lst, size_t size, size_t len_max)
+	**c3d_lst2map_rect_copy(t_list *lst, size_t size, size_t len_fixed)
 {
 	char	**map;
-	size_t	len_old;
+	size_t	len_orig;
 	size_t	i;
 
 	map = (char **)malloc((size + 1) * sizeof(char *));
@@ -59,12 +62,12 @@ static char	\
 	i = 0;
 	while (i < size)
 	{
-		len_old = ft_strlen(lst->content);
-		if (len_old == len_max)
+		len_orig = ft_strlen(lst->content);
+		if (len_orig == len_fixed)
 			map[i] = lst->content;
 		else
 			map[i] = c3d_lst2map_rect_copy_extend(lst->content, \
-				len_old, len_max);
+				len_orig, len_fixed);
 		if (map[i] == NULL)
 			return (NULL);
 		lst = lst->next;
@@ -78,15 +81,14 @@ char	**c3d_lst2map_rect(t_list **lst)
 {
 	char	**map;
 	size_t	size;
-	size_t	len_max;
+	size_t	len_fixed;
 
 	size = 0;
-	len_max = c3d_lst2map_rect_getlen(*lst, &size);
+	len_fixed = c3d_lst2map_rect_getlen(*lst, &size);
 	if (size == 0)
-		c3d_exit_lst(ERR_ALLOC, lst);
-	map = c3d_lst2map_rect_copy(*lst, size, len_max);
+		return (ft_seterr(ERR_EMPTY));
+	map = c3d_lst2map_rect_copy(*lst, size, len_fixed);
 	if (map == NULL)
-		c3d_exit_lst(ERR_ALLOC, lst);
-	ft_lstclear(lst, NULL);
+		return (ft_seterr(ERR_ALLOC));
 	return (map);
 }

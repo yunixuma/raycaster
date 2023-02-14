@@ -1,50 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mapseek.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear_seterr.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/13 18:57:23 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/14 00:23:54 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_addr	ft_mapseek(char **map, char ch)
+void	*ft_lstclear_seterr(t_list **lst, void (*del)(void*), int errnum)
 {
-	t_addr	addr;
-	char	*pos;
-
-	if (map == NULL)
-	{
-		addr.x = POS_NOEXIST;
-		addr.y = POS_NOEXIST;
-		return (addr);
-	}
-	addr.y = 0;
-	while (map[addr.y] != NULL)
-	{
-		pos = ft_strchr(map[addr.y], ch);
-		if (pos != NULL)
-		{
-			addr.x = pos - map[addr.y];
-			return (addr);
-		}
-		(addr.y)++;
-	}
-	addr.x = POS_NOEXIST;
-	addr.y = POS_NOEXIST;
-	return (addr);
-}
-
-bool	ft_mapseek_exist(char **map, char ch)
-{
-	t_addr	addr;
-
-	addr = ft_mapseek(map, ch);
-	if (addr.x < 0 || addr.y < 0)
-		return (false);
-	return (true);
+	ft_lstclear(lst, del);
+	return (ft_seterr(errnum));
 }

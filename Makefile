@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kobayashi <kobayashi@student.42.fr>        +#+  +:+       +#+         #
+#    By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 16:52:37 by ykosaka           #+#    #+#              #
-#    Updated: 2023/02/12 14:01:32 by kobayashi        ###   ########.fr        #
+#    Updated: 2023/02/14 01:48:58 by Yoshihiro K      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,12 @@ LIBNAME_MLX		= libmlx
 OS				= $(shell uname)
 
 # Enumeration of files
-SRC				= c3d_main.c c3d_map_read.c c3d_map_trim.c \
-				  c3d_map_chk.c c3d_map_encode.c c3d_map_valid.c \
-				  c3d_map_clear.c c3d_clean.c c3d_print.c \
+SRC				= c3d_main.c \
 				  c3d_scene.c c3d_scene_def.c c3d_scene_def_color.c \
-				  c3d_exit.c c3d_exit_mlx.c \
+				  c3d_map_read.c c3d_map_trim.c \
+				  c3d_map_chk.c c3d_map_encode.c c3d_map_valid.c \
+				  c3d_map_clear.c c3d_print.c \
+				  c3d_exit.c \
 				  c3d_mlx.c c3d_win.c c3d_img.c \
 				  c3d_render_background.c c3d_render_visible.c c3d_render_vision.c \
 				  c3d_extend_ray.c c3d_get_hit_wall.c c3d_get_ray_vec.c c3d_create_gridmap.c \
@@ -37,7 +38,8 @@ SRC				= c3d_main.c c3d_map_read.c c3d_map_trim.c \
 				  c3d_game_keyhook.c c3d_game_cursorhook.c c3d_game_clickhook.c \
 				  c3d_lst2map_rect.c c3d_color.c \
 				  ft_mapseek.c ft_mapsize.c \
-				  ft_free.c ft_hasflag.c ft_stris.c \
+				  ft_free.c ft_seterr.c ft_lstclear_seterr.c \
+				  ft_hasflag.c ft_stris.c \
 				  ft_math.c ft_math_distance.c ft_math_intersect.c \
 				  ft_coord.c ft_addr.c
 

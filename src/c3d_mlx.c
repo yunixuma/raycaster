@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 12:57:43 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/13 18:56:50 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	c3d_mlx_init(t_mlx *mlx)
 	mlx->scale = c3d_mlx_init_scale(&mlx->scene->size);
 }
 
-int	c3d_mlx_hook(t_mlx *mlx)
+bool	c3d_mlx_hook(t_mlx *mlx)
 {
 debug_printf("event: %#.2x\n", mlx->game.event);
 	if (mlx->game.event == FLAG_NOEVENT)

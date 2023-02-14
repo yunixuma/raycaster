@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 17:32:56 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/13 18:57:08 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_math_intersect_2d_exception(t_vec *vec1, t_vec *vec2, t_coord *pt
 }
 */
 
-int	ft_math_intersect_2d(t_vec *vec1, t_vec *vec2, t_coord *pt)
+bool	ft_math_intersect_2d(t_vec *vec1, t_vec *vec2, t_coord *pt)
 {
 	double	a1;
 	double	a2;

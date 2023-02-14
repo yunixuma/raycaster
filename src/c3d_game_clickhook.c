@@ -6,13 +6,13 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 17:38:54 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/13 18:54:46 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	c3d_game_clickhook_turn(t_angle *turn, int button, \
+static bool	c3d_game_clickhook_turn(t_angle *turn, int button, \
 	t_addr *cursor, double fov)
 {
 	if (button != BUTTON_FOCUS)
@@ -26,7 +26,7 @@ DD(turn->pitch);
 	return (true);
 }
 
-static int	c3d_game_clickhook_lens(t_angle *turn, int button, int speed)
+static bool	c3d_game_clickhook_lens(t_angle *turn, int button, int speed)
 {
 	turn->roll = 0;
 	if (button == BUTTON_WIDE)
@@ -38,7 +38,7 @@ static int	c3d_game_clickhook_lens(t_angle *turn, int button, int speed)
 	return (true);
 }
 
-static int	c3d_game_clickhook_speed(int *new, int button, int old)
+static bool	c3d_game_clickhook_speed(int *new, int button, int old)
 {
 	if (button != BUTTON_SPEED)
 		return (false);

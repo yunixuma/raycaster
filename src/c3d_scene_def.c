@@ -6,19 +6,19 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/04 02:11:59 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/14 01:17:54 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	c3d_scene_def_image(t_scene *scene, char *line, size_t idx)
+static int	c3d_scene_def_image(char **path, char *line)
 {
-	if (scene->path[idx] == NULL)
-		scene->path[idx] = ft_strdup(line);
+	if (*path == NULL)
+		*path = ft_strdup(line);
 	else
 		return (ERR_DUP);
-	if (scene->path[idx] == NULL)
+	if (*path == NULL)
 		return (ERR_ALLOC);
 	return (ERR_NOERR);
 }
@@ -38,8 +38,8 @@ static int	c3d_scene_def_sub(t_scene *scene, char *line)
 		if (!ft_strncmp(line, ids[j], ft_strlen(ids[j])))
 		{
 			if (j < N_TEXTURE)
-				return (c3d_scene_def_image(scene, \
-					line + ft_strlen(ids[j]), j));
+				return (c3d_scene_def_image(&scene->path[j], \
+					line + ft_strlen(ids[j])));
 			else
 				return (c3d_scene_def_color(&scene->color[j - N_TEXTURE], \
 					line + ft_strlen(ids[j])));
@@ -53,10 +53,9 @@ int	c3d_scene_def(t_scene *scene, int fd)
 {
 	char	*line;
 	size_t	i;
-	int		errnum;
 
 	line = "";
-	errnum = 0;
+	errno = 0;
 	i = 0;
 	while (i < N_TEXTURE + N_COLOR)
 	{
@@ -64,12 +63,12 @@ int	c3d_scene_def(t_scene *scene, int fd)
 		DS(line);
 		if (line == NULL)
 			return (ERR_EMPTY);
-		errnum = c3d_scene_def_sub(scene, line);
+		errno = c3d_scene_def_sub(scene, line);
 		free(line);
-		if (errnum == ERR_EMPTY)
+		if (errno == ERR_EMPTY)
 			continue ;
-		else if (errnum)
-			return (errnum);
+		else if (errno)
+			return (errno);
 		else
 			i++;
 	}

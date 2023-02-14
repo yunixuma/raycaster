@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/31 13:24:14 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/14 01:05:03 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	c3d_map_chk_chr_line(char *str, int countchr[SIZE_CHRS_MAP])
 	{
 		pos = ft_strchr(chrs, *str);
 		if (pos == NULL)
-			return (ERR_CHR);
+			return (ft_seterr_return(ERR_CHR, ERR_CHR));
 		(countchr[pos - chrs])++;
 		str++;
 	}
@@ -38,7 +38,7 @@ static int	c3d_map_chk_chr_count(int countchr[])
 	while (i < N_DIRECTION)
 		count += countchr[IDX_NORTH + i++];
 	if (count != 1)
-		return (ERR_COUNT);
+		return (ft_seterr_return(ERR_COUNT, ERR_COUNT));
 	return (ERR_NOERR);
 }
 
@@ -53,22 +53,22 @@ static int	c3d_map_chk_chr(t_list *lst)
 	while (lst != NULL)
 	{
 		if (c3d_map_chk_chr_line(lst->content, countchr))
-			return (ERR_CHR);
+			return (errno);
 		lst = lst->next;
 	}
 	if (c3d_map_chk_chr_count(countchr))
-		return (ERR_COUNT);
+		return (errno);
 	return (ERR_NOERR);
 }
 
 static int	c3d_map_chk_len(t_list *lst)
 {
 	if (lst == NULL || lst->content == NULL)
-		return (ERR_EMPTY);
+		return (ft_seterr_return(ERR_EMPTY, ERR_EMPTY));
 	while (lst != NULL)
 	{
 		if (!lst->content || *(char *)lst->content == '\0')
-			return (ERR_EMPTY);
+			return (ft_seterr_return(ERR_EMPTY, ERR_EMPTY));
 		lst = lst->next;
 	}
 	return (ERR_NOERR);
@@ -76,13 +76,9 @@ static int	c3d_map_chk_len(t_list *lst)
 
 int	c3d_map_chk(t_list **lst)
 {
-	int	errnum;
-
-	errnum = c3d_map_chk_len(*lst);
-	if (errnum)
-		c3d_exit_lst(errnum, lst);
-	errnum = c3d_map_chk_chr(*lst);
-	if (errnum)
-		c3d_exit_lst(errnum, lst);
+	if (c3d_map_chk_len(*lst))
+		return (errno);
+	if (c3d_map_chk_chr(*lst))
+		return (errno);
 	return (ERR_NOERR);
 }

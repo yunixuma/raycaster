@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/21 21:13:08 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/13 14:32:08 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	**ft_lst2map(t_list **lst)
 	ele = *lst;
 	map = (char **)malloc((size + 1) * sizeof(char *));
 	if (map == NULL)
-		c3d_exit_lst(ERR_ALLOC, lst);
+		return (NULL);
 	i = 0;
 	while (i < size)
 	{
@@ -32,6 +32,5 @@ char	**ft_lst2map(t_list **lst)
 		i++;
 	}
 	map[i] = NULL;
-	ft_lstclear(lst, NULL);
 	return (map);
 }

@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/31 13:24:33 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/14 00:47:00 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ t_list	*c3d_map_read(int fd)
 		line = get_next_line(fd);
 		ele = ft_lstnew(line);
 		if (ele == NULL)
-			c3d_exit_lst(ERR_ALLOC, &lst);
+		{
+			ft_lstclear(&lst, &free);
+			return (ft_seterr(ERR_ALLOC));
+		}
 		ft_lstadd_back(&lst, ele);
 	}
 	return (lst);

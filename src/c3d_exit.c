@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/31 13:24:00 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/14 02:19:03 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,26 @@ int	c3d_exit(int errnum)
 	exit(errnum);
 }
 
-int	c3d_exit_lst(int errnum, t_list **lst)
+int	c3d_exit_mlx(t_mlx *mlx, int errnum)
 {
-	ft_lstclear(lst, free);
+	if (mlx != NULL)
+	{
+		c3d_img_destroy(mlx);
+		c3d_win_destroy(mlx);
+		c3d_scene_clean(mlx->scene, errnum);
+		mlx = NULL;
+	}
 	return (c3d_exit(errnum));
 }
 
-int	c3d_exit_map(int errnum, char **map)
+int	c3d_exit_mlx_break(t_mlx *mlx)
 {
-	c3d_map_clear_free(map);
-	return (c3d_exit(errnum));
+	c3d_print_break();
+	return (c3d_exit_mlx(mlx, ERR_NOERR));
+}
+
+int	c3d_exit_mlx_goal(t_mlx *mlx)
+{
+	c3d_print_goal(mlx->game.score);
+	return (c3d_exit_mlx(mlx, ERR_NOERR));
 }

@@ -6,13 +6,13 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/10 16:02:49 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/14 02:10:42 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	c3d_img_texture_load(t_mlx *mlx, t_img *img, char *path)
+static bool	c3d_img_texture_load(t_mlx *mlx, t_img *img, char *path)
 {
 	img->ptr = mlx_xpm_file_to_image(mlx->conn, path, \
 		&img->width, &img->height);
@@ -24,7 +24,7 @@ DP(img->ptr);
 	return (true);
 }
 
-static int	c3d_img_init_empty(t_mlx *mlx, t_img *img, int width, int height)
+static bool	c3d_img_init_empty(t_mlx *mlx, t_img *img, int width, int height)
 {
 debug_printf("width: %d\theight: %d\n", width, height);
 	img->ptr = mlx_new_image(mlx->conn, width, height);
@@ -54,7 +54,7 @@ void	c3d_img_init(t_mlx *mlx)
 	while (i < N_IMAGE)
 	{
 		if (mlx->img[i++].ptr == NULL)
-			c3d_exit_mlx(ERR_OPEN, mlx);
+			c3d_exit_mlx(mlx, ERR_OPEN);
 	}
 }
 

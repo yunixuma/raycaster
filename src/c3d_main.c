@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 13:03:04 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/14 01:44:56 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,17 @@
 static int	c3d_main_scene(t_scene *scene, char *fpath)
 {
 	int		fd;
-	t_list	*lst;
-	int		errnum;
 
 	c3d_scene_init(scene);
 	fd = c3d_scene_open(fpath);
+	if (fd < 0)
+		return (errno);
 DI(fd);
-	errnum = c3d_scene_def(scene, fd);
-	if (errnum)
-		return (c3d_clean(scene, errnum));
-	lst = c3d_map_read(fd);
-	c3d_map_trim(&lst);
-	c3d_map_chk(&lst);
-	scene->map = c3d_lst2map_rect(&lst);
-debug_c3d_map_raw(scene->map);
-	c3d_map_encode(scene->map);
-debug_c3d_map_flag(scene->map);
-	c3d_map_valid(scene->map);
+	if (c3d_scene_def(scene, fd))
+		return (c3d_scene_clean(scene, errno));
+	scene->map = c3d_scene_getmap(fd);
+	if (errno)
+		return (c3d_scene_clean(scene, errno));
 	scene->size = ft_mapsize(scene->map);
 	close(fd);
 	return (ERR_NOERR);
@@ -61,23 +55,21 @@ DP(&mlx.img[IDX_HUD]);
 	mlx_expose_hook(mlx.win, &c3d_win_draw_vision, &mlx);
 //	mlx_loop_hook(mlx.conn, &c3d_mlx_hook, &mlx);
 	mlx_loop(mlx.conn);
-	return (ERR_NOERR);
+	return (c3d_exit_mlx(&mlx, ERR_NOERR));
 }
 
 int	main(int argc, char *argv[])
 {
 	t_scene	scene;
-	int		errnum;
 
+	errno = 0;
 	if (argc < OFFSET_ARG + IDX_ARG)
-		c3d_exit(ERR_NOARG);
+		return (c3d_print_err(ERR_NOARG));
 	if (argc > OFFSET_ARG + IDX_ARG)
-		c3d_exit(ERR_MANYARGS);
-	errnum = c3d_main_scene(&scene, argv[IDX_ARG]);
-	if (errnum)
-		return (errnum);
+		return (c3d_print_err(ERR_MANYARGS));
+	if (c3d_main_scene(&scene, argv[IDX_ARG]))
+		return (c3d_print_err(errno));
 debug_c3d_scene(&scene);
 	c3d_main_win(&scene);
-	c3d_clean(&scene, ERR_NOERR);
 	return (ERR_NOERR);
 }

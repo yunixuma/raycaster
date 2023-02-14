@@ -6,13 +6,13 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 17:37:49 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/13 18:54:38 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 /*
-static int	c3d_game_cursorhook_turn(t_angle *turn, int x, int y)
+static bool	c3d_game_cursorhook_turn(t_angle *turn, int x, int y)
 {
 	turn->yaw = 0;
 	turn->pitch = 0;
@@ -30,7 +30,7 @@ static int	c3d_game_cursorhook_turn(t_angle *turn, int x, int y)
 	return (true);
 }
 */
-static int	c3d_game_cursorhook_turn(t_angle *turn, \
+static bool	c3d_game_cursorhook_turn(t_angle *turn, \
 	t_addr *new, t_addr *old, int speed)
 {
 	turn->yaw = 0;

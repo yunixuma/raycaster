@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/31 13:24:39 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/14 00:54:40 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int	c3d_map_trim_bottom(t_list *lst)
 int	c3d_map_trim(t_list **lst)
 {
 	if (lst == NULL || *lst == NULL || (*lst)->content == NULL)
-		c3d_exit_lst(ERR_EMPTY, lst);
+		return (ft_seterr_return(ERR_EMPTY, ERR_EMPTY));
 	c3d_map_trim_eol(*lst);
 	c3d_map_trim_top(lst);
 	c3d_map_trim_bottom(*lst);
