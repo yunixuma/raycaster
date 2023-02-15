@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 16:25:28 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/15 01:48:21 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ static void	c3d_game_init_angle(t_game *game, char **map, t_addr *addr)
 		game->angle.yaw = ANGLE_RIGHT * IDX_SOUTH;
 	else if (ft_hasflag(map[addr->y][addr->x], FLAG_WEST))
 		game->angle.yaw = ANGLE_RIGHT * IDX_WEST;
-	game->angle.yaw = ANGLE_RIGHT * IDX_NORTH;
+	else
+		game->angle.yaw = ANGLE_RIGHT * IDX_NORTH;
 }
 
 void	c3d_game_init(t_game *game, t_scene *scene)

@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_render_vision.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kobayashi <kobayashi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:58:35 by kobayashi         #+#    #+#             */
-/*   Updated: 2023/02/15 18:23:56 by kobayashi        ###   ########.fr       */
+/*   Updated: 2023/02/15 20:32:17 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_RENDER_VISION_H
 # define CUB3D_RENDER_VISION_H
 
-# include <libc.h>
 # include <stdint.h>
 # include <math.h>
 

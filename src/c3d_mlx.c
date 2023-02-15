@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/14 22:32:01 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/15 15:56:57 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,20 @@ static int	c3d_mlx_init_scale(t_addr *size)
 	return (1);
 }
 
-void	c3d_mlx_init(t_mlx *mlx)
+int	c3d_mlx_init(t_mlx *mlx)
 {
 	size_t	i;
 
 	mlx->conn = mlx_init();
+	if (!mlx->conn)
+		return (ft_seterr_return(ERR_MLX, ERR_MLX));
 	c3d_game_init(&mlx->game, mlx->scene);
 	mlx->win = NULL;
 	i = 0;
 	while (i < N_TEXTURE + 1)
 		mlx->img[i++].ptr = NULL;
 	mlx->scale = c3d_mlx_init_scale(&mlx->scene->size);
+	return (ERR_NOERR);
 }
 
 bool	c3d_mlx_hook(t_mlx *mlx)

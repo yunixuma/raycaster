@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/14 21:08:11 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/15 15:56:19 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define ERR_OPEN			ENOENT
 # define ERR_ALLOC			ENOMEM
 # define ERR_DUP			EEXIST
+# define ERR_MLX			EBUSY
 # define UNIT_MOVE			0.125
 # define UNIT_TURN			3.
 # define ANGLE_RIGHT		90.

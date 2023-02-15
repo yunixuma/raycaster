@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/30 12:06:44 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/15 15:50:57 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define MSG_NOARG		"Missing the argument to specify a map file"
 # define MSG_MANYARGS	"Please specify only one argument"
 # define MSG_FEXT		"File extention of map file must be \".cub\""
-# define MSG_FPATH	    "The file path is too long"
+# define MSG_FPATH		"The file path is too long"
 # define MSG_OPEN		"Cannot open the file"
 # define MSG_ALLOC		"An error occured during allocating memory"
 # define MSG_EMPTY		"Empty line appeared"
@@ -37,6 +37,7 @@
 # define MSG_OUTER		"The map must be surrounded by walls"
 # define MSG_PATH		"No route to the exit and/or some collectibles"
 # define MSG_HUGE		"The map is too large to display"
+# define MSG_MLX		"An error occured during initiate a X-Window interface"
 # define MSG_WAIT		"Wait a moment for creating the window..."
 //# define MSG_HOWTO_GOAL "Control the monkey to take all stars to dragon"
 # define MSG_HOWTO_MOVE "Move: [W][A][S][D]\nTurn: [Left][Right]"

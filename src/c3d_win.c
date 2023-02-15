@@ -3,19 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_win.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kobayashi <kobayashi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/12 13:35:09 by kobayashi        ###   ########.fr       */
+/*   Updated: 2023/02/15 15:44:35 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	c3d_win_init(t_mlx *mlx)
+int	c3d_win_init(t_mlx *mlx)
 {
 	mlx->win = mlx_new_window(mlx->conn, \
 		WIDTH_VISION, HEIGHT_VISION, STR_TITLE);
+	if (mlx->win == NULL)
+		return (ft_seterr_return(ERR_MLX, ERR_MLX));
+	return (ERR_NOERR);
 }
 
 int	c3d_win_draw_vision(t_mlx *mlx)
@@ -50,6 +53,6 @@ void	c3d_win_draw_pixel(t_mlx *mlx, int x, int y, int color)
 
 void	c3d_win_destroy(t_mlx *mlx)
 {
-	if (mlx->conn != NULL && mlx->win != NULL)
+	if (mlx != NULL && mlx->conn != NULL && mlx->win != NULL)
 		mlx_destroy_window(mlx->conn, mlx->win);
 }

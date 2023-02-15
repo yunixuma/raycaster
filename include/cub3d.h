@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/14 21:06:21 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/15 15:48:56 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ bool		ft_mapseek_exist(char **map, char ch);
 t_addr		ft_mapsize(char **map);
 void		c3d_map_clear_check(char **map);
 void		*c3d_map_clear_free(char **map);
-void		c3d_mlx_init(t_mlx *mlx);
+int			c3d_mlx_init(t_mlx *mlx);
 bool		c3d_mlx_hook(t_mlx *mlx);
-void		c3d_win_init(t_mlx *mlx);
+int			c3d_win_init(t_mlx *mlx);
 int			c3d_win_draw_vision(t_mlx *mlx);
 void		c3d_win_draw_pixel(t_mlx *mlx, int x, int y, int color);
 void		c3d_win_destroy(t_mlx *mlx);
-void		c3d_img_init(t_mlx *mlx);
+int			c3d_img_init(t_mlx *mlx);
 void		c3d_img_clear(t_img *img, int color_code, int width, int height);
 void		c3d_img_destroy(t_mlx *mlx);
 void		c3d_render_background(t_mlx *mlx);

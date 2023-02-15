@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/14 01:44:56 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/15 15:48:25 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,15 @@ static int	c3d_main_win(t_scene *scene)
 	t_mlx	mlx;
 
 	mlx.scene = scene;
-	c3d_mlx_init(&mlx);
+	if (c3d_mlx_init(&mlx))
+		return (errno);
 DP(mlx.scene->map);
 	ft_putendl_fd(MSG_WAIT, STDOUT_FILENO);
-	c3d_win_init(&mlx);
+	if (c3d_win_init(&mlx))
+		return (c3d_exit_mlx(&mlx, errno));
 DP(&mlx.win);
-	c3d_img_init(&mlx);
+	if (c3d_img_init(&mlx))
+		return (c3d_exit_mlx(&mlx, errno));
 DP(&mlx.img[IDX_HUD]);
 	c3d_render_hud_init(&mlx);
 	c3d_win_draw_vision(&mlx);
