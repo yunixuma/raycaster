@@ -6,7 +6,7 @@
 /*   By: kobayashi <kobayashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:54:49 by kobayashi         #+#    #+#             */
-/*   Updated: 2023/02/12 14:10:17 by kobayashi        ###   ########.fr       */
+/*   Updated: 2023/02/15 18:22:57 by kobayashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	set_init_val(t_mlx *mlx, t_ray_calculation *c)
 	c->base_vc.y = 0;
 	c->screen_vc.x = 0;
 	c->screen_vc.y = 0.66;
+	rotate_view(mlx, c);
 }
 
 void	draw_wall(t_mlx *mlx, t_ray_calculation *c, int x, int y)

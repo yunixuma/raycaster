@@ -6,7 +6,7 @@
 /*   By: kobayashi <kobayashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:58:35 by kobayashi         #+#    #+#             */
-/*   Updated: 2023/02/12 14:00:32 by kobayashi        ###   ########.fr       */
+/*   Updated: 2023/02/15 18:23:56 by kobayashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,6 @@ void	get_hit_wall(t_ray_calculation *c);
 void	extend_ray(t_mlx *mlx, t_ray_calculation *c);
 void	create_gridmap(t_ray_calculation *c);
 void	get_ray_vec(t_ray_calculation *c, int x);
-
+void	rotate_view(t_mlx *mlx, t_ray_calculation *c);
 
 #endif
