@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/14 01:08:34 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/16 11:01:12 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,9 @@ char	**c3d_lst2map_rect(t_list **lst)
 	size = 0;
 	len_fixed = c3d_lst2map_rect_getlen(*lst, &size);
 	if (size == 0)
-		return (ft_seterr(ERR_EMPTY));
+		return (ft_seterr_null(ERR_EMPTY));
 	map = c3d_lst2map_rect_copy(*lst, size, len_fixed);
 	if (map == NULL)
-		return (ft_seterr(ERR_ALLOC));
+		return (ft_seterr_null(ERR_ALLOC));
 	return (map);
 }

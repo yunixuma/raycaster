@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/15 15:56:19 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/15 22:33:28 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ typedef enum e_imgidx
 	N_IMAGE
 }	t_imgidx;
 
-# define INVAL_FILENO			-1
+# define INVAL_FILENO		-1
 # define VAL_INVAL			-1
 # define CHR_DIR			'/'
 # define CHR_SEP			','

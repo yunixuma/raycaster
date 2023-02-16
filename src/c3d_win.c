@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/15 15:44:35 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/16 11:03:50 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	c3d_win_init(t_mlx *mlx)
 	mlx->win = mlx_new_window(mlx->conn, \
 		WIDTH_VISION, HEIGHT_VISION, STR_TITLE);
 	if (mlx->win == NULL)
-		return (ft_seterr_return(ERR_MLX, ERR_MLX));
+		return (ft_seterr(ERR_MLX));
 	return (ERR_NOERR);
 }
 

@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/15 15:48:56 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/16 13:27:28 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,9 @@ void		c3d_print_goal(int score);
 void		c3d_print_break(void);
 int			c3d_color_combine(t_color *color);
 void		c3d_color_separate(t_color *color, int color_code);
-void		*ft_seterr(int errnum);
+int			ft_seterr(int errnum);
 int			ft_seterr_return(int ret, int errnum);
+void		*ft_seterr_null(int errnum);
 void		*ft_free(void **p);
 void		*ft_free_seterr(void **p, int errnum);
 void		*ft_lstclear_seterr(t_list **lst, void (*del)(void*), int errnum);

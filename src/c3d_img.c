@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/15 15:58:32 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/16 11:00:34 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	c3d_img_init(t_mlx *mlx)
 	while (i < N_IMAGE)
 	{
 		if (mlx->img[i++].ptr == NULL)
-			return (ft_seterr_return(ERR_OPEN, ERR_OPEN));
+			return (ft_seterr(ERR_OPEN));
 	}
 	return (ERR_NOERR);
 }

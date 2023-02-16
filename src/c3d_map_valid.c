@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/14 02:08:14 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/16 11:03:57 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	c3d_map_valid_circuit(char **map)
 			if ((map[addr.y][addr.x] == FLAG_FREE \
 				|| ft_hasflag(map[addr.y][addr.x], FLAG_START)) \
 				&& c3d_map_valid_circuit_adjacent(map, &addr))
-				return (ft_seterr_return(ERR_OUTER, ERR_OUTER));
+				return (ft_seterr(ERR_OUTER));
 			addr.x++;
 		}
 		addr.y++;

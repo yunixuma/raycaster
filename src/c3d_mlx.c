@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/15 15:56:57 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/16 11:03:29 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	c3d_mlx_init(t_mlx *mlx)
 
 	mlx->conn = mlx_init();
 	if (!mlx->conn)
-		return (ft_seterr_return(ERR_MLX, ERR_MLX));
+		return (ft_seterr(ERR_MLX));
 	c3d_game_init(&mlx->game, mlx->scene);
 	mlx->win = NULL;
 	i = 0;
