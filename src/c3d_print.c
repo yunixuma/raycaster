@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:04:04 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/26 15:09:09 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/16 17:20:32 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static int	c3d_print_err_sub(int errnum)
 		ft_putendl_fd(MSG_PATH, STDERR_FILENO);
 	else if (errnum == ERR_HUGE)
 		ft_putendl_fd(MSG_HUGE, STDERR_FILENO);
+	else if (errnum == ERR_MLX)
+		ft_putendl_fd(MSG_MLX, STDERR_FILENO);
 	return (errnum);
 }
 
