@@ -6,7 +6,7 @@
 /*   By: kobayashi <kobayashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:04:07 by kobayashi         #+#    #+#             */
-/*   Updated: 2023/02/12 14:15:01 by kobayashi        ###   ########.fr       */
+/*   Updated: 2023/02/18 10:34:52 by kobayashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,14 @@ void	get_wall_exact_pos_x(t_ray_calculation *c)
 		wallX = c->player_pos.x + c->dist_wall * c->ray_vc.x;
 	wallX -= floor(wallX);
 
-	c->tex_pos.x = (int)(wallX * texWidth);
-	if(c->side == 0 && c->ray_vc.x > 0) c->tex_pos.x = texWidth - c->tex_pos.x - 1;
-	if(c->side == 1 && c->ray_vc.y < 0) c->tex_pos.x = texWidth - c->tex_pos.x - 1;
+	c->tex_pos.x = (int)(wallX * c->tex_size.x);
+	if(c->side == 0 && c->ray_vc.x > 0) c->tex_pos.x = c->tex_size.x - c->tex_pos.x - 1;
+	if(c->side == 1 && c->ray_vc.y < 0) c->tex_pos.x = c->tex_size.x - c->tex_pos.x - 1;
 }
 
 void	get_wall_exact_pos_y(t_ray_calculation *c)
 {
-	c->dist_tex_y = 1.0 * texHeight / c->wall_height;
+	c->dist_tex_y = 1.0 * c->tex_size.y / c->wall_height;
 	c->init_tex_y = (c->wall_start - HEIGHT_VISION / 2 + c->wall_height / 2) * c->dist_tex_y;
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_render_vision.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: kobayashi <kobayashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:58:35 by kobayashi         #+#    #+#             */
-/*   Updated: 2023/02/15 20:32:17 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/18 10:31:01 by kobayashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 // #define WIDTH_VISION 640
 // #define HEIGHT_VISION 480
 #define WALL_HEIGHT_BASE 500
-#define texWidth 64
-#define texHeight 64
+// #define texWidth 64
+// #define texHeight 64
 #define IDX_VISION 4
 
 // typedef enum e_chr
@@ -96,6 +96,7 @@ typedef struct s_ray_calculation {
 	int					wall_end;
 	double				dist_tex_y;
 	double				init_tex_y;
+	t_int_position		tex_size;
 }	t_ray_calculation;
 
 void	get_hit_wall(t_ray_calculation *c);
