@@ -6,20 +6,38 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/14 22:34:15 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/19 13:58:32 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	c3d_game_move(t_mlx *mlx, t_coord *move)
+static bool	c3d_game_move_valid(char **map, t_coord *move, t_coord *pos)
 {
 	char	newcell;
 
 debug_printf("move: (%6.3lf, %6.3lf)\n", move->x, move->y);
-	newcell = mlx->scene->map[(size_t)(mlx->game.coord.y + move->y)] \
-		[(size_t)(mlx->game.coord.x + move->x)];
-	if (ft_hasflag(newcell, FLAG_WALL) || newcell == FLAG_SPACE)
+	newcell = map[(size_t)(pos->y + move->y)][(size_t)(pos->x + move->x)];
+	if (newcell != FLAG_SPACE && !ft_hasflag(newcell, FLAG_WALL))
+		return (true);
+	newcell = map[(size_t)(pos->y + move->y)][(size_t)(pos->x)];
+	if (newcell != FLAG_SPACE && !ft_hasflag(newcell, FLAG_WALL))
+	{
+		move->x = 0;
+		return (true);
+	}
+	newcell = map[(size_t)(pos->y)][(size_t)(pos->x + move->x)];
+	if (newcell != FLAG_SPACE && !ft_hasflag(newcell, FLAG_WALL))
+	{
+		move->y = 0;
+		return (true);
+	}
+	return (false);
+}
+
+bool	c3d_game_move(t_mlx *mlx, t_coord *move)
+{
+	if (!c3d_game_move_valid(mlx->scene->map, move, &mlx->game.coord))
 		return (false);
 	mlx->game.coord.y += move->y;
 	mlx->game.coord.x += move->x;
@@ -77,7 +95,7 @@ bool	c3d_game_lens(t_mlx *mlx, double fov_add)
 		return (false);
 	return (true);
 }
-
+/*
 bool	c3d_game_judge(t_mlx *mlx)
 {
 	if (mlx->scene->map[(size_t)mlx->game.coord.y][(size_t)mlx->game.coord.x] \
@@ -87,3 +105,4 @@ bool	c3d_game_judge(t_mlx *mlx)
 		return (false);
 	return (true);
 }
+*/

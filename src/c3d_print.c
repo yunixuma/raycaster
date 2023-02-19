@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:04:04 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/16 17:20:32 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/19 13:56:40 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,9 @@ void	c3d_print_break(void)
 {
 	ft_putendl_fd(MSG_BREAK, STDOUT_FILENO);
 }
-
+/*
 void	c3d_print_goal(int score)
 {
 	printf(MSG_GOAL, score);
 }
+*/

@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/15 22:33:28 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/19 14:02:21 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 # define HEIGHT_BLOCK		120
 # define SIZE_CELL			12
 # define LEN_POS			2
-# define RATIO_HUD			4
+# define RATIO_HUD			3
 # define WEIGHT_FRAME		2
 # define SPEED_SLOW			1
 # define SPEED_FAST			2
