@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/14 02:19:03 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/19 00:43:43 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	c3d_exit_mlx(t_mlx *mlx, int errnum)
 	{
 		c3d_img_destroy(mlx);
 		c3d_win_destroy(mlx);
+		c3d_map2vectors_free(mlx->opt, errnum);
 		c3d_scene_clean(mlx->scene, errnum);
 		mlx = NULL;
 	}

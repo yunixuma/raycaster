@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/16 11:03:29 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/17 07:09:20 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	c3d_mlx_init(t_mlx *mlx)
 	i = 0;
 	while (i < N_TEXTURE + 1)
 		mlx->img[i++].ptr = NULL;
-	mlx->scale = c3d_mlx_init_scale(&mlx->scene->size);
+	mlx->scale = c3d_mlx_init_scale(&mlx->opt->size);
 	return (ERR_NOERR);
 }
 

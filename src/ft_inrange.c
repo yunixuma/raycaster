@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_coord.c                                         :+:      :+:    :+:   */
+/*   ft_inrange.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/17 06:54:23 by Yoshihiro K      ###   ########.fr       */
+/*   Created: 2021/12/28 15:04:04 by ykosaka           #+#    #+#             */
+/*   Updated: 2023/02/17 22:43:56 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	ft_coord_init(t_coord *pt)
+/*
+bool	ft_inrange(int nb, int lower, int upper)
 {
-	if (!pt)
-		return ;
-	pt->x = 0;
-	pt->y = 0;
-	pt->z = 0;
+	if (lower > upper)
+		return (!ft_inrange(nb, upper + 1, lower - 1));
+	return (lower <= nb && nb <= upper);
 }
-
-void	ft_coord_set(t_coord *pt, double x, double y, double z)
+*/
+bool	ft_inrange_dbl(double nb, double lower, double upper)
 {
-	if (!pt)
-		return ;
-	pt->x = x;
-	pt->y = y;
-	pt->z = z;
-}
-
-void	ft_coord_copy(t_coord *dst, t_coord *src)
-{
-	if (!dst)
-		return ;
-	if (!src)
-		ft_coord_init(dst);
-	dst->x = src->x;
-	dst->y = src->y;
-	dst->z = src->z;
+	if (lower > upper)
+		return (ft_inrange_dbl(nb, upper, lower));
+	return (lower <= nb && nb <= upper);
 }

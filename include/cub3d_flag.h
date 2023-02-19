@@ -6,13 +6,14 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 12:08:24 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/17 05:13:37 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_FLAG_H
 # define CUB3D_FLAG_H
 
+# define FLAG_NONE		'\x00'
 # define FLAG_START		'\x10'
 # define FLAG_FREE		'\x20'
 # define FLAG_WALL		'\x40'

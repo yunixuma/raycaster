@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/13 18:54:46 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/19 00:48:36 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static bool	c3d_game_clickhook_turn(t_angle *turn, int button, \
 {
 	if (button != BUTTON_FOCUS)
 		return (false);
-	turn->yaw = fov * ((WIDTH_VISION >> 1) - cursor->x) / WIDTH_VISION;
+	turn->yaw = fov * (cursor->x - (WIDTH_VISION >> 1)) / WIDTH_VISION;
 DD(turn->yaw);
 	turn->pitch = fov * ((HEIGHT_VISION >> 1) - cursor->y) / WIDTH_VISION;
 DD(turn->pitch);

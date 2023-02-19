@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_math.c                                          :+:      :+:    :+:   */
+/*   c3d_idx2flag.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/16 18:58:48 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/17 05:14:43 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_math.h"
+#include "cub3d.h"
 
-double	ft_math_deg2rad(double deg)
+char	c3d_idx2flag_direction(size_t idx)
 {
-	return (M_PI * deg / 180);
-}
-
-double	ft_math_rad2deg(double rad)
-{
-	return (rad * 180 / M_PI);
-}
-
-double	ft_math_angle_normalize(double deg)
-{
-	if (deg > 180)
-		deg -= 360;
-	else if (deg < -180)
-		deg += 360;
-	return (deg);
-}
-
-double	ft_math_sin_deg(double deg)
-{
-	return (sin(ft_math_deg2rad(deg)));
-}
-
-double	ft_math_cos_deg(double deg)
-{
-	return (cos(ft_math_deg2rad(deg)));
+	if (idx == IDX_NORTH)
+		return (FLAG_NORTH);
+	else if (idx == IDX_EAST)
+		return (FLAG_EAST);
+	else if (idx == IDX_SOUTH)
+		return (FLAG_SOUTH);
+	else if (idx == IDX_WEST)
+		return (FLAG_WEST);
+	return (FLAG_NONE);
 }

@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/16 11:00:34 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/17 07:07:42 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	c3d_img_init(t_mlx *mlx)
 	}
 	c3d_img_init_empty(mlx, &mlx->img[IDX_VISION], WIDTH_VISION, HEIGHT_VISION);
 	c3d_img_init_empty(mlx, &mlx->img[IDX_HUD], \
-		mlx->scale * mlx->scene->size.x + WEIGHT_FRAME * 2, \
-		mlx->scale * mlx->scene->size.y + WEIGHT_FRAME * 2);
+		mlx->scale * mlx->opt->size.x + WEIGHT_FRAME * 2, \
+		mlx->scale * mlx->opt->size.y + WEIGHT_FRAME * 2);
 	i = 0;
 	while (i < N_IMAGE)
 	{

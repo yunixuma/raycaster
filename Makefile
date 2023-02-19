@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kobayashi <kobayashi@student.42.fr>        +#+  +:+       +#+         #
+#    By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 16:52:37 by ykosaka           #+#    #+#              #
-#    Updated: 2023/02/15 18:28:27 by kobayashi        ###   ########.fr        #
+#    Updated: 2023/02/19 10:36:12 by Yoshihiro K      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,27 +23,28 @@ OS				= $(shell uname)
 
 # Enumeration of files
 SRC				= c3d_main.c \
-				  c3d_scene.c c3d_scene_def.c c3d_scene_def_color.c \
-				  c3d_map_read.c c3d_map_trim.c \
-				  c3d_map_chk.c c3d_map_encode.c c3d_map_valid.c \
-				  c3d_map_clear.c c3d_print.c \
-				  c3d_exit.c \
-				  c3d_mlx.c c3d_win.c c3d_img.c \
-				  c3d_render_background.c c3d_render_visible.c c3d_render_vision.c \
-				  c3d_extend_ray.c c3d_get_hit_wall.c c3d_get_ray_vec.c c3d_create_gridmap.c c3d_rotate_view.c \
-				  c3d_render_hud_init.c c3d_render_hud.c c3d_render_line.c \
-				  c3d_render_rectangle.c \
-				  c3d_render_blend.c c3d_render_imgline.c c3d_render_imgpixel.c \
-				  c3d_game.c c3d_game_init.c \
-				  c3d_game_keyhook.c c3d_game_cursorhook.c c3d_game_clickhook.c \
-				  c3d_lst2map_rect.c c3d_color.c \
-				  ft_mapseek.c ft_mapsize.c \
-				  ft_free.c ft_seterr.c ft_lstclear_seterr.c \
-				  ft_hasflag.c ft_stris.c \
+				  c3d_scene.c c3d_scene_def.c \
+				  c3d_scene_def_color.c c3d_color.c \
+				  c3d_map_read.c c3d_map_trim.c c3d_map_chk.c \
+				  c3d_lst2map_rect.c c3d_map_encode.c c3d_map_valid.c \
+				  c3d_map_clear.c c3d_map2vectors.c c3d_idx2flag.c \
+				  c3d_mlx.c c3d_win.c c3d_img.c c3d_print.c c3d_exit.c \
+				  c3d_render_background.c c3d_render_visible.c \
+				  c3d_render_intersect.c c3d_render_elevation.c \
+				  c3d_render_rectangle.c c3d_render_line.c \
+				  c3d_render_imgline.c c3d_render_imgpixel.c \
+				  c3d_render_hud_init.c c3d_render_hud.c c3d_render_blend.c \
+				  c3d_render_vision.c c3d_extend_ray.c c3d_get_hit_wall.c \
+				  c3d_get_ray_vec.c c3d_create_gridmap.c c3d_rotate_view.c \
+				  c3d_game_init.c c3d_game.c c3d_game_keyhook.c \
+				  c3d_game_cursorhook.c c3d_game_clickhook.c \
+				  ft_mapseek.c ft_mapsize.c ft_addr.c ft_coord.c \
+				  ft_free.c ft_lstclear_seterr.c ft_seterr.c \
+				  ft_hasflag.c ft_inrange.c ft_stris.c \
 				  ft_math.c ft_math_distance.c ft_math_intersect.c \
-				  ft_coord.c ft_addr.c
 
-SRC				+= debug_common.c debug_c3d.c debug_c3d_map.c debug_c3d_img.c
+SRC				+= debug_common.c \
+				  debug_c3d.c debug_c3d_f.c debug_c3d_map.c debug_c3d_img.c
 
 # Enumeration of directories
 SRCDIR			= ./src
@@ -51,12 +52,7 @@ INCDIR			= ./include
 LIBDIR			= ./lib
 LIBDIR_FT		= $(LIBDIR)/libft
 INCDIR_FT		= $(LIBDIR_FT)/include
-ifeq ($(OS), Darwin)
-#	LIBDIR_MLX	= $(LIBDIR)/minilibx_mms_20200219
-	LIBDIR_MLX	= $(LIBDIR)/minilibx-linux
-else
-	LIBDIR_MLX	= $(LIBDIR)/minilibx-linux
-endif
+LIBDIR_MLX		= $(LIBDIR)/minilibx-linux
 OBJDIR			= ./obj
 
 # Macros to replace and/or integrate

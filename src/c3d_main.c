@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/15 15:48:25 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/17 15:26:14 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,30 @@ DI(fd);
 	scene->map = c3d_scene_getmap(fd);
 	if (errno)
 		return (c3d_scene_clean(scene, errno));
-	scene->size = ft_mapsize(scene->map);
 	close(fd);
 	return (ERR_NOERR);
 }
 
-static int	c3d_main_win(t_scene *scene)
+static int	c3d_main_opt(t_opt *opt, t_scene *scene)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < N_DIRECTION)
+		opt->vecs[i++] = NULL;
+	opt->size = ft_mapsize(scene->map);
+	if (c3d_map2vectors(opt, scene))
+		return (c3d_scene_clean(scene, errno));
+debug_c3d_f_vecs(opt);
+	return (ERR_NOERR);
+}
+
+static int	c3d_main_win(t_scene *scene, t_opt *opt)
 {
 	t_mlx	mlx;
 
 	mlx.scene = scene;
+	mlx.opt = opt;
 	if (c3d_mlx_init(&mlx))
 		return (errno);
 DP(mlx.scene->map);
@@ -64,6 +78,7 @@ DP(&mlx.img[IDX_HUD]);
 int	main(int argc, char *argv[])
 {
 	t_scene	scene;
+	t_opt	opt;
 
 	errno = 0;
 	if (argc < OFFSET_ARG + IDX_ARG)
@@ -72,7 +87,9 @@ int	main(int argc, char *argv[])
 		return (c3d_print_err(ERR_MANYARGS));
 	if (c3d_main_scene(&scene, argv[IDX_ARG]))
 		return (c3d_print_err(errno));
+	if (c3d_main_opt(&opt, &scene))
+		return (c3d_print_err(errno));
 debug_c3d_scene(&scene);
-	c3d_main_win(&scene);
+	c3d_main_win(&scene, &opt);
 	return (ERR_NOERR);
 }

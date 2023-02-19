@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/04 04:09:02 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/18 17:32:37 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # endif
 
 # define DEBUGV(v_fmt, v) \
-	printf(#v ": " v_fmt "\t(file \"%s\", line %d, in %s)\n", \
+	dprintf(STDERR_FILENO, #v ": " v_fmt "\t(file \"%s\", line %d, in %s)\n", \
 	v, __FILE__, __LINE__, __FUNCTION__);
 
 # define DC(v) DEBUGV("%c", v);
@@ -48,7 +48,7 @@
 # define DL(v) DEBUGV("%ld", v);
 
 # define DEBUGF(fmt, ...) \
-	printf(fmt "\t(file \"%s\", line %d, in %s)\n", \
+	dprintf(STDERR_FILENO, fmt "\t(file \"%s\", line %d, in %s)\n", \
 	__VA_ARGS__, __FILE__, __LINE__, __FUNCTION__);
 
 #endif

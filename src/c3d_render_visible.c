@@ -6,60 +6,31 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 03:23:59 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/18 23:48:05 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	c3d_render_elevation(t_mlx *mlx, t_coord *pt, int i_col, int tex_id)
-{
-	t_addr	src;
-	t_addr	dst;
-	double	dist;
-
-	dist = ft_math_distance_2d(&mlx->game.coord, pt) \
-		* cos(ft_math_deg2rad(mlx->game.fov * i_col / WIDTH_VISION));
-	dst.x = i_col + (WIDTH_VISION >> 1);
-	dst.y = HEIGHT_VISION * (1 - mlx->game.coord.z \
-		- (ft_math_rad2deg(atan((1 - mlx->game.coord.z) / dist))) \
-		/ (mlx->game.fov * HEIGHT_VISION / WIDTH_VISION));
-	src.x = mlx->img[tex_id].width * (pt->x + pt->y - (int)(pt->x + pt->y));
-	src.y = (HEIGHT_VISION >> 1) - dst.y \
-		+ HEIGHT_VISION * (ft_math_rad2deg(atan((mlx->game.coord.z) / dist))) \
-		/ (mlx->game.fov * HEIGHT_VISION / WIDTH_VISION);
-//debug_printf("pt(%3lf, %3lf)\t", pt->x, pt->y);
-//debug_printf("src(%3ld, %3ld)\t", src.x, src.y);
-//debug_printf("dst(%3ld, %3ld)\n", dst.x, dst.y);
-	c3d_render_imgline(&mlx->img[IDX_VISION], &mlx->img[tex_id], &dst, &src);
-}
-/*
-static void	c3d_render_intersect(t_mlx *mlx, t_vec *ray)
-{
-	t_addr	addr;ss
-	int		tex_wid;
-	t_addr	src;
-	t_addr	dst;
-	double	dist;
-
-	(void)mlx;
-	(void)ray;
-}
-
 void	c3d_render_visible(t_mlx *mlx)
 {
 	t_vec	ray;
-	ssize_t	i_col;
+	int		i_col;
+	double	angle;
 
 	i_col = -(WIDTH_VISION >> 1);
 	while (i_col < (WIDTH_VISION >> 1))
 	{
+//DI(i_col);
+		angle = mlx->game.angle.yaw + mlx->game.fov * i_col / WIDTH_VISION;
+		ray.dir.x = ft_math_sin_deg(angle);
+		ray.dir.y = -ft_math_cos_deg(angle);
 		ft_coord_copy(&ray.pos, &mlx->game.coord);
-		c3d_render_intersect(mlx, &ray);
+		c3d_render_intersect(mlx, i_col, &ray);
 		i_col++;
 	}
 }
-*/
+/*
 void	c3d_render_visible(t_mlx *mlx)
 {
 	t_coord	pt;
@@ -81,7 +52,7 @@ void	c3d_render_visible(t_mlx *mlx)
 //debug_c3d_img(mlx->img[tex_id], 0);
 //debug_c3d_img(mlx->img[IDX_VISION], 0);
 }
-/*
+
 # define ANGLE_RIGHT		90.
 # define mlx->game.fov			90.
 # define WIDTH_VISION		720
