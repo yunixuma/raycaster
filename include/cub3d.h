@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/19 00:42:45 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/19 12:02:28 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@
 # include "cub3d_const.h"
 # include "cub3d_flag.h"
 # include "cub3d_render_vision.h"
+# ifndef RC_MODE
+#  define RC_MODE	0
+# endif
 /*# ifdef __MACH__
 #  include "cub3d_event_mac.h"
 # else*/

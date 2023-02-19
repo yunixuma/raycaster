@@ -6,7 +6,7 @@
 #    By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 16:52:37 by ykosaka           #+#    #+#              #
-#    Updated: 2023/02/19 10:36:12 by Yoshihiro K      ###   ########.fr        #
+#    Updated: 2023/02/19 12:23:52 by Yoshihiro K      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,6 +98,9 @@ ifeq ($(MAKECMDGOALS), debug)
 	endif
 	DEF		+= -D DEBUG_MODE=1
 endif
+ifeq ($(RC_MODE), 1)
+	DEF		+= -D RC_MODE=1
+endif
 
 # ********************* Section for targets and commands ********************* #
 # Phonies
@@ -127,6 +130,8 @@ clean_partly:
 debug_lib: 
 	$(MAKE) debug -C $(LIBDIR_FT)
 debug: clean_partly debug_lib all
+yk: 
+	$(MAKE) debug RC_MODE=1
 
 # Recipes
 $(NAME): $(OBJS)
