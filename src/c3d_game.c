@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/19 13:58:32 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/19 15:42:16 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,18 @@
 
 static bool	c3d_game_move_valid(char **map, t_coord *move, t_coord *pos)
 {
-	char	newcell;
+	char	testcell;
 
 debug_printf("move: (%6.3lf, %6.3lf)\n", move->x, move->y);
-	newcell = map[(size_t)(pos->y + move->y)][(size_t)(pos->x + move->x)];
-	if (newcell != FLAG_SPACE && !ft_hasflag(newcell, FLAG_WALL))
-		return (true);
-	newcell = map[(size_t)(pos->y + move->y)][(size_t)(pos->x)];
-	if (newcell != FLAG_SPACE && !ft_hasflag(newcell, FLAG_WALL))
-	{
-		move->x = 0;
-		return (true);
-	}
-	newcell = map[(size_t)(pos->y)][(size_t)(pos->x + move->x)];
-	if (newcell != FLAG_SPACE && !ft_hasflag(newcell, FLAG_WALL))
-	{
+	testcell = map[(size_t)(pos->y + move->y)][(size_t)(pos->x)];
+	if (testcell == FLAG_SPACE || ft_hasflag(testcell, FLAG_WALL))
 		move->y = 0;
-		return (true);
-	}
-	return (false);
+	testcell = map[(size_t)(pos->y)][(size_t)(pos->x + move->x)];
+	if (testcell == FLAG_SPACE || ft_hasflag(testcell, FLAG_WALL))
+		move->x = 0;
+	if (move->x == 0 && move->y == 0)
+		return (false);
+	return (true);
 }
 
 bool	c3d_game_move(t_mlx *mlx, t_coord *move)
