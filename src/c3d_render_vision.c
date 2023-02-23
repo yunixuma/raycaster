@@ -6,7 +6,7 @@
 /*   By: kobayashi <kobayashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:54:49 by kobayashi         #+#    #+#             */
-/*   Updated: 2023/02/18 10:44:49 by kobayashi        ###   ########.fr       */
+/*   Updated: 2023/02/23 14:39:06 by kobayashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	c3d_render_vision(t_mlx *mlx)
 		create_gridmap(&c);
 		extend_ray(mlx, &c);
 		get_hit_wall(&c);
+		if (x == 0)
+			printf("dist: %f = dist.x: %f - delta_dist.x: %f\n", c.dist_wall, c.dist.x, c.delta_dist.x);
 		y = 0;
 		while (y < WIDTH_VISION)
 		{

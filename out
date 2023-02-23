@@ -1,0 +1,55 @@
+dist: 14.500000 = dist.x: 15.909091 - delta_dist.x: 1.515152
+dist: 14.500000 = dist.x: 15.909091 - delta_dist.x: 1.515152
+dist: 14.625000 = dist.x: 15.909091 - delta_dist.x: 1.515152
+dist: 14.750000 = dist.x: 15.909091 - delta_dist.x: 1.515152
+dist: 14.875000 = dist.x: 15.909091 - delta_dist.x: 1.515152
+--- 1.8
+dist: 13.000000 = dist.x: 14.393939 - delta_dist.x: 1.515152
+dist: 13.125000 = dist.x: 14.393939 - delta_dist.x: 1.515152
+dist: 13.250000 = dist.x: 14.393939 - delta_dist.x: 1.515152
+dist: 13.375000 = dist.x: 14.393939 - delta_dist.x: 1.515152
+dist: 13.500000 = dist.x: 14.393939 - delta_dist.x: 1.515152
+dist: 13.625000 = dist.x: 14.393939 - delta_dist.x: 1.515152
+dist: 13.750000 = dist.x: 14.393939 - delta_dist.x: 1.515152
+dist: 13.875000 = dist.x: 14.393939 - delta_dist.x: 1.515152
+--- 1.8
+dist: 12.000000 = dist.x: 12.878788 - delta_dist.x: 1.515152
+dist: 12.125000 = dist.x: 12.878788 - delta_dist.x: 1.515152
+dist: 12.250000 = dist.x: 12.878788 - delta_dist.x: 1.515152
+dist: 12.375000 = dist.x: 12.878788 - delta_dist.x: 1.515152
+dist: 12.500000 = dist.x: 12.878788 - delta_dist.x: 1.515152
+dist: 12.625000 = dist.x: 12.878788 - delta_dist.x: 1.515152
+dist: 12.750000 = dist.x: 12.878788 - delta_dist.x: 1.515152
+dist: 12.875000 = dist.x: 12.878788 - delta_dist.x: 1.515152
+--- 1.8
+dist: 11.000000 = dist.x: 11.363636 - delta_dist.x: 1.515152
+dist: 11.125000 = dist.x: 11.363636 - delta_dist.x: 1.515152
+dist: 11.250000 = dist.x: 11.363636 - delta_dist.x: 1.515152
+dist: 11.375000 = dist.x: 12.878788 - delta_dist.x: 1.515152
+dist: 11.500000 = dist.x: 12.878788 - delta_dist.x: 1.515152
+dist: 11.625000 = dist.x: 12.878788 - delta_dist.x: 1.515152
+dist: 11.750000 = dist.x: 12.878788 - delta_dist.x: 1.515152
+dist: 11.875000 = dist.x: 12.878788 - delta_dist.x: 1.515152
+--- 1.8
+dist: 10.000000 = dist.x: 11.363636 - delta_dist.x: 1.515152
+dist: 10.125000 = dist.x: 11.363636 - delta_dist.x: 1.515152
+dist: 10.250000 = dist.x: 11.363636 - delta_dist.x: 1.515152
+dist: 10.375000 = dist.x: 11.363636 - delta_dist.x: 1.515152
+dist: 10.500000 = dist.x: 11.363636 - delta_dist.x: 1.515152
+dist: 10.625000 = dist.x: 11.363636 - delta_dist.x: 1.515152
+dist: 10.750000 = dist.x: 11.363636 - delta_dist.x: 1.515152
+dist: 10.875000 = dist.x: 11.363636 - delta_dist.x: 1.515152
+--- 1.8
+dist: 9.000000 = dist.x: 9.848485 - delta_dist.x: 1.515152
+dist: 9.125000 = dist.x: 9.848485 - delta_dist.x: 1.515152
+dist: 9.250000 = dist.x: 9.848485 - delta_dist.x: 1.515152
+dist: 9.375000 = dist.x: 9.848485 - delta_dist.x: 1.515152
+dist: 9.500000 = dist.x: 9.848485 - delta_dist.x: 1.515152
+dist: 9.625000 = dist.x: 9.848485 - delta_dist.x: 1.515152
+dist: 9.750000 = dist.x: 9.848485 - delta_dist.x: 1.515152
+dist: 9.875000 = dist.x: 11.363636 - delta_dist.x: 1.515152
+--- 1.8
+dist: 8.000000 = dist.x: 8.333333 - delta_dist.x: 1.515152
+dist: 8.125000 = dist.x: 8.333333 - delta_dist.x: 1.515152
+dist: 8.250000 = dist.x: 8.333333 - delta_dist.x: 1.515152
+dist: 8.375000 = dist.x: 9.848485 - delta_dist.x: 1.515152
