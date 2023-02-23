@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_render_visible.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/21 11:07:21 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/23 14:50:40 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,15 @@ void	c3d_render_visible(t_mlx *mlx)
 	while (i_col < (WIDTH_VISION >> 1))
 	{
 //DI(i_col);
-		angle = mlx->game.angle.yaw + mlx->game.fov * i_col / WIDTH_VISION;
-//		angle = mlx->game.angle.yaw + ft_math_rad2deg(asin(ft_math_sin_deg(mlx->game.fov / 2) * i_col / WIDTH_VISION));
+//		angle = mlx->game.angle.yaw + mlx->game.fov * i_col / WIDTH_VISION;
+		angle = mlx->game.angle.yaw + ft_math_rad2deg(asin(ft_math_sin_deg(mlx->game.fov / 2) * i_col * 2 / WIDTH_VISION));
+/*
+k sin(a) = i_col
+k sin(fov/2) = WIDTH_VISION/2
+i_col / sin(a) = WIDTH_VISION/2 / sin(fov/2)
+sin(a) = sin(fov/2) * i_col * 2/WIDTH_VISION
+a = asin(sin(fov/2) * i_col * 2/WIDTH_VISION)
+*/
 		ray.dir.x = ft_math_sin_deg(angle);
 		ray.dir.y = -ft_math_cos_deg(angle);
 		ft_coord_copy(&ray.pos, &mlx->game.coord);
