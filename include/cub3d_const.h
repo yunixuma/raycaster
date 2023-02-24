@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/19 14:02:21 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 14:32:15 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 # define ERR_ALLOC			ENOMEM
 # define ERR_DUP			EEXIST
 # define ERR_MLX			EBUSY
-# define UNIT_MOVE			0.125
-# define UNIT_TURN			3.
+# define UNIT_MOVE			0.03125
+# define UNIT_TURN			1.
 # define ANGLE_RIGHT		90.
 # define ANGLE_FOV			90.
 # define ANGLE_FOV_MAX		108.

@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/17 07:27:25 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 10:33:31 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct s_game
 	t_coord	coord;
 	double	fov;
 	int		event;
+	int		key;
 	t_addr	cursor;
 	int		speed;
 	int		score;

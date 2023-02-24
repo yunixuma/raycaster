@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/19 00:48:36 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 12:24:10 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,5 @@ debug_printf("down\tcursor(%d, %d)\tbutton: %d\n", x, y, button);
 		else
 			mlx->game.event |= FLAG_CURSOR;
 	}
-	return (c3d_mlx_hook(mlx));
+	return (true);
 }

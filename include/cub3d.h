@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/19 12:02:28 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 12:41:25 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ void	*c3d_map_clear_free(char **map);
 int		c3d_map2vectors(t_opt *opt, t_scene *scene);
 int		c3d_map2vectors_free(t_opt *opt, int errnum);
 int		c3d_mlx_init(t_mlx *mlx);
-bool	c3d_mlx_hook(t_mlx *mlx);
+int		c3d_mlx_loop(t_mlx *mlx);
+int		c3d_mlx_hook(t_mlx *mlx);
 int		c3d_win_init(t_mlx *mlx);
 int		c3d_win_draw_vision(t_mlx *mlx);
 void	c3d_win_draw_pixel(t_mlx *mlx, int x, int y, int color);
@@ -85,7 +86,9 @@ void	c3d_render_imgpixel(t_img *img_dst, t_img *img_src, \
 void	c3d_render_imgline(t_img *img_dst, t_img *img_src, \
 	t_addr *dst, t_addr *src);
 void	c3d_game_init(t_game *game, t_scene *scene);
-int		c3d_game_keyhook(int key, t_mlx *mlx);
+int		c3d_game_keyhook_down(int key, t_mlx *mlx);
+int		c3d_game_keyhook_up(int key, t_mlx *mlx);
+int		c3d_game_keyhook_fire(int key, t_mlx *mlx);
 int		c3d_game_cursorhook(int x, int y, t_mlx *mlx);
 int		c3d_game_clickhook(int button, int x, int y, t_mlx *mlx);
 int		c3d_game_clickhook_up(int button, int x, int y, t_mlx *mlx);

@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 16:20:45 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 11:00:13 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 # define CUB3D_EVENT_H
 
 # define EVENT_KEYDOWN		2
+# define EVENT_KEYUP		3
 # define EVENT_MOUSEPRESS	4
 # define EVENT_MOUSERELEASE	5
 # define EVENT_MOUSEMOVE	6
 # define EVENT_EXPOSE		12
 # define EVENT_DESTROY		17
 # define MASK_STRUCT		1
+# define SHIFT_KEYDOWN		0
+# define SHIFT_KEYUP		1
+# define SHIFT_MOUSEPRESS	2
+# define SHIFT_MOUSERELEASE	3
 
 # define VK_Q				'q'
 # define VK_W				'w'

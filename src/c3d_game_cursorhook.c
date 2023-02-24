@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/13 18:54:38 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 12:24:22 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,5 @@ debug_printf("cursor(%d, %d)\n", x, y);
 		c3d_game_turn(mlx, &turn);
 	mlx->game.cursor.x = x;
 	mlx->game.cursor.y = y;
-	return (c3d_mlx_hook(mlx));
+	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/20 01:08:40 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 14:47:43 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,10 @@ bool	c3d_game_turn(t_mlx *mlx, t_angle *turn)
 	mlx->game.angle.yaw \
 		= ft_math_angle_normalize(mlx->game.angle.yaw + turn->yaw);
 	mlx->game.angle.pitch += turn->pitch;
-	if (mlx->game.angle.pitch > (ANGLE_RIGHT - UNIT_TURN * mlx->game.speed))
-		mlx->game.angle.pitch = (ANGLE_RIGHT - UNIT_TURN * mlx->game.speed);
-	else if (mlx->game.angle.pitch \
-		< -(ANGLE_RIGHT - UNIT_TURN * mlx->game.speed))
-		mlx->game.angle.pitch = -(ANGLE_RIGHT - UNIT_TURN * mlx->game.speed);
+	if (mlx->game.angle.pitch > ANGLE_RIGHT - UNIT_TURN)
+		mlx->game.angle.pitch = ANGLE_RIGHT - UNIT_TURN;
+	else if (mlx->game.angle.pitch < -(ANGLE_RIGHT - UNIT_TURN))
+		mlx->game.angle.pitch = -(ANGLE_RIGHT - UNIT_TURN);
 	c3d_game_turn_adjust(&mlx->game.angle, mlx->game.speed);
 	if (mlx->game.angle.yaw == bak.yaw && mlx->game.angle.pitch == bak.pitch)
 		return (false);
