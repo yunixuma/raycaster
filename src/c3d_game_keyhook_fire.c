@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 18:37:13 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 23:12:10 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,22 @@ static bool	c3d_game_keyhook_fire_lens(t_angle *turn, int key, int speed)
 {
 	turn->roll = 0;
 	if (key == KEY_WIDE)
-		turn->roll = -UNIT_TURN * speed;
-	else if (key == KEY_TELE)
 		turn->roll = UNIT_TURN * speed;
+	else if (key == KEY_TELE)
+		turn->roll = -UNIT_TURN * speed;
 	else
 		return (false);
+	return (true);
+}
+
+static bool	c3d_game_keyhook_speed(int *new, int key, int old)
+{
+	if (key != KEY_SPEED)
+		return (false);
+	if (old == SPEED_FAST)
+		*new = SPEED_SLOW;
+	else
+		*new = SPEED_FAST;
 	return (true);
 }
 
@@ -61,6 +72,7 @@ int	c3d_game_keyhook_fire(int key, t_mlx *mlx)
 {
 	t_angle	turn;
 	t_coord	move;
+	int		speed;
 
 	if (!ft_hasflag(mlx->game.event, FLAG_KEYDOWN))
 		return (false);
@@ -72,6 +84,8 @@ int	c3d_game_keyhook_fire(int key, t_mlx *mlx)
 //		c3d_print_score(++(mlx->game.score));
 	else if (c3d_game_keyhook_fire_lens(&turn, key, mlx->game.speed))
 		c3d_game_lens(mlx, turn.roll);
+	else if (c3d_game_keyhook_speed(&speed, key, mlx->game.speed))
+		mlx->game.speed = speed;
 //	if (c3d_game_judge(mlx))
 //		c3d_exit_mlx_goal(mlx);
 	return (true);

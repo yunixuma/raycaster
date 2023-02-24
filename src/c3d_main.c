@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 12:38:46 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 23:09:14 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ DP(&mlx.win);
 DP(&mlx.img[IDX_HUD]);
 	c3d_render_hud_init(&mlx);
 	c3d_win_draw_vision(&mlx);
-	ft_putendl_fd(MSG_HOWTO_MOVE, STDOUT_FILENO);
+	c3d_print_control();
 	return (c3d_mlx_loop(&mlx));
 }
 

@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:04:04 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/19 13:56:40 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 22:41:14 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,26 @@ int	c3d_print_err(int errnum)
 	return (errnum);
 }
 
-void	c3d_print_score(int score)
+void	c3d_print_control(void)
 {
-	printf(MSG_SCORE, score);
+	ft_putendl_fd(MSG_HOWTO_MOVE, STDOUT_FILENO);
+	ft_putendl_fd(MSG_HOWTO_TURN, STDOUT_FILENO);
+	ft_putendl_fd(MSG_HOWTO_ZOOM, STDOUT_FILENO);
+	ft_putendl_fd(MSG_HOWTO_SPEED, STDOUT_FILENO);
+	ft_putendl_fd(MSG_HOWTO_EXIT, STDOUT_FILENO);
 }
 
 void	c3d_print_break(void)
 {
 	ft_putendl_fd(MSG_BREAK, STDOUT_FILENO);
 }
+
+/*
+void	c3d_print_score(int score)
+{
+	printf(MSG_SCORE, score);
+}
+*/
 /*
 void	c3d_print_goal(int score)
 {

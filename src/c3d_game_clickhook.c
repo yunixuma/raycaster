@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 12:24:10 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 22:31:04 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ static bool	c3d_game_clickhook_lens(t_angle *turn, int button, int speed)
 {
 	turn->roll = 0;
 	if (button == BUTTON_WIDE)
-		turn->roll = -UNIT_TURN * speed;
-	else if (button == BUTTON_TELE)
 		turn->roll = UNIT_TURN * speed;
+	else if (button == BUTTON_TELE)
+		turn->roll = -UNIT_TURN * speed;
 	else
 		return (false);
 	return (true);

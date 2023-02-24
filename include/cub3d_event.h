@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 11:00:13 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 22:46:58 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define VK_A				'a'
 # define VK_S				's'
 # define VK_D				'd'
+# define VK_F				'f'
 # define VK_UP				0xff52
 # define VK_LEFT			0xff51
 # define VK_DOWN			0xff54
@@ -53,6 +54,7 @@
 # define KEY_TURNRIGHT		VK_RIGHT
 # define KEY_LOOKUP			VK_UP
 # define KEY_LOOKDOWN		VK_DOWN
+# define KEY_SPEED			VK_F
 # define KEY_TELE			VK_PGUP
 # define KEY_WIDE			VK_PGDN
 # define BUTTON_FOCUS		VK_LBUTTON

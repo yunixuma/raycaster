@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 12:41:25 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 22:32:43 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,7 @@ int		c3d_exit_mlx(t_mlx *mlx, int errnum);
 int		c3d_exit_mlx_break(t_mlx *mlx);
 int		c3d_exit_mlx_goal(t_mlx *mlx);
 int		c3d_print_err(int errnum);
-void	c3d_print_score(int score);
-void	c3d_print_goal(int score);
+void	c3d_print_control(void);
 void	c3d_print_break(void);
 int		c3d_color_combine(t_color *color);
 void	c3d_color_separate(t_color *color, int color_code);
