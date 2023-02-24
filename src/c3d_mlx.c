@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 14:27:18 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 17:55:16 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	c3d_mlx_init(t_mlx *mlx)
 
 int	c3d_mlx_hook(t_mlx *mlx)
 {
-debug_printf("event: %#04x\n", mlx->game.event);
-debug_printf("key: %#06x\n", mlx->game.key);
+//debug_printf("event: %#04x\n", mlx->game.event);
+//debug_printf("key: %#06x\n", mlx->game.key);
 	if (mlx->game.event == FLAG_NOEVENT)
 		return (false);
 	c3d_game_keyhook_fire(mlx->game.key, mlx);

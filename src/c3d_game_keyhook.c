@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 12:17:41 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 18:40:50 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	c3d_game_keyhook_down(int key, t_mlx *mlx)
 {
+//debug_printf("key: %04x\n", key);
 	mlx->game.key = key;
 	mlx->game.event |= FLAG_KEYDOWN;
 	mlx->game.event &= ~FLAG_KEYUP;

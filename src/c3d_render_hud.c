@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/14 22:42:30 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 21:08:52 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static void	c3d_render_hud_direction(t_img *img, t_game *game, int scale)
 	line.x = sin(ft_math_deg2rad(game->angle.yaw));
 	line.y = -cos(ft_math_deg2rad(game->angle.yaw));
 	line.z = LEN_POS * scale;
+	if (line.z > SIZE_CELL)
+		line.z = SIZE_CELL;
 	zero.x = (ssize_t)(game->coord.x * scale) + WEIGHT_FRAME;
 	zero.y = (ssize_t)(game->coord.y * scale) + WEIGHT_FRAME;
 	c3d_render_line(img, COLOR_POS, &zero, &line);

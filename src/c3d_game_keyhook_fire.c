@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 13:36:14 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 18:37:13 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ int	c3d_game_keyhook_fire(int key, t_mlx *mlx)
 	if (c3d_game_keyhook_fire_turn(&turn, key, mlx->game.speed))
 		c3d_game_turn(mlx, &turn);
 	else if (c3d_game_keyhook_fire_move(&move, key, \
-		mlx->game.angle.yaw, mlx->game.speed) \
-		&& c3d_game_move(mlx, &move))
-		c3d_print_score(++(mlx->game.score));
+		mlx->game.angle.yaw, mlx->game.speed))
+		c3d_game_move(mlx, &move);
+//		c3d_print_score(++(mlx->game.score));
 	else if (c3d_game_keyhook_fire_lens(&turn, key, mlx->game.speed))
 		c3d_game_lens(mlx, turn.roll);
 //	if (c3d_game_judge(mlx))
