@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 17:55:16 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 23:27:59 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	c3d_mlx_hook(t_mlx *mlx)
 		return (false);
 	c3d_game_keyhook_fire(mlx->game.key, mlx);
 	c3d_win_draw_vision(mlx);
-	mlx->game.event &= (FLAG_KEYDOWN | FLAG_CURSOR);
+	mlx->game.event &= (FLAG_KEY | FLAG_CURSOR);
 	return (true);
 }
 
@@ -60,8 +60,9 @@ int	c3d_mlx_loop(t_mlx *mlx)
 	mlx_hook(mlx->win, EVENT_KEYDOWN, MASK_STRUCT << SHIFT_KEYDOWN, &c3d_game_keyhook_down, mlx);
 	mlx_hook(mlx->win, EVENT_KEYUP, MASK_STRUCT << SHIFT_KEYUP, &c3d_game_keyhook_up, mlx);
 	mlx_mouse_hook(mlx->win, &c3d_game_clickhook, mlx);
-//	mlx_hook(mlx->win, EVENT_MOUSERELEASE, MASK_STRUCT << EVENT_MOUSERELEASE, &c3d_game_clickhook_up, mlx);
-	mlx_hook(mlx->win, EVENT_MOUSEMOVE, MASK_STRUCT << EVENT_MOUSEMOVE, \
+//	mlx_hook(mlx->win, EVENT_MOUSEPRESS, MASK_STRUCT << SHIFT_MOUSEPRESS, &c3d_game_clickhook_down, mlx);
+//	mlx_hook(mlx->win, EVENT_MOUSERELEASE, MASK_STRUCT << SHIFT_MOUSERELEASE, &c3d_game_clickhook_up, mlx);
+	mlx_hook(mlx->win, EVENT_MOUSEMOVE, MASK_STRUCT << SHIFT_MOUSEMOVE, \
 		&c3d_game_cursorhook, mlx);
 	mlx_hook(mlx->win, EVENT_DESTROY, MASK_STRUCT, &c3d_exit_mlx_break, mlx);
 	mlx_expose_hook(mlx->win, &c3d_win_draw_vision, mlx);

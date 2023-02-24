@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 22:46:58 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 23:44:34 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define SHIFT_KEYUP		1
 # define SHIFT_MOUSEPRESS	2
 # define SHIFT_MOUSERELEASE	3
+# define SHIFT_MOUSEMOVE	6
 
 # define VK_Q				'q'
 # define VK_W				'w'
@@ -32,6 +33,7 @@
 # define VK_S				's'
 # define VK_D				'd'
 # define VK_F				'f'
+# define VK_C				'c'
 # define VK_UP				0xff52
 # define VK_LEFT			0xff51
 # define VK_DOWN			0xff54
@@ -54,6 +56,7 @@
 # define KEY_TURNRIGHT		VK_RIGHT
 # define KEY_LOOKUP			VK_UP
 # define KEY_LOOKDOWN		VK_DOWN
+# define KEY_CURSOR			VK_C
 # define KEY_SPEED			VK_F
 # define KEY_TELE			VK_PGUP
 # define KEY_WIDE			VK_PGDN

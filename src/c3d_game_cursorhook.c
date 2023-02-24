@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 12:24:22 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/24 23:50:57 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static bool	c3d_game_cursorhook_turn(t_angle *turn, \
 	turn->yaw = 0;
 	turn->pitch = 0;
 	if (new->x < old->x)
-		turn->yaw = UNIT_TURN * speed;
-	else if (new->x > old->x && old->x > VAL_INVAL)
 		turn->yaw = -UNIT_TURN * speed;
+	else if (new->x > old->x && old->x > VAL_INVAL)
+		turn->yaw = UNIT_TURN * speed;
 	if (new->y < old->y)
 		turn->pitch = UNIT_TURN * speed;
 	else if (new->y > old->y && old->y > VAL_INVAL)
