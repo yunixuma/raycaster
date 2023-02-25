@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 22:32:43 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/25 18:27:32 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ int		c3d_game_clickhook(int button, int x, int y, t_mlx *mlx);
 int		c3d_game_clickhook_up(int button, int x, int y, t_mlx *mlx);
 bool	c3d_game_move(t_mlx *mlx, t_coord *move);
 bool	c3d_game_turn(t_mlx *mlx, t_angle *turn);
-bool	c3d_game_lens(t_mlx *mlx, double fov_add);
-bool	c3d_game_judge(t_mlx *mlx);
+bool	c3d_game_zoom(t_mlx *mlx, double fov_add);
+bool	c3d_game_speed(int *new, int key, int old);
 int		c3d_exit(int errnum);
 int		c3d_exit_mlx(t_mlx *mlx, int errnum);
 int		c3d_exit_mlx_break(t_mlx *mlx);

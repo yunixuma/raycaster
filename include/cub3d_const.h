@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_const.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 21:37:50 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/25 18:46:28 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@
 # define LEN_POS			2
 # define RATIO_HUD			3
 # define WEIGHT_FRAME		2
-# define SPEED_SLOW			1
-# define SPEED_FAST			2
+# define UNIT_SPEED			1
+# define MAX_SPEED			3
 
 typedef enum e_channel
 {

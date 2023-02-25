@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_game_clickhook.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 22:31:04 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/25 18:23:25 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ DD(turn->pitch);
 	return (true);
 }
 
-static bool	c3d_game_clickhook_lens(t_angle *turn, int button, int speed)
+static bool	c3d_game_clickhook_zoom(t_angle *turn, int button, int speed)
 {
 	turn->roll = 0;
 	if (button == BUTTON_WIDE)
@@ -35,17 +35,6 @@ static bool	c3d_game_clickhook_lens(t_angle *turn, int button, int speed)
 		turn->roll = -UNIT_TURN * speed;
 	else
 		return (false);
-	return (true);
-}
-
-static bool	c3d_game_clickhook_speed(int *new, int button, int old)
-{
-	if (button != BUTTON_SPEED)
-		return (false);
-	if (old == SPEED_FAST)
-		*new = SPEED_SLOW;
-	else
-		*new = SPEED_FAST;
 	return (true);
 }
 
@@ -70,9 +59,9 @@ int	c3d_game_clickhook(int button, int x, int y, t_mlx *mlx)
 debug_printf("down\tcursor(%d, %d)\tbutton: %d\n", x, y, button);
 	if (c3d_game_clickhook_turn(&turn, button, &cursor, mlx->game.fov))
 		c3d_game_turn(mlx, &turn);
-	else if (c3d_game_clickhook_lens(&turn, button, mlx->game.speed))
-		c3d_game_lens(mlx, turn.roll);
-	else if (c3d_game_clickhook_speed(&speed, button, mlx->game.speed))
+	else if (c3d_game_clickhook_zoom(&turn, button, mlx->game.speed))
+		c3d_game_zoom(mlx, turn.roll);
+	else if (c3d_game_speed(&speed, button, mlx->game.speed))
 		mlx->game.speed = speed;
 	mlx->game.cursor.x = x;
 	mlx->game.cursor.y = y;

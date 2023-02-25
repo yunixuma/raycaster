@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_game_keyhook.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 23:49:23 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/25 18:23:12 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-static bool	c3d_game_keyhook_speed(int *new, int key, int old)
-{
-	if (key != KEY_SPEED)
-		return (false);
-	if (old == SPEED_FAST)
-		*new = SPEED_SLOW;
-	else
-		*new = SPEED_FAST;
-DI(*new);
-	return (true);
-}
 
 int	c3d_game_keyhook_down(int key, t_mlx *mlx)
 {
@@ -45,7 +33,7 @@ int	c3d_game_keyhook_up(int key, t_mlx *mlx)
 		else
 			mlx->game.event |= FLAG_CURSOR;
 	}
-	else if (c3d_game_keyhook_speed(&speed, key, mlx->game.speed))
+	else if (c3d_game_speed(&speed, key, mlx->game.speed))
 		mlx->game.speed = speed;
 	if (key != mlx->game.key)
 		return (false);

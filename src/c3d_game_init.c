@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_game_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/20 11:03:00 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/25 18:26:42 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ void	c3d_game_init(t_game *game, t_scene *scene)
 	game->fov = ANGLE_FOV;
 	game->event = FLAG_NOEVENT;
 	ft_addr_set(&game->cursor, VAL_INVAL, VAL_INVAL);
-	game->speed = SPEED_SLOW;
+	game->speed = UNIT_SPEED;
 	game->score = 0;
 }

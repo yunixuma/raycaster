@@ -3,16 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/20 01:11:02 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/25 18:25:10 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	c3d_game_lens(t_mlx *mlx, double fov_add)
+bool	c3d_game_speed(int *new, int key, int old)
+{
+	if (key != KEY_SPEED && key != BUTTON_SPEED)
+		return (false);
+	if (old >= MAX_SPEED)
+		*new = UNIT_SPEED;
+	else if (old + UNIT_SPEED >= MAX_SPEED)
+		*new = MAX_SPEED;
+	else
+		*new += UNIT_SPEED;
+	return (true);
+}
+
+bool	c3d_game_zoom(t_mlx *mlx, double fov_add)
 {
 	double	fov_bak;
 
