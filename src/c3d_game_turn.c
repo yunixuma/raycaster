@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 14:47:43 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 19:58:08 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ bool	c3d_game_turn(t_mlx *mlx, t_angle *turn)
 	c3d_game_turn_adjust(&mlx->game.angle, mlx->game.speed);
 	if (mlx->game.angle.yaw == bak.yaw && mlx->game.angle.pitch == bak.pitch)
 		return (false);
-debug_printf("turn: (%6.3lf, %6.3lf)\n", turn->yaw, turn->pitch);
-debug_printf("angle: (y%6.3lf, p%6.3lf)\n", mlx->game.angle.yaw, mlx->game.angle.pitch);
+//debug_printf("turn: (%6.3lf, %6.3lf)\n", turn->yaw, turn->pitch);
+//debug_printf("angle: (y%6.3lf, p%6.3lf)\n", mlx->game.angle.yaw, mlx->game.angle.pitch);
 	return (true);
 }

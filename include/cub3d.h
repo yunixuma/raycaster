@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/26 14:50:43 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/27 05:44:14 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,14 +95,16 @@ int		c3d_game_clickhook(int button, int x, int y, t_mlx *mlx);
 int		c3d_game_clickhook_up(int button, int x, int y, t_mlx *mlx);
 bool	c3d_game_move(t_mlx *mlx, t_coord *move);
 bool	c3d_game_turn(t_mlx *mlx, t_angle *turn);
-bool	c3d_game_zoom(t_mlx *mlx, double fov_add);
-bool	c3d_game_speed(int *new, int key, int old);
+bool	c3d_game_speed(t_game *game);
+bool	c3d_game_zoom(t_game *game, double fov_add);
+bool	c3d_game_cursormode(t_game *game);
 int		c3d_exit(int errnum);
 int		c3d_exit_mlx(t_mlx *mlx, int errnum);
 int		c3d_exit_mlx_break(t_mlx *mlx);
 int		c3d_exit_mlx_goal(t_mlx *mlx);
 int		c3d_print_err(int errnum);
 void	c3d_print_control(void);
+void	c3d_print_status(t_game *game);
 void	c3d_print_break(void);
 char	c3d_idx2flag_direction(size_t idx);
 int		ft_seterr(int errnum);

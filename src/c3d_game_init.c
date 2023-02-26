@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/26 16:08:50 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 22:56:41 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void	c3d_game_init(t_game *game, t_scene *scene)
 	c3d_game_init_coord(game, scene->map, &start);
 	c3d_game_init_angle(game, scene->map, &start);
 	game->fov = ANGLE_FOV;
-	game->event = FLAG_NOEVENT;
+	game->event = FLAG_INIT;
 	ft_addr_set(&game->cursor, VAL_INVAL, VAL_INVAL);
 	game->speed = UNIT_SPEED;
-	game->score = 0;
+//	game->score = 0;
 }

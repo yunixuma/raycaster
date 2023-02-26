@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 23:27:59 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 21:13:53 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,14 @@ int	c3d_mlx_hook(t_mlx *mlx)
 {
 //debug_printf("event: %#04x\n", mlx->game.event);
 //debug_printf("key: %#06x\n", mlx->game.key);
-	if (mlx->game.event == FLAG_NOEVENT)
-		return (false);
 	c3d_game_keyhook_fire(mlx->game.key, mlx);
-	c3d_win_draw_vision(mlx);
+	if (ft_hasflag(mlx->game.event, FLAG_DRAW))
+		c3d_win_draw_vision(mlx);
+	if (ft_hasflag(mlx->game.event, FLAG_PROMPT))
+		c3d_print_status(&mlx->game);
 	mlx->game.event &= (FLAG_KEY | FLAG_CURSOR);
-	return (true);
+	mlx->game.event &= ~(FLAG_DRAW | FLAG_PROMPT);
+	return (ERR_NOERR);
 }
 
 int	c3d_mlx_loop(t_mlx *mlx)

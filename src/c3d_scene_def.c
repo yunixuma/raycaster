@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/14 01:17:54 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 17:34:21 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ static int	c3d_scene_def_sub(t_scene *scene, char *line)
 				return (c3d_scene_def_color(&scene->color[j - N_TEXTURE], \
 					line + ft_strlen(ids[j])));
 		}
-		DL(j++);
+		j++;
+//DL(j++);
 	}
 	return (EINVAL);
 }
@@ -60,7 +61,7 @@ int	c3d_scene_def(t_scene *scene, int fd)
 	while (i < N_TEXTURE + N_COLOR)
 	{
 		line = get_next_line(fd);
-		DS(line);
+//DS(line);
 		if (line == NULL)
 			return (ERR_EMPTY);
 		errno = c3d_scene_def_sub(scene, line);

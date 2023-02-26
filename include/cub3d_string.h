@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 23:08:20 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/27 06:23:56 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # define STR_EMPTY			""
 # define STR_EXT			".cub"
 # define STR_TITLE			"cub3D"
+# define STR_ON				"ON"
+# define STR_OFF			"OFF"
 # define ID_NORTH			"NO "
 # define ID_SOUTH			"SO "
 # define ID_EAST			"EA "
@@ -46,7 +48,9 @@
 # define MSG_HOWTO_ZOOM		"Zoom-in: [PgUp][ScrUp]\tZoom-out: [PgDn][ScrDn]"
 # define MSG_HOWTO_SPEED	"Change Speed: [F][RightClick]"
 # define MSG_HOWTO_EXIT		"Exit: [Q] or [Esc]"
-# define MSG_SCORE			"Player %3d scores moved\n"
+# define MSG_STATUS_POS		"Coord: (%6.2lf, %5.2lf)\tAzimuth: %6.1lf\n"
+# define MSG_STATUS_MODE	"Speed: %d\tFOV: %3.0lf\tCursor: %s\n"
+//# define MSG_SCORE			"Player %3d scores moved\n"
 # define MSG_BREAK			"Terminated by player's operation"
 # define MSG_GOAL			"Congratulations (%3d pts in the end)"
 

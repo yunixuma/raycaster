@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:04:04 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/10 01:38:07 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 18:10:00 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	debug_c3d_game(t_game *game)
 	dprintf(FD_DEBUG, "     \t");
 	dprintf(FD_DEBUG, "fov: %lf\t", game->fov);
 	dprintf(FD_DEBUG, "key: %d\t", game->event);
-	dprintf(FD_DEBUG, "score: %d\n", game->score);
+//	dprintf(FD_DEBUG, "score: %d\n", game->score);
 }
 
 void	debug_c3d_countchr(int *arr)

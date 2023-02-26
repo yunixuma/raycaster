@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/05 10:00:47 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 21:10:23 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static void	debug_c3d_img_data(int *data, int size_tile, int len)
 		i_line = 0;
 		while (i_line < len)
 		{
-			*(data + i_row * size_tile + i_line) &= 0xffffff;
-			*(data + i_row * size_tile + i_line) |= 0x7f0000ff;
+//			*(data + i_row * size_tile + i_line) &= 0xffffff;
+//			*(data + i_row * size_tile + i_line) |= 0x7f0000ff;
 			debug_printf("(%3zu, %3zu):\t", i_line, i_row);
 			debug_printf("%8x\n", *(data + i_row * size_tile + i_line));
 			i_line++;

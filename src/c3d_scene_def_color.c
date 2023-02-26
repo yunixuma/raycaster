@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/26 15:20:29 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 17:23:09 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	c3d_scene_def_color_combine(int *color_code, char *p[])
 			return (EINVAL);
 		i++;
 	}
-debug_printf("%#x\n", color.code);
+//debug_printf("%#x\n", color.code);
 	*color_code = color.code;
 	return (ERR_NOERR);
 }

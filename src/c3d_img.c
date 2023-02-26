@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/17 07:07:42 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 17:22:22 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static bool	c3d_img_texture_load(t_mlx *mlx, t_img *img, char *path)
 {
 	img->ptr = mlx_xpm_file_to_image(mlx->conn, path, \
 		&img->width, &img->height);
-DP(img->ptr);
+//DP(img->ptr);
 	if (img->ptr == NULL)
 		return (false);
 	img->data = (int *)mlx_get_data_addr(img->ptr, \
@@ -26,9 +26,9 @@ DP(img->ptr);
 
 static bool	c3d_img_init_empty(t_mlx *mlx, t_img *img, int width, int height)
 {
-debug_printf("width: %d\theight: %d\n", width, height);
+//debug_printf("width: %d\theight: %d\n", width, height);
 	img->ptr = mlx_new_image(mlx->conn, width, height);
-DP(img->ptr);
+//DP(img->ptr);
 	img->width = width;
 	img->height = height;
 	img->data = (int *)mlx_get_data_addr(img->ptr, \

@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 23:26:44 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 22:56:10 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 # define FLAG_WEST		'\x08'
 
 # define FLAG_NOEVENT	0x00
+# define FLAG_INIT		0x01
+# define FLAG_PROMPT	0x02
+# define FLAG_DRAW		0x04
 # define FLAG_KEY		0x20
 # define FLAG_CURSOR	0x40
 # define FLAG_CLICK		0x80

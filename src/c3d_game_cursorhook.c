@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 23:50:57 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 21:20:04 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,12 @@ int	c3d_game_cursorhook(int x, int y, t_mlx *mlx)
 
 	if (!ft_hasflag(mlx->game.event, FLAG_CURSOR))
 		return (false);
-debug_printf("cursor(%d, %d)\n", x, y);
+//debug_printf("cursor(%d, %d)\n", x, y);
 	ft_addr_set(&new, x, y);
 	if (c3d_game_cursorhook_turn(&turn, \
-		&new, &mlx->game.cursor, mlx->game.speed))
-		c3d_game_turn(mlx, &turn);
+		&new, &mlx->game.cursor, mlx->game.speed) \
+		&& c3d_game_turn(mlx, &turn))
+		mlx->game.event |= FLAG_PROMPT | FLAG_DRAW;
 	mlx->game.cursor.x = x;
 	mlx->game.cursor.y = y;
 	return (true);

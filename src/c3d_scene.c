@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/14 02:06:03 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 17:23:33 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ char	**c3d_scene_getmap(int fd)
 	if (map == NULL)
 		return (ft_lstclear_seterr(&lst, &free, errno));
 	ft_lstclear(&lst, NULL);
-debug_c3d_map_raw(map);
+//debug_c3d_map_raw(map);
 	c3d_map_encode(map);
-debug_c3d_map_flag(map);
+//debug_c3d_map_flag(map);
 	c3d_map_valid(map);
 	return (map);
 }

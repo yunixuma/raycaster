@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/26 16:09:14 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/27 05:45:14 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,17 @@ int	c3d_game_keyhook_fire(int key, t_mlx *mlx)
 
 	if (!ft_hasflag(mlx->game.event, FLAG_KEY))
 		return (false);
-	if (c3d_game_keyhook_fire_turn(&turn, key, mlx->game.speed))
-		c3d_game_turn(mlx, &turn);
+	if (c3d_game_keyhook_fire_turn(&turn, key, mlx->game.speed) \
+		&& c3d_game_turn(mlx, &turn))
+		mlx->game.event |= FLAG_DRAW | FLAG_PROMPT;
 	else if (c3d_game_keyhook_fire_move(&move, key, \
-		mlx->game.angle.yaw, mlx->game.speed))
-		c3d_game_move(mlx, &move);
+		mlx->game.angle.yaw, mlx->game.speed) \
+		&& c3d_game_move(mlx, &move))
+		mlx->game.event |= FLAG_DRAW | FLAG_PROMPT;
 //		c3d_print_score(++(mlx->game.score));
-	else if (c3d_game_keyhook_fire_zoom(&turn, key, mlx->game.speed))
-		c3d_game_zoom(mlx, turn.roll);
+	else if (c3d_game_keyhook_fire_zoom(&turn, key, mlx->game.speed) \
+		&& c3d_game_zoom(&mlx->game, turn.roll))
+		mlx->game.event |= FLAG_DRAW | FLAG_PROMPT;
 //	if (c3d_game_judge(mlx))
 //		c3d_exit_mlx_goal(mlx);
 	return (true);

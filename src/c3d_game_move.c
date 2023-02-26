@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/20 02:01:41 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 19:58:13 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ bool	c3d_game_move(t_mlx *mlx, t_coord *move)
 		return (false);
 	mlx->game.coord.y += move->y;
 	mlx->game.coord.x += move->x;
-debug_printf("move: (%6.3lf, %6.3lf)\n", move->x, move->y);
-debug_printf("coord: (%6.3lf, %6.3lf)\n", mlx->game.coord.x, mlx->game.coord.y);
+//debug_printf("move: (%6.3lf, %6.3lf)\n", move->x, move->y);
+//debug_printf("coord: (%6.3lf, %6.3lf)\n", mlx->game.coord.x, mlx->game.coord.y);
 	return (true);
 }

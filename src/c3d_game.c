@@ -6,39 +6,47 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/26 16:08:21 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/27 05:43:09 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	c3d_game_speed(int *new, int key, int old)
+bool	c3d_game_speed(t_game *game)
 {
-	if (key != KEY_SPEED && key != BUTTON_SPEED)
-		return (false);
-	if (old >= MAX_SPEED)
-		*new = UNIT_SPEED;
-	else if (old + UNIT_SPEED >= MAX_SPEED)
-		*new = MAX_SPEED;
+	if (game->speed >= MAX_SPEED)
+		game->speed = UNIT_SPEED;
+	else if (game->speed + UNIT_SPEED >= MAX_SPEED)
+		game->speed = MAX_SPEED;
 	else
-		*new += UNIT_SPEED;
+		game->speed += UNIT_SPEED;
 	return (true);
 }
 
-bool	c3d_game_zoom(t_mlx *mlx, double fov_add)
+bool	c3d_game_zoom(t_game *game, double fov_add)
 {
 	double	fov_bak;
 
-	fov_bak = mlx->game.fov;
-	mlx->game.fov += fov_add;
-	if (mlx->game.fov > ANGLE_FOV_MAX)
-		mlx->game.fov = ANGLE_FOV_MAX;
-	else if (mlx->game.fov < ANGLE_FOV_MIN)
-		mlx->game.fov = ANGLE_FOV_MIN;
-	if (mlx->game.fov == fov_bak)
+	fov_bak = game->fov;
+	game->fov += fov_add;
+	if (game->fov > ANGLE_FOV_MAX)
+		game->fov = ANGLE_FOV_MAX;
+	else if (game->fov < ANGLE_FOV_MIN)
+		game->fov = ANGLE_FOV_MIN;
+	if (game->fov == fov_bak)
 		return (false);
 	return (true);
 }
+
+bool	c3d_game_cursormode(t_game *game)
+{
+	if (ft_hasflag(game->event, FLAG_CURSOR))
+		game->event &= ~FLAG_CURSOR;
+	else
+		game->event |= FLAG_CURSOR;
+	return (true);
+}
+
 /*
 bool	c3d_game_judge(t_mlx *mlx)
 {

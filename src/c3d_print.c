@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:04:04 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 22:41:14 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/27 06:23:43 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,24 @@ void	c3d_print_control(void)
 	ft_putendl_fd(MSG_HOWTO_ZOOM, STDOUT_FILENO);
 	ft_putendl_fd(MSG_HOWTO_SPEED, STDOUT_FILENO);
 	ft_putendl_fd(MSG_HOWTO_EXIT, STDOUT_FILENO);
+}
+
+void	c3d_print_status(t_game *game)
+{
+	const char	*cursor_mode[2] = {STR_OFF, STR_ON};
+
+	if (ft_hasflag(game->event, FLAG_INIT))
+		game->event &= ~FLAG_INIT;
+	else
+	{
+		ft_prompt_arg(PROMPT_MOVE_UP, 1);
+		ft_prompt_clr_line();
+		ft_prompt_arg(PROMPT_MOVE_UP, 1);
+		ft_prompt_clr_line();
+	}
+	printf(MSG_STATUS_POS, game->coord.x, game->coord.y, game->angle.yaw);
+	printf(MSG_STATUS_MODE, game->speed, game->fov, \
+		cursor_mode[ft_hasflag(game->event, FLAG_CURSOR)]);
 }
 
 void	c3d_print_break(void)

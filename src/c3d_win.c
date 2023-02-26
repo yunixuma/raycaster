@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/26 14:11:43 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 22:59:14 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	c3d_win_draw_vision(t_mlx *mlx)
 	mlx_put_image_to_window(mlx->conn, mlx->win, mlx->img[IDX_VISION].ptr, \
 		ZERO_VISION, ZERO_VISION);
 //debug_c3d_game(&mlx->game);
+//debug_printf(".");
 	return (ERR_NOERR);
 }
 
