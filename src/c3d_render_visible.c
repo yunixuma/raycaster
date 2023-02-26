@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 21:43:03 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 13:32:51 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	c3d_render_visible(t_mlx *mlx)
 	i_col = -(WIDTH_VISION >> 1);
 	while (i_col < (WIDTH_VISION >> 1))
 	{
-		angle = mlx->game.angle.yaw + ft_math_rad2deg(atan(ft_math_tan_deg(mlx->game.fov / 2) * i_col * 2 / WIDTH_VISION));
-		ray.dir.x = ft_math_sin_deg(angle);
-		ray.dir.y = -ft_math_cos_deg(angle);
+		angle = mlx->game.angle.yaw + ft_math_rad2deg(atan(tan(ft_math_deg2rad(mlx->game.fov / 2)) * i_col * 2 / WIDTH_VISION));
+		ray.dir.x = sin(ft_math_deg2rad(angle));
+		ray.dir.y = -cos(ft_math_deg2rad(angle));
 		ft_coord_copy(&ray.pos, &mlx->game.coord);
 		c3d_render_intersect(mlx, i_col, &ray);
 		i_col++;

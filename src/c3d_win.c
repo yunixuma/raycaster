@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/19 12:03:16 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 14:11:43 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	c3d_win_draw_vision(t_mlx *mlx)
 	return (ERR_NOERR);
 }
 
+/*
 void	c3d_win_draw_pixel(t_mlx *mlx, int x, int y, int color)
 {
 	t_addr	i;
@@ -52,6 +53,7 @@ void	c3d_win_draw_pixel(t_mlx *mlx, int x, int y, int color)
 		i.x++;
 	}
 }
+*/
 
 void	c3d_win_destroy(t_mlx *mlx)
 {

@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d_math.h                                       :+:      :+:    :+:   */
+/*   ft_prompt_clr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/26 13:53:07 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 13:08:38 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_MATH_H
-# define CUB3D_MATH_H
+#include "ft_prompt.h"
 
-# define _USE_MATH_DEFINES
+int	ft_prompt_clr(void)
+{
+	return (printf(PROMPT_CLEAR));
+}
 
-# include <math.h>
-# include <stdbool.h>
-# include "cub3d_typedef.h"
+int	ft_prompt_clr_line(void)
+{
+	return (printf(PROMPT_CLEAR_LINE));
+}
 
-# ifndef M_PI
-#  define M_PI	3.141592653589793
-# endif
+int	ft_prompt_clr_left(void)
+{
+	return (printf(PROMPT_CLEAR_LEFT));
+}
 
-double	ft_math_deg2rad(double deg);
-double	ft_math_rad2deg(double rad);
-double	ft_math_angle_normalize(double angle);
-double	ft_math_distance_2d(t_coord *pt1, t_coord *pt2);
-double	ft_math_distance_3d(t_coord *pt1, t_coord *pt2);
-bool	ft_math_intersect_2d(t_vec *vec1, t_vec *vec2, t_coord *pt);
-
-#endif
+int	ft_prompt_clr_right(void)
+{
+	return (printf(PROMPT_CLEAR_RIGHT));
+}

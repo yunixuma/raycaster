@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_const.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/25 18:46:28 by ykosaka          ###   ########.fr       */
+/*   Updated: 2023/02/26 14:07:20 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@
 
 typedef enum e_channel
 {
+	IDX_ALPHA,
 	IDX_RED,
 	IDX_GREEN,
 	IDX_BLUE,

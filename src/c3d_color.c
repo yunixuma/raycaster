@@ -6,12 +6,12 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/26 22:21:17 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 14:50:05 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
+/*
 int	c3d_color_combine(t_color *color)
 {
 	int	color_code;
@@ -36,3 +36,4 @@ void	c3d_color_separate(t_color *color, int color_code)
 	color_code >>= BITS_CHANNEL;
 	color->r = color_code & MASK_CHANNEL;
 }
+*/

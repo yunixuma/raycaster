@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d_math.h                                       :+:      :+:    :+:   */
+/*   ft_prompt_move.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/26 13:53:07 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 13:09:07 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_MATH_H
-# define CUB3D_MATH_H
+#include "ft_prompt.h"
 
-# define _USE_MATH_DEFINES
+int	ft_prompt_arg(const char *s, int n)
+{
+	return (printf(s, n));
+}
 
-# include <math.h>
-# include <stdbool.h>
-# include "cub3d_typedef.h"
-
-# ifndef M_PI
-#  define M_PI	3.141592653589793
-# endif
-
-double	ft_math_deg2rad(double deg);
-double	ft_math_rad2deg(double rad);
-double	ft_math_angle_normalize(double angle);
-double	ft_math_distance_2d(t_coord *pt1, t_coord *pt2);
-double	ft_math_distance_3d(t_coord *pt1, t_coord *pt2);
-bool	ft_math_intersect_2d(t_vec *vec1, t_vec *vec2, t_coord *pt);
-
-#endif
+int	ft_prompt_arg_2(const char *s, int n1, int n2)
+{
+	return (printf(s, n1, n2));
+}

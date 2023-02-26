@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 18:16:48 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 13:52:49 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,9 @@ double	ft_math_angle_normalize(double deg)
 	return (deg);
 }
 
-double	ft_math_sin_deg(double deg)
+/*
+double	ft_math_pf_deg(double deg, double (*pf)(double))
 {
-	return (sin(ft_math_deg2rad(deg)));
+	return (pf(ft_math_deg2rad(deg)));
 }
-
-double	ft_math_cos_deg(double deg)
-{
-	return (cos(ft_math_deg2rad(deg)));
-}
-
-double	ft_math_tan_deg(double deg)
-{
-	return (tan(ft_math_deg2rad(deg)));
-}
-
-double	ft_math_asin_deg(double deg)
-{
-	return (asin(ft_math_deg2rad(deg)));
-}
-
-double	ft_math_acos_deg(double deg)
-{
-	return (acos(ft_math_deg2rad(deg)));
-}
-
-double	ft_math_atan_deg(double deg)
-{
-	return (atan(ft_math_deg2rad(deg)));
-}
+*/

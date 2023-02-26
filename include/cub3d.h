@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/25 18:27:32 by ykosaka          ###   ########.fr       */
+/*   Updated: 2023/02/26 14:50:43 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include "cub3d_math.h"
 # include "mlx.h"
 # include "libft.h"
+# include "ft_prompt.h"
 # include "cub3d_string.h"
 # include "cub3d_const.h"
 # include "cub3d_flag.h"
@@ -103,8 +104,6 @@ int		c3d_exit_mlx_goal(t_mlx *mlx);
 int		c3d_print_err(int errnum);
 void	c3d_print_control(void);
 void	c3d_print_break(void);
-int		c3d_color_combine(t_color *color);
-void	c3d_color_separate(t_color *color, int color_code);
 char	c3d_idx2flag_direction(size_t idx);
 int		ft_seterr(int errnum);
 int		ft_seterr_return(int ret, int errnum);

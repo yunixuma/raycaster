@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_game_keyhook_fire.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykosaka <ykosaka@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/25 18:15:04 by ykosaka          ###   ########.fr       */
+/*   Updated: 2023/02/26 16:09:14 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static bool	c3d_game_keyhook_fire_move(t_coord *move, int key, \
 		angle += ANGLE_RIGHT * 2;
 	else if (key != KEY_FORWARD)
 		return (false);
-	move->x = UNIT_MOVE * speed * ft_math_sin_deg(angle);
-	move->y = UNIT_MOVE * speed * -ft_math_cos_deg(angle);
+	move->x = UNIT_MOVE * speed * sin(ft_math_deg2rad(angle));
+	move->y = UNIT_MOVE * speed * -cos(ft_math_deg2rad(angle));
 	return (true);
 }
 

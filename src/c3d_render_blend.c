@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/11 12:01:28 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 15:20:03 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	c3d_render_blend(t_img *img_dst, t_img *img_src, t_addr *zero)
 {
 	t_addr			i;
-	unsigned int	fore;
-	unsigned int	back;
-	unsigned int	alpha;
+	t_color			fore;
+	t_color			back;
+	unsigned char	alpha;
 
 	i.y = 0;
 	while (i.y < img_src->height)
@@ -25,13 +25,15 @@ void	c3d_render_blend(t_img *img_dst, t_img *img_src, t_addr *zero)
 		i.x = 0;
 		while (i.x < img_src->width)
 		{
-			fore = img_src->data[i.y * img_src->width + i.x];
-			alpha = fore >> (BITS_CHANNEL * N_CHANNEL);
-			fore &= ~(MASK_CHANNEL << (BITS_CHANNEL * N_CHANNEL));
-			back = img_dst->data[(zero->y + i.y) * img_dst->width \
+			fore.code = img_src->data[i.y * img_src->width + i.x];
+			alpha = fore.ch[N_CHANNEL - 1 - IDX_ALPHA];
+			fore.ch[N_CHANNEL - 1 - IDX_ALPHA] = 0;
+			back.code = img_dst->data[(zero->y + i.y) * img_dst->width \
 				+ zero->x + i.x];
+			back.ch[N_CHANNEL - 1 - IDX_ALPHA] = 0;
 			img_dst->data[(zero->y + i.y) * img_dst->width + zero->x + i.x] \
-				= (fore * ((1 << BITS_CHANNEL) - alpha) + back * alpha) \
+				= (fore.code \
+				* ((1 << BITS_CHANNEL) - alpha) + back.code * alpha) \
 				>> BITS_CHANNEL;
 			i.x++;
 		}

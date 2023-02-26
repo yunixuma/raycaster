@@ -6,7 +6,7 @@
 #    By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 16:52:37 by ykosaka           #+#    #+#              #
-#    Updated: 2023/02/24 12:20:46 by Yoshihiro K      ###   ########.fr        #
+#    Updated: 2023/02/26 14:54:33 by Yoshihiro K      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,7 @@ OS				= $(shell uname)
 
 # Enumeration of files
 SRC				= c3d_main.c \
-				  c3d_scene.c c3d_scene_def.c \
-				  c3d_scene_def_color.c c3d_color.c \
+				  c3d_scene.c c3d_scene_def.c c3d_scene_def_color.c \
 				  c3d_map_read.c c3d_map_trim.c c3d_map_chk.c \
 				  c3d_lst2map_rect.c c3d_map_encode.c c3d_map_valid.c \
 				  c3d_map_clear.c c3d_map2vectors.c c3d_idx2flag.c \
@@ -42,6 +41,7 @@ SRC				= c3d_main.c \
 				  c3d_game_cursorhook.c c3d_game_clickhook.c \
 				  ft_mapseek.c ft_mapsize.c ft_addr.c ft_coord.c \
 				  ft_free.c ft_lstclear_seterr.c ft_seterr.c \
+				  ft_prompt_clr.c ft_prompt_arg.c \
 				  ft_hasflag.c ft_inrange.c ft_stris.c \
 				  ft_math.c ft_math_distance.c ft_math_intersect.c \
 

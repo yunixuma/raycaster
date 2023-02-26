@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/19 00:50:00 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/02/26 13:13:30 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static void	c3d_render_intersect_update(t_coord (*pt)[2], \
 		|| ft_math_distance_2d(pos, &(*pt)[0]) \
 		< ft_math_distance_2d(pos, &(*pt)[1]))
 	{
-
 		ft_coord_copy(&(*pt)[1], &(*pt)[0]);
 		(*tex_id)[1] = (*tex_id)[0];
 	}
