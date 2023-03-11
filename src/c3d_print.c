@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:04:04 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/27 06:23:43 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/03/11 19:30:02 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,26 @@
 
 static int	c3d_print_err_sub(int errnum)
 {
-	if (errnum == ERR_EMPTY)
+	if (errnum == ERR_NOTNUM)
+		ft_putendl_fd(MSG_NOTNUM, STDERR_FILENO);
+	else if (errnum == ERR_RANGE)
+		ft_putendl_fd(MSG_RANGE, STDERR_FILENO);
+	else if (errnum == ERR_MANYVALS)
+		ft_putendl_fd(MSG_MANYVALS, STDERR_FILENO);
+	else if (errnum == ERR_EMPTY)
 		ft_putendl_fd(MSG_EMPTY, STDERR_FILENO);
 	else if (errnum == ERR_CHR)
 		ft_putendl_fd(MSG_CHR, STDERR_FILENO);
-	else if (errnum == ERR_SHAPE)
-		ft_putendl_fd(MSG_SHAPE, STDERR_FILENO);
+//	else if (errnum == ERR_SHAPE)
+//		ft_putendl_fd(MSG_SHAPE, STDERR_FILENO);
 	else if (errnum == ERR_COUNT)
 		ft_putendl_fd(MSG_COUNT, STDERR_FILENO);
 	else if (errnum == ERR_OUTER)
 		ft_putendl_fd(MSG_OUTER, STDERR_FILENO);
-	else if (errnum == ERR_PATH)
-		ft_putendl_fd(MSG_PATH, STDERR_FILENO);
-	else if (errnum == ERR_HUGE)
-		ft_putendl_fd(MSG_HUGE, STDERR_FILENO);
+//	else if (errnum == ERR_PATH)
+//		ft_putendl_fd(MSG_PATH, STDERR_FILENO);
+//	else if (errnum == ERR_HUGE)
+//		ft_putendl_fd(MSG_HUGE, STDERR_FILENO);
 	else if (errnum == ERR_MLX)
 		ft_putendl_fd(MSG_MLX, STDERR_FILENO);
 	return (errnum);
@@ -48,6 +54,10 @@ int	c3d_print_err(int errnum)
 		ft_putendl_fd(MSG_OPEN, STDERR_FILENO);
 	else if (errnum == ERR_ALLOC)
 		ft_putendl_fd(MSG_ALLOC, STDERR_FILENO);
+	else if (errnum == ERR_ID)
+		ft_putendl_fd(MSG_ID, STDERR_FILENO);
+	else if (errnum == ERR_DUP)
+		ft_putendl_fd(MSG_DUP, STDERR_FILENO);
 	else
 		c3d_print_err_sub(errnum);
 	return (errnum);

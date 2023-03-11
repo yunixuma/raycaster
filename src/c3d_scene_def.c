@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_scene_def.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/26 17:34:21 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/03/11 20:00:58 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	c3d_scene_def_sub(t_scene *scene, char *line)
 		j++;
 //DL(j++);
 	}
-	return (EINVAL);
+	return (ERR_ID);
 }
 
 int	c3d_scene_def(t_scene *scene, int fd)
@@ -61,7 +61,7 @@ int	c3d_scene_def(t_scene *scene, int fd)
 	while (i < N_TEXTURE + N_COLOR)
 	{
 		line = get_next_line(fd);
-//DS(line);
+DS(line);
 		if (line == NULL)
 			return (ERR_EMPTY);
 		errno = c3d_scene_def_sub(scene, line);

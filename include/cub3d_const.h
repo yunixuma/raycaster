@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_const.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/26 14:07:20 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/03/11 19:27:15 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,20 @@
 # define ERR_FPATH			ENAMETOOLONG
 # define ERR_OPEN			ENOENT
 # define ERR_ALLOC			ENOMEM
+# define ERR_ID				EFAULT
 # define ERR_DUP			EEXIST
+# define ERR_NOTNUM			EFTYPE
+# define ERR_RANGE			EDOM
+# define ERR_MANYVALS		EOVERFLOW
+# define ERR_EMPTY			ENODATA
+# define ERR_CHR			EINVAL
+# define ERR_COUNT			EMLINK
+# define ERR_OUTER			EILSEQ
+//# define ERR_SHAPE			EMSGSIZE
+//# define ERR_PATH			EHOSTUNREACH
 # define ERR_MLX			EBUSY
+//# define ERR_HUGE			EFBIG
+
 # define UNIT_MOVE			0.03125
 # define UNIT_TURN			1.
 # define ANGLE_RIGHT		90.
@@ -98,13 +110,6 @@ typedef enum e_imgidx
 # define COLOR_POS			0x3fff0000
 # define COLOR_FRAME		0x3f00ff00
 
-# define ERR_EMPTY			ENODATA
-# define ERR_CHR			EINVAL
-# define ERR_SHAPE			EMSGSIZE
-# define ERR_COUNT			EMLINK
-# define ERR_OUTER			EILSEQ
-# define ERR_PATH			EHOSTUNREACH
-# define ERR_HUGE			EFBIG
 # define FLAG_CHECKED		0x80
 # define SIZE_NULL			0
 # define POS_NOEXIST		-1

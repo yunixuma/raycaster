@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_scene_def_color.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/26 17:23:09 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/03/11 19:27:26 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static int	c3d_scene_def_color_atoi(unsigned char *val, char *p)
 	if (*p == CHR_SPACE)
 		p++;
 	if (!ft_stris(p, ft_isdigit))
-		return (ERANGE);
+		return (ft_seterr(ERR_RANGE));
 	val_tmp = ft_atoi(p);
 	if ((val_tmp | 0xff) != 0xff)
-		return (ERANGE);
+		return (ft_seterr(ERR_RANGE));
 	*val = val_tmp;
 	return (ERR_NOERR);
 }
@@ -36,7 +36,7 @@ static int	c3d_scene_def_color_combine(int *color_code, char *p[])
 	while (i < N_CHANNEL)
 	{
 		if (c3d_scene_def_color_atoi(&color.ch[N_CHANNEL - 1 - i], p[i]))
-			return (EINVAL);
+			return (errno);
 		i++;
 	}
 //debug_printf("%#x\n", color.code);
@@ -56,11 +56,11 @@ int	c3d_scene_def_color(int *color_code, char *line)
 	{
 		p[i] = ft_strchr(p[i - 1], CHR_SEP);
 		if (p[i] == NULL)
-			return (EINVAL);
+			return (ERR_MANYVALS);
 		*p[i] = '\0';
 		p[i++] += sizeof(char);
 	}
 	if (c3d_scene_def_color_combine(color_code, p))
-		return (EINVAL);
+		return (errno);
 	return (ERR_NOERR);
 }

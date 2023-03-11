@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_string.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/27 06:23:56 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/03/11 19:32:24 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,24 @@
 # define ID_CEILING			"C "
 
 # define MSG_ERR			"Error"
-# define MSG_NOARG			"Missing the argument to specify a map file"
+# define MSG_NOARG			"Missing the argument to specify a scene file"
 # define MSG_MANYARGS		"Please specify only one argument"
-# define MSG_FEXT			"File extention of map file must be \".cub\""
+# define MSG_FEXT			"Filename of scene file must be \"*.cub\""
 # define MSG_FPATH			"The file path is too long"
 # define MSG_OPEN			"Cannot open the file"
 # define MSG_ALLOC			"An error occured during allocating memory"
+# define MSG_ID			    "Invalid identifier determined"
+# define MSG_DUP			"Identifier redefined"
+# define MSG_NOTNUM			"Value of color must be a number"
+# define MSG_RANGE			"Value of color is out of range"
+# define MSG_MANYVALS		"Number of color channels must be 3"
 # define MSG_EMPTY			"Empty line appeared"
 # define MSG_CHR			"Invalid character contained"
-# define MSG_SHAPE			"The map must be rectangular"
+//# define MSG_SHAPE			"The map must be rectangular"
 # define MSG_COUNT			"Too many or too few characters contained"
 # define MSG_OUTER			"The map must be surrounded by walls"
-# define MSG_PATH			"No route to the exit and/or some collectibles"
-# define MSG_HUGE			"The map is too large to display"
+//# define MSG_PATH			"No route to the exit and/or some collectibles"
+//# define MSG_HUGE			"The map is too large to display"
 # define MSG_MLX			"An error occured during initiate a X-Window I/F"
 # define MSG_WAIT			"Wait a moment for creating the window..."
 //# define MSG_HOWTO_GOAL	"Control the monkey to take all stars to dragon"
