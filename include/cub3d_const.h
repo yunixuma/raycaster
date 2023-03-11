@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_const.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/03/11 19:27:15 by ykosaka          ###   ########.fr       */
+/*   Updated: 2023/03/11 21:32:40 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@
 # define ERR_ALLOC			ENOMEM
 # define ERR_ID				EFAULT
 # define ERR_DUP			EEXIST
-# define ERR_NOTNUM			EFTYPE
-# define ERR_RANGE			EDOM
+# define ERR_NOTNUM			EDOM
+# define ERR_RANGE			ERANGE
 # define ERR_MANYVALS		EOVERFLOW
+# define ERR_NODEF			ENXIO
 # define ERR_EMPTY			ENODATA
 # define ERR_CHR			EINVAL
 # define ERR_COUNT			EMLINK

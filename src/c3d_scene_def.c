@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_scene_def.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/03/11 20:00:58 by ykosaka          ###   ########.fr       */
+/*   Updated: 2023/03/11 21:42:33 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,24 @@ static int	c3d_scene_def_image(char **path, char *line)
 	if (*path == NULL)
 		*path = ft_strdup(line);
 	else
-		return (ERR_DUP);
+		return (ft_seterr(ERR_DUP));
 	if (*path == NULL)
-		return (ERR_ALLOC);
+		return (ft_seterr(ERR_ALLOC));
+	return (ERR_NOERR);
+}
+
+static int	c3d_scene_def_chk_complete(t_scene *scene)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < N_TEXTURE)
+		if (scene->path[i++] == NULL)
+			return (ft_seterr(ERR_NODEF));
+	i = 0;
+	while (i < N_COLOR)
+		if (scene->color[i++] == VAL_INVAL)
+			return (ft_seterr(ERR_NODEF));
 	return (ERR_NOERR);
 }
 
@@ -30,7 +45,7 @@ static int	c3d_scene_def_sub(t_scene *scene, char *line)
 	size_t		j;
 
 	if (*line == '\n' || *line == '\0')
-		return (ERR_EMPTY);
+		return (ft_seterr(ERR_EMPTY));
 	*(line + ft_strlen(line) - 1) = '\0';
 	j = 0;
 	while (j < N_TEXTURE + N_COLOR)
@@ -47,7 +62,7 @@ static int	c3d_scene_def_sub(t_scene *scene, char *line)
 		j++;
 //DL(j++);
 	}
-	return (ERR_ID);
+	return (ft_seterr(ERR_ID));
 }
 
 int	c3d_scene_def(t_scene *scene, int fd)
@@ -61,9 +76,9 @@ int	c3d_scene_def(t_scene *scene, int fd)
 	while (i < N_TEXTURE + N_COLOR)
 	{
 		line = get_next_line(fd);
-DS(line);
+//DS(line);
 		if (line == NULL)
-			return (ERR_EMPTY);
+			return (ft_seterr(ERR_EMPTY));
 		errno = c3d_scene_def_sub(scene, line);
 		free(line);
 		if (errno == ERR_EMPTY)
@@ -73,5 +88,8 @@ DS(line);
 		else
 			i++;
 	}
+	errno = ERR_NOERR;
+	if (c3d_scene_def_chk_complete(scene))
+		return (errno);
 	return (ERR_NOERR);
 }

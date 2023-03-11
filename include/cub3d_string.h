@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_string.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/03/11 19:32:24 by ykosaka          ###   ########.fr       */
+/*   Updated: 2023/03/11 21:25:28 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define MSG_NOTNUM			"Value of color must be a number"
 # define MSG_RANGE			"Value of color is out of range"
 # define MSG_MANYVALS		"Number of color channels must be 3"
+# define MSG_NODEF			"Missing Defination"
 # define MSG_EMPTY			"Empty line appeared"
 # define MSG_CHR			"Invalid character contained"
 //# define MSG_SHAPE			"The map must be rectangular"

@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/16 11:03:22 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/03/11 21:45:29 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,16 @@ static int	c3d_map_trim_bottom(t_list *lst)
 	ele = lst;
 	while (ele->next->next != NULL)
 		ele = ele->next;
-	while (ele->next->content == NULL || *(char *)(ele->next->content) == '\0')
+	while (ele->next != NULL && (ele->next->content == NULL \
+		|| *(char *)(ele->next->content) == '\0'))
 	{
+//DS((char *)lst->content);
+//DP(lst->next);
 		ft_free(&ele->next->content);
 		ft_free((void **)&ele->next);
 		ele->next = NULL;
 		ele = lst;
-		while (ele->next->next != NULL)
+		while (ele->next != NULL && ele->next->next != NULL)
 			ele = ele->next;
 	}
 	return (ERR_NOERR);
@@ -63,7 +66,8 @@ static int	c3d_map_trim_bottom(t_list *lst)
 
 int	c3d_map_trim(t_list **lst)
 {
-	if (lst == NULL || *lst == NULL || (*lst)->content == NULL)
+	if (lst == NULL || *lst == NULL \
+		|| (*lst)->content == NULL || (*lst)->next == NULL)
 		return (ft_seterr(ERR_EMPTY));
 	c3d_map_trim_eol(*lst);
 	c3d_map_trim_top(lst);

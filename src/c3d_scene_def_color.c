@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_scene_def_color.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/03/11 19:27:26 by ykosaka          ###   ########.fr       */
+/*   Updated: 2023/03/11 21:36:58 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	c3d_scene_def_color(int *color_code, char *line)
 	{
 		p[i] = ft_strchr(p[i - 1], CHR_SEP);
 		if (p[i] == NULL)
-			return (ERR_MANYVALS);
+			return (ft_seterr(ERR_MANYVALS));
 		*p[i] = '\0';
 		p[i++] += sizeof(char);
 	}

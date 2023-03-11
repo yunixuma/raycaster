@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:04:04 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/03/11 19:30:02 by ykosaka          ###   ########.fr       */
+/*   Updated: 2023/03/11 21:40:28 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,28 @@ static int	c3d_print_err_sub(int errnum)
 	else if (errnum == ERR_RANGE)
 		ft_putendl_fd(MSG_RANGE, STDERR_FILENO);
 	else if (errnum == ERR_MANYVALS)
+		ft_putendl_fd(MSG_NODEF, STDERR_FILENO);
+	else if (errnum == ERR_NODEF)
 		ft_putendl_fd(MSG_MANYVALS, STDERR_FILENO);
 	else if (errnum == ERR_EMPTY)
 		ft_putendl_fd(MSG_EMPTY, STDERR_FILENO);
 	else if (errnum == ERR_CHR)
 		ft_putendl_fd(MSG_CHR, STDERR_FILENO);
-//	else if (errnum == ERR_SHAPE)
-//		ft_putendl_fd(MSG_SHAPE, STDERR_FILENO);
 	else if (errnum == ERR_COUNT)
 		ft_putendl_fd(MSG_COUNT, STDERR_FILENO);
 	else if (errnum == ERR_OUTER)
 		ft_putendl_fd(MSG_OUTER, STDERR_FILENO);
-//	else if (errnum == ERR_PATH)
-//		ft_putendl_fd(MSG_PATH, STDERR_FILENO);
-//	else if (errnum == ERR_HUGE)
-//		ft_putendl_fd(MSG_HUGE, STDERR_FILENO);
 	else if (errnum == ERR_MLX)
 		ft_putendl_fd(MSG_MLX, STDERR_FILENO);
 	return (errnum);
 }
+
+//	else if (errnum == ERR_SHAPE)
+//		ft_putendl_fd(MSG_SHAPE, STDERR_FILENO);
+//	else if (errnum == ERR_PATH)
+//		ft_putendl_fd(MSG_PATH, STDERR_FILENO);
+//	else if (errnum == ERR_HUGE)
+//		ft_putendl_fd(MSG_HUGE, STDERR_FILENO);
 
 int	c3d_print_err(int errnum)
 {
