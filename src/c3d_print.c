@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:04:04 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/03/11 21:40:28 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/03/12 21:38:15 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ static int	c3d_print_err_sub(int errnum)
 
 int	c3d_print_err(int errnum)
 {
-	ft_putendl_fd(MSG_ERR, STDERR_FILENO);
+	if (errnum)
+		ft_putendl_fd(MSG_ERR, STDERR_FILENO);
+	ft_putstr_fd(PROMPT_WARN, STDERR_FILENO);
 	if (errnum == ERR_NOARG)
 		ft_putendl_fd(MSG_NOARG, STDERR_FILENO);
 	else if (errnum == ERR_MANYARGS)
@@ -70,9 +72,13 @@ void	c3d_print_control(void)
 {
 	ft_putendl_fd(MSG_HOWTO_MOVE, STDOUT_FILENO);
 	ft_putendl_fd(MSG_HOWTO_TURN, STDOUT_FILENO);
-	ft_putendl_fd(MSG_HOWTO_ZOOM, STDOUT_FILENO);
+	ft_putendl_fd(MSG_HOWTO_FOCUS, STDOUT_FILENO);
+	ft_putendl_fd(MSG_HOWTO_SCROLL, STDOUT_FILENO);
+	ft_putendl_fd(MSG_HOWTO_ZOOMIN, STDOUT_FILENO);
+	ft_putendl_fd(MSG_HOWTO_ZOOMOUT, STDOUT_FILENO);
 	ft_putendl_fd(MSG_HOWTO_SPEED, STDOUT_FILENO);
 	ft_putendl_fd(MSG_HOWTO_EXIT, STDOUT_FILENO);
+	ft_putendl_fd(MSG_HLINE, STDOUT_FILENO);
 }
 
 void	c3d_print_status(t_game *game)
@@ -88,9 +94,12 @@ void	c3d_print_status(t_game *game)
 		ft_prompt_arg(PROMPT_MOVE_UP, 1);
 		ft_prompt_clr_line();
 	}
-	printf(MSG_STATUS_POS, game->coord.x, game->coord.y, game->angle.yaw);
-	printf(MSG_STATUS_MODE, game->speed, game->fov, \
-		cursor_mode[ft_hasflag(game->event, FLAG_CURSOR)]);
+	printf(MSG_STATUS_POS_1, game->coord.x);
+	printf(MSG_STATUS_POS_2, game->coord.y);
+	printf(MSG_STATUS_ANGLE, game->angle.yaw);
+	printf(MSG_STATUS_SPEED, game->speed);
+	printf(MSG_STATUS_FOV, game->fov);
+	printf(MSG_STATUS_MODE, cursor_mode[ft_hasflag(game->event, FLAG_CURSOR)]);
 }
 
 void	c3d_print_break(void)

@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/03/11 21:25:28 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/03/12 21:37:37 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # define STR_EMPTY			""
 # define STR_EXT			".cub"
 # define STR_TITLE			"cub3D"
-# define STR_ON				"ON"
-# define STR_OFF			"OFF"
+# define STR_ON				"\033[43m ON  \033[49m"
+# define STR_OFF			"\033[44m OFF \033[49m"
 # define ID_NORTH			"NO "
 # define ID_SOUTH			"SO "
 # define ID_EAST			"EA "
@@ -26,7 +26,7 @@
 # define ID_FLOOR			"F "
 # define ID_CEILING			"C "
 
-# define MSG_ERR			"Error"
+# define MSG_ERR			"\033[1;31mError\033[0m"
 # define MSG_NOARG			"Missing the argument to specify a scene file"
 # define MSG_MANYARGS		"Please specify only one argument"
 # define MSG_FEXT			"Filename of scene file must be \"*.cub\""
@@ -49,15 +49,23 @@
 # define MSG_MLX			"An error occured during initiate a X-Window I/F"
 # define MSG_WAIT			"Wait a moment for creating the window..."
 //# define MSG_HOWTO_GOAL	"Control the monkey to take all stars to dragon"
-# define MSG_HOWTO_MOVE		"Move: [W][A][S][D]\nTurn: [Left][Right]"
-# define MSG_HOWTO_TURN		"Focus: [LeftClick]\nScroll: [MidClick]"
-# define MSG_HOWTO_ZOOM		"Zoom-in: [PgUp][ScrUp]\tZoom-out: [PgDn][ScrDn]"
-# define MSG_HOWTO_SPEED	"Change Speed: [F][RightClick]"
-# define MSG_HOWTO_EXIT		"Exit: [Q] or [Esc]"
-# define MSG_STATUS_POS		"Coord: (%6.2lf, %5.2lf)\tAzimuth: %6.1lf\n"
-# define MSG_STATUS_MODE	"Speed: %d\tFOV: %3.0lf\tCursor: %s\n"
+# define MSG_HOWTO_MOVE		"Move: \033[1m[W][A][S][D]\033[0m"
+# define MSG_HOWTO_TURN		"Turn: \033[1m[Left][Right]\033[0m"
+# define MSG_HOWTO_FOCUS	"Focus: \033[1m[LeftClick]\033[0m"
+# define MSG_HOWTO_SCROLL	"Scroll: \033[1m[MidClick]\033[0m"
+# define MSG_HOWTO_ZOOMIN	"Zoom-in: \033[1m[PgUp][ScrUp]\033[0m"
+# define MSG_HOWTO_ZOOMOUT	"Zoom-out: \033[1m[PgDn][ScrDn]\033[0m"
+# define MSG_HOWTO_SPEED	"Change Speed: \033[1m[F][RightClick]\033[0m"
+# define MSG_HOWTO_EXIT		"Exit: \033[1m[Q]\033[0m or \033[1m[Esc]\033[0m"
+# define MSG_HLINE			"\033[2m--------------------------------------\033[0m"
+# define MSG_STATUS_POS_1	"Coord: (\033[4;32m%6.2lf\033[0m, "
+# define MSG_STATUS_POS_2	"\033[4;32m%5.2lf\033[0m)\t"
+# define MSG_STATUS_ANGLE	"Azimuth: \033[4;32m%6.1lf\033[0m\n"
+# define MSG_STATUS_SPEED	"Speed: \033[1;32;46m %d \033[0m\t"
+# define MSG_STATUS_FOV		"FOV: \033[4;32m%3.0lf\033[0m\t"
+# define MSG_STATUS_MODE	"Cursor: \033[1m%s\033[0m\n"
 //# define MSG_SCORE			"Player %3d scores moved\n"
-# define MSG_BREAK			"Terminated by player's operation"
-# define MSG_GOAL			"Congratulations (%3d pts in the end)"
+# define MSG_BREAK			"\033[33mTerminated by player's operation\033[39m"
+//# define MSG_GOAL			"Congratulations (%3d pts in the end)"
 
 #endif
