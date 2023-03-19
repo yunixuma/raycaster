@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:04:04 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/03/12 21:38:15 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/03/19 20:07:57 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,14 @@ int	c3d_print_err(int errnum)
 
 void	c3d_print_control(void)
 {
-	ft_putendl_fd(MSG_HOWTO_MOVE, STDOUT_FILENO);
-	ft_putendl_fd(MSG_HOWTO_TURN, STDOUT_FILENO);
-	ft_putendl_fd(MSG_HOWTO_FOCUS, STDOUT_FILENO);
-	ft_putendl_fd(MSG_HOWTO_SCROLL, STDOUT_FILENO);
-	ft_putendl_fd(MSG_HOWTO_ZOOMIN, STDOUT_FILENO);
-	ft_putendl_fd(MSG_HOWTO_ZOOMOUT, STDOUT_FILENO);
-	ft_putendl_fd(MSG_HOWTO_SPEED, STDOUT_FILENO);
-	ft_putendl_fd(MSG_HOWTO_EXIT, STDOUT_FILENO);
+	ft_putstr_fd(MSG_HOWTO_MOVE, STDOUT_FILENO);
+	ft_putstr_fd(MSG_HOWTO_TURN, STDOUT_FILENO);
+	ft_putstr_fd(MSG_HOWTO_FOCUS, STDOUT_FILENO);
+	ft_putstr_fd(MSG_HOWTO_SCROLL, STDOUT_FILENO);
+	ft_putstr_fd(MSG_HOWTO_ZOOMIN, STDOUT_FILENO);
+	ft_putstr_fd(MSG_HOWTO_ZOOMOUT, STDOUT_FILENO);
+	ft_putstr_fd(MSG_HOWTO_SPEED, STDOUT_FILENO);
+	ft_putstr_fd(MSG_HOWTO_EXIT, STDOUT_FILENO);
 	ft_putendl_fd(MSG_HLINE, STDOUT_FILENO);
 }
 

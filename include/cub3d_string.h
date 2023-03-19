@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_string.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/03/12 21:37:37 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/03/19 20:06:44 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,14 @@
 # define MSG_MLX			"An error occured during initiate a X-Window I/F"
 # define MSG_WAIT			"Wait a moment for creating the window..."
 //# define MSG_HOWTO_GOAL	"Control the monkey to take all stars to dragon"
-# define MSG_HOWTO_MOVE		"Move: \033[1m[W][A][S][D]\033[0m"
-# define MSG_HOWTO_TURN		"Turn: \033[1m[Left][Right]\033[0m"
-# define MSG_HOWTO_FOCUS	"Focus: \033[1m[LeftClick]\033[0m"
-# define MSG_HOWTO_SCROLL	"Scroll: \033[1m[MidClick]\033[0m"
-# define MSG_HOWTO_ZOOMIN	"Zoom-in: \033[1m[PgUp][ScrUp]\033[0m"
-# define MSG_HOWTO_ZOOMOUT	"Zoom-out: \033[1m[PgDn][ScrDn]\033[0m"
-# define MSG_HOWTO_SPEED	"Change Speed: \033[1m[F][RightClick]\033[0m"
-# define MSG_HOWTO_EXIT		"Exit: \033[1m[Q]\033[0m or \033[1m[Esc]\033[0m"
+# define MSG_HOWTO_MOVE		"Move: \033[1m[W][A][S][D]\033[0m\t"
+# define MSG_HOWTO_TURN		"Turn: \033[1m[Left][Right]\033[0m\n"
+# define MSG_HOWTO_FOCUS	"Focus: \033[1m[LeftClick]\033[0m\t"
+# define MSG_HOWTO_SCROLL	"Scroll: \033[C][1m[MidClick]\033[0m\n"
+# define MSG_HOWTO_ZOOMIN	"Zoom-in: \033[1m[PgUp][ScrUp]\033[0m\t"
+# define MSG_HOWTO_ZOOMOUT	"Zoom-out: \033[1m[PgDn][ScrDn]\033[0m\n"
+# define MSG_HOWTO_SPEED	"Change Speed: \033[1m[F][RightClick]\033[0m\n"
+# define MSG_HOWTO_EXIT		"Exit: \033[1m[Q]\033[0m or \033[1m[Esc]\033[0m\n"
 # define MSG_HLINE			"\033[2m--------------------------------------\033[0m"
 # define MSG_STATUS_POS_1	"Coord: (\033[4;32m%6.2lf\033[0m, "
 # define MSG_STATUS_POS_2	"\033[4;32m%5.2lf\033[0m)\t"
