@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_render_visible.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/26 13:32:51 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/03/19 22:24:45 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	c3d_render_visible(t_mlx *mlx)
 	int		i_col;
 	double	angle;
 
-	i_col = -(WIDTH_VISION >> 1);
-	while (i_col < (WIDTH_VISION >> 1))
+	i_col = -WIDTH_VISION / 2;
+	while (i_col < WIDTH_VISION / 2)
 	{
-		angle = mlx->game.angle.yaw + ft_math_rad2deg(atan(tan(ft_math_deg2rad(mlx->game.fov / 2)) * i_col * 2 / WIDTH_VISION));
+		angle = mlx->game.angle.yaw + ft_math_rad2deg(atan(tan(ft_math_deg2rad(mlx->game.fov / 2)) * i_col * (WIDTH_VISION / 2)));
 		ray.dir.x = sin(ft_math_deg2rad(angle));
 		ray.dir.y = -cos(ft_math_deg2rad(angle));
 		ft_coord_copy(&ray.pos, &mlx->game.coord);
@@ -33,8 +33,8 @@ void	c3d_render_visible(t_mlx *mlx)
 /*
 	tan(a) * k = i_col
 tan(fov/2) * k = WIDTH_VISION >> 1
-tan(a) / tan(fov/2) = i_col / (WIDTH_VISION >> 1)
-a = atan(tan(fov/2) * i_col / (WIDTH_VISION >> 1))
+tan(a) / tan(fov/2) = i_col / WIDTH_VISION / 2
+a = atan(tan(fov/2) * i_col / WIDTH_VISION / 2)
 */
 
 //		angle = mlx->game.angle.yaw + mlx->game.fov * i_col / WIDTH_VISION;
@@ -57,8 +57,8 @@ void	c3d_render_visible(t_mlx *mlx)
 	pt.z = 1;
 	pt.y = 3;
 	tex_id = IDX_NORTH;
-	i_col = -(WIDTH_VISION >> 1);
-	while (i_col < (WIDTH_VISION >> 1))
+	i_col = -WIDTH_VISION / 2;
+	while (i_col < WIDTH_VISION / 2)
 	{
 		pt.x = mlx->game.coord.x + (mlx->game.coord.y - pt.y) \
 			* tan(ft_math_deg2rad(mlx->game.fov * i_col / WIDTH_VISION));

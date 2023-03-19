@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_render_hud.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/24 21:08:52 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/03/19 22:12:24 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static void	c3d_render_hud_position(t_img *img, t_game *game, int scale)
 	t_addr	zero;
 	t_addr	area;
 
-	if (scale > (SIZE_CELL >> 1))
+	if (scale > SIZE_CELL / 2)
 		ft_addr_set(&area, scale >> 1, scale >> 1);
 	else
-		ft_addr_set(&area, SIZE_CELL >> 2, SIZE_CELL >> 2);
+		ft_addr_set(&area, SIZE_CELL / 4, SIZE_CELL / 4);
 	zero.x = (ssize_t)(game->coord.x * scale) + WEIGHT_FRAME - (area.x >> 1);
 	zero.y = (ssize_t)(game->coord.y * scale) + WEIGHT_FRAME - (area.y >> 1);
 	c3d_render_rectangle(img, COLOR_POS, &zero, &area);
