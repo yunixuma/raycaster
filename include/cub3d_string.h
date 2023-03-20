@@ -6,7 +6,7 @@
 /*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/03/19 20:06:44 by ykosaka          ###   ########.fr       */
+/*   Updated: 2023/03/20 20:58:05 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@
 # define MSG_HOWTO_MOVE		"Move: \033[1m[W][A][S][D]\033[0m\t"
 # define MSG_HOWTO_TURN		"Turn: \033[1m[Left][Right]\033[0m\n"
 # define MSG_HOWTO_FOCUS	"Focus: \033[1m[LeftClick]\033[0m\t"
-# define MSG_HOWTO_SCROLL	"Scroll: \033[C][1m[MidClick]\033[0m\n"
+# define MSG_HOWTO_SCROLL	"Cursor: \033[1m[C][MidClick]\033[0m\n"
 # define MSG_HOWTO_ZOOMIN	"Zoom-in: \033[1m[PgUp][ScrUp]\033[0m\t"
 # define MSG_HOWTO_ZOOMOUT	"Zoom-out: \033[1m[PgDn][ScrDn]\033[0m\n"
 # define MSG_HOWTO_SPEED	"Change Speed: \033[1m[F][RightClick]\033[0m\n"
