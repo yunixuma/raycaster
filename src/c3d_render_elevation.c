@@ -6,7 +6,7 @@
 /*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/03/19 22:12:20 by ykosaka          ###   ########.fr       */
+/*   Updated: 2023/03/20 20:33:54 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	c3d_render_elevation(t_mlx *mlx, t_coord *pt, int i_col, int tex_id)
 
 //debug_printf("i_col: %d\t", i_col);
 //debug_printf("pt(%3lf, %3lf)\n", pt->x, pt->y);
-	dist = ft_math_distance_2d(&mlx->game.coord, pt) * cos(atan(tan(ft_math_deg2rad(mlx->game.fov / 2)) * i_col / WIDTH_VISION / 2));
+	dist = ft_math_distance_2d(&mlx->game.coord, pt) * cos(atan(tan(ft_math_deg2rad(mlx->game.fov / 2)) * i_col / (WIDTH_VISION / 2)));
 //debug_printf("dist: %3lf\n", dist);
 	const_height = WIDTH_VISION / 2 / tan(ft_math_deg2rad(mlx->game.fov / 2));
 	dst.x = i_col + WIDTH_VISION / 2;
