@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_render_elevation.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/03/20 20:33:54 by ykosaka          ###   ########.fr       */
+/*   Updated: 2023/03/22 03:11:55 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@ void	c3d_render_elevation(t_mlx *mlx, t_coord *pt, int i_col, int tex_id)
 	const_height = WIDTH_VISION / 2 / tan(ft_math_deg2rad(mlx->game.fov / 2));
 	dst.x = i_col + WIDTH_VISION / 2;
 	dst.y = HEIGHT_VISION / 2 - tan(atan((1 - mlx->game.coord.z) / dist)) * const_height;
-	src.x = mlx->img[tex_id].width * (pt->x + pt->y - (int)(pt->x + pt->y));
+	if (tex_id == IDX_NORTH || tex_id == IDX_EAST)
+		src.x = mlx->img[tex_id].width \
+			* ((int)(pt->x + pt->y + 1) - pt->x - pt->y);
+	else
+		src.x = mlx->img[tex_id].width * (pt->x + pt->y - (int)(pt->x + pt->y));
 	src.y = HEIGHT_VISION / 2 - dst.y + tan(atan(mlx->game.coord.z / dist)) * const_height;
 //debug_printf("src(%3ld, %3ld)\t", src.x, src.y);
 //debug_printf("dst(%3ld, %3ld)\n", dst.x, dst.y);
