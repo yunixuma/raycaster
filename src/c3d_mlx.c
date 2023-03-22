@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_mlx.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
+/*   By: ykosaka <ykosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:03:00 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/02/26 21:13:53 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/03/20 21:19:19 by ykosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ int	c3d_mlx_init(t_mlx *mlx)
 
 int	c3d_mlx_hook(t_mlx *mlx)
 {
-//debug_printf("event: %#04x\n", mlx->game.event);
-//debug_printf("key: %#06x\n", mlx->game.key);
 	c3d_game_keyhook_fire(mlx->game.key, mlx);
 	if (ft_hasflag(mlx->game.event, FLAG_DRAW))
 		c3d_win_draw_vision(mlx);
@@ -59,14 +57,15 @@ int	c3d_mlx_hook(t_mlx *mlx)
 
 int	c3d_mlx_loop(t_mlx *mlx)
 {
-	mlx_hook(mlx->win, EVENT_KEYDOWN, MASK_STRUCT << SHIFT_KEYDOWN, &c3d_game_keyhook_down, mlx);
-	mlx_hook(mlx->win, EVENT_KEYUP, MASK_STRUCT << SHIFT_KEYUP, &c3d_game_keyhook_up, mlx);
+	mlx_hook(mlx->win, EVENT_KEYDOWN, MASK_STRUCT << SHIFT_KEYDOWN, \
+		&c3d_game_keyhook_down, mlx);
+	mlx_hook(mlx->win, EVENT_KEYUP, MASK_STRUCT << SHIFT_KEYUP, \
+		&c3d_game_keyhook_up, mlx);
 	mlx_mouse_hook(mlx->win, &c3d_game_clickhook, mlx);
-//	mlx_hook(mlx->win, EVENT_MOUSEPRESS, MASK_STRUCT << SHIFT_MOUSEPRESS, &c3d_game_clickhook_down, mlx);
-//	mlx_hook(mlx->win, EVENT_MOUSERELEASE, MASK_STRUCT << SHIFT_MOUSERELEASE, &c3d_game_clickhook_up, mlx);
 	mlx_hook(mlx->win, EVENT_MOUSEMOVE, MASK_STRUCT << SHIFT_MOUSEMOVE, \
 		&c3d_game_cursorhook, mlx);
-	mlx_hook(mlx->win, EVENT_DESTROY, MASK_STRUCT, &c3d_exit_mlx_break, mlx);
+	mlx_hook(mlx->win, EVENT_DESTROY, MASK_STRUCT << SHIFT_DESTROY, \
+		&c3d_exit_mlx_break, mlx);
 	mlx_expose_hook(mlx->win, &c3d_win_draw_vision, mlx);
 	mlx_loop_hook(mlx->conn, &c3d_mlx_hook, mlx);
 	mlx_loop(mlx->conn);

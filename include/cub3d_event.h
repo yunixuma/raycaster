@@ -25,7 +25,8 @@
 # define SHIFT_KEYUP		1
 # define SHIFT_MOUSEPRESS	2
 # define SHIFT_MOUSERELEASE	3
-# define SHIFT_MOUSEMOVE	6
+# define SHIFT_MOUSEMOVE	EVENT_MOUSEMOVE
+# define SHIFT_DESTROY  	EVENT_DESTROY
 
 # define VK_Q				'q'
 # define VK_W				'w'

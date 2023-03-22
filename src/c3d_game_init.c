@@ -43,7 +43,6 @@ static void	c3d_game_init_angle(t_game *game, char **map, t_addr *addr)
 {
 	game->angle.roll = 0;
 	game->angle.pitch = 0;
-DX(map[addr->y][addr->x]);
 	if (ft_hasflag(map[addr->y][addr->x], FLAG_EAST))
 		game->angle.yaw = ft_math_angle_normalize(ANGLE_RIGHT * IDX_EAST);
 	else if (ft_hasflag(map[addr->y][addr->x], FLAG_SOUTH))
