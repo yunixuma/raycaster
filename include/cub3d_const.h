@@ -64,30 +64,30 @@
 
 typedef enum e_channel
 {
-	IDX_ALPHA,
-	IDX_RED,
-	IDX_GREEN,
-	IDX_BLUE,
-	N_CHANNEL
+	IDX_ALPHA = 0,
+	IDX_RED = 1,
+	IDX_GREEN = 2,
+	IDX_BLUE = 3,
+	N_CHANNEL = 4
 }	t_channel;
 
 typedef enum e_surface
 {
-	IDX_FLOOR,
-	IDX_CEILING,
-	N_COLOR
+	IDX_FLOOR = 0,
+	IDX_CEILING = 1,
+	N_COLOR = 2
 }	t_surface;
 
 typedef enum e_chr
 {
-	IDX_NORTH,
-	IDX_EAST,
-	IDX_SOUTH,
-	IDX_WEST,
-	IDX_FREE,
-	IDX_WALL,
-	IDX_SPACE,
-	SIZE_CHRS_MAP
+	IDX_NORTH = 0,
+	IDX_EAST = 1,
+	IDX_SOUTH = 2,
+	IDX_WEST = 3,
+	IDX_FREE = 4,
+	IDX_WALL = 5,
+	IDX_SPACE = 6,
+	SIZE_CHRS_MAP = 7
 }	t_chr;
 
 # define N_DIRECTION		IDX_FREE
@@ -96,8 +96,8 @@ typedef enum e_chr
 typedef enum e_imgidx
 {
 	IDX_VISION = N_TEXTURE,
-	IDX_HUD,
-	N_IMAGE
+	IDX_HUD = N_TEXTURE + 1,
+	N_IMAGE = N_TEXTURE + 2
 }	t_imgidx;
 
 # define INVAL_FILENO		-1
