@@ -106,7 +106,7 @@ endif
 
 # ********************* Section for targets and commands ********************* #
 # Phonies
-.PHONY: all clean fclean re clean_partly debug_lib debug
+.PHONY: all clean fclean re clean_partly debug_lib debug rk yk
 
 # Mandatory targets
 default:
@@ -132,6 +132,8 @@ clean_partly:
 debug_lib: 
 	$(MAKE) debug -C $(LIBDIR_FT)
 debug: clean_partly debug_lib all
+rk: 
+	$(MAKE) debug RC_MODE=0
 yk: 
 	$(MAKE) debug RC_MODE=1
 

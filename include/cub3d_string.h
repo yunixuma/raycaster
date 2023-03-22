@@ -13,7 +13,7 @@
 #ifndef CUB3D_STRING_H
 # define CUB3D_STRING_H
 
-# define CHRS_MAP			"NSEW01 "
+# define CHRS_MAP			"NESW01 "
 # define STR_EMPTY			""
 # define STR_EXT			".cub"
 # define STR_TITLE			"cub3D"

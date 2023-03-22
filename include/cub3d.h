@@ -28,7 +28,7 @@
 # include "cub3d_flag.h"
 # include "cub3d_render_vision.h"
 # ifndef RC_MODE
-#  define RC_MODE	0
+#  define RC_MODE	1
 # endif
 /*# ifdef __MACH__
 #  include "cub3d_event_mac.h"
